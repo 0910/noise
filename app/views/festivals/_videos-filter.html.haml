@@ -1,0 +1,33 @@
+%section.videos#videos
+	.videos-container
+		%h1.videos-title
+			Videos
+		%h2.videos-subtitle
+			-
+		.videos-filter
+			.videos-filter-button.filter{"data-filter" => "all"}
+				Todos
+			- @events.each do |event|
+				.videos-filter-button.filter{"data-filter" => ".#{event.slug}"}
+					#{event.name}
+		.videos-grid
+			- @events.each do |event|
+				- event.videos.each do |artist|
+					= link_to(festival_artist_path(params[:id],artist), :class => "videos-item mix #{event.slug}") do
+						.videos-item-wrap
+							- if artist.images.empty?
+								.artist-item-ph{:style => "background-image: url(image-not-available.jpg)"}
+							- else
+								- artist.images.each do |image|
+									.videos-item-ph{:style => "background-image: url(#{image.file.url(:large)})"}
+							.videos-item-hover
+								%p.videos-item-hover-caption
+									#{artist.name}
+						.videos-item-caption
+							%h2.videos-item-caption-title
+								#{artist.name}
+							%h3.videos-item-caption-subtitle
+:javascript
+	$(function(){
+		$('.videos-grid').mixItUp();
+	});

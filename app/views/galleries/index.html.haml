@@ -1,0 +1,18 @@
+.row.title
+	.col-md-12
+		%p Collections
+.row
+	- @galleries.each do |gallery|
+		.col-md-3.item
+			- if gallery.images.empty?
+				= link_to(artist_gallery_path(artist,gallery)) do
+					= image_tag('image-not-avaliable.jpg')
+			- else
+				- gallery.images.each do |image|
+					- if image.cover == true
+						= link_to(artist_gallery_path(artist,gallery)) do
+							= image_tag(image.file.url(:large))
+							.over
+								%p
+									#{gallery.title}
+

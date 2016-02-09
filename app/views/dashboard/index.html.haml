@@ -1,0 +1,232 @@
+%section#slider
+  %section#header
+    .container
+      .row
+        .col-md-7
+          .block-left
+            %nav.navbar.navbar-default{:role => "navigation"}
+              .container-fluid
+                .navbar-header
+                  %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+                    %span.sr-only Toggle navigation
+                    %span.icon-bar
+                    %span.icon-bar
+                    %span.icon-bar
+                  .nav-logo
+                    %a{:href => "#"}
+                      %img{:alt => "logo", :src => "img/logo.png"}/
+                / Collect the nav links, forms, and other content for toggling
+                #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                  %ul.nav.navbar-nav
+                    %li.active
+                      %a{:href => "#"}
+                        Home
+                        %span.sr-only (current)
+                    %li
+                      %a{:href => "#service"} Features
+                    %li
+                      %a{:href => "#contant-1"} Como funciona?
+                    %li
+                      %a{:href => "#contant-2"} Que consigo?
+        .col-md-5
+          .block-right
+            .contact-area
+              %ul
+                %li
+                  %i.fa.fa-phone-square>
+                  +54911 37966019
+                %li
+                  %i.fa.fa-envelope-o>
+                  info@wearenoise.tv
+  .container
+    .row
+      .col-md-12
+        .block
+          .slider-text-area
+            .slider-text
+              %h2
+                Pon en marcha tu evento
+                %br/
+              %p.sub-slider-text Administra, vende y obtén mayor impacto entre tus fans.
+              %p.slider-p
+                noise permite a los organizadores de eventos musicales crear fácil y rápidamente
+                %br/
+                un sitio web para su evento, vender tickets y generar engagement
+                %br/
+                con fans alrededor del mundo.
+              %button.btn.btn-default.edit-button-1{:type => "button"} SOLICITAR UN DEMO
+%section#service
+  .container
+    .row
+      .col-md-12
+        .block-top
+          .service-header
+            %h1 Administra tu evento con facilidad
+            %p
+              Te brindamos un poderoso administrador de contenidos
+              %br>/
+              para que manejes toda tu información desde un solo lugar.
+    .row
+      .col-md-12
+        .block-bottom
+          .service-tab
+            / Nav tabs
+            .row
+              %ul.badhon-tab{:role => "tablist"}
+                %li.active
+                  %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#home", :role => "tab"}
+                    %i.fa.fa-microphone
+                    %br/
+                    Artistas
+                %li
+                  %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#profile", :role => "tab"}
+                    %i.fa.fa-calendar-o
+                    %br/
+                    Cronograma
+                %li
+                  %a{"aria-controls" => "messages", "data-toggle" => "tab", :href => "#messages", :role => "tab"}
+                    %i.fa.fa-map-signs
+                    %br/
+                    Lugares
+                %li
+                  %a{"aria-controls" => "settings", "data-toggle" => "tab", :href => "#settings", :role => "tab"}
+                    %i.fa.fa-ticket
+                    %br/
+                    Tickets
+                %li
+                  %a{"aria-controls" => "settings", "data-toggle" => "tab", :href => "#umbrella", :role => "tab"}
+                    %i.fa.fa-heart
+                    %br/
+                    Social
+            .row
+              .tab-content.edit-tab-content
+                #home.tab-pane.active.edit-tab
+                  .teb-icon-edit
+                    %i.fa.fa-microphone
+                  %h1 Perfiles de Artistas
+                  %p
+                    Permite que tus fans conozcan a cada artista de tu evento a través de su musica.
+                #profile.tab-pane.edit-tab
+                  .teb-icon-edit
+                    %i.fa.fa-calendar-o
+                  %h1 Cronograma Interactivo
+                  %p
+                    Permite que tus fans vean el cronograma basado en horarios, lugares y artistas.
+                #messages.tab-pane.edit-tab
+                  .teb-icon-edit
+                    %i.fa.fa-map-signs
+                  %h1 Mapeo de Lugares
+                  %p
+                    Brinda información y mapas a tus fans sobre los luagres donde transcurrirá el evento.
+                #settings.tab-pane.edit-tab
+                  .teb-icon-edit
+                    %i.fa.fa-ticket
+                  %h1 Smart Ticketing
+                  %p
+                    Vende tickets online y utiliza nuestra herramienta de loectura de codigos QR para un fácil y eficiente acceso.
+                #umbrella.tab-pane.edit-tab
+                  .teb-icon-edit
+                    %i.fa.fa-heart
+                  %h1 Social Live
+                  %p
+                    Pon tu evento en todas las redes sociales, genera mayor interacción e impacto entre tus fans con nuestras herramientas de viralizacion.
+%section#contant-1
+  .container
+    .row
+      .col-md-5.col-md-offset-1
+        .block-left
+          .contant-1-text-area
+            .contant-1-head
+              %h1
+                Maneja todo tu evento
+                %br/
+                desde un solo lugar
+            .contant-1-text
+              %h2
+                Introduce tu contenido
+                %br/
+                y dejanos la parte dificil.
+              %p
+                Crea facilmente tus lugares, artistas y planifica tus shows.
+                %br/
+                Sube mapas y conecta a tus fans con toda la informacion sobre tu evento.
+              %button.btn.btn-default.edit-button-3{:type => "button"} SABER MAS
+      .col-md-6
+        .row
+          .block-right
+            .block-right-img
+              %img{:alt => "img", :src => "img/mobile-phon-1.png"}/
+%section#contant-2
+  .container
+    .row
+      .col-md-6
+        .row
+          .block-left
+            .contant-2-img
+              %img{:alt => "img", :src => "img/mobile-phon-3.jpg"}/
+      .col-md-5
+        .block-right
+          .contant-2-text-area
+            .contant-2-header
+              %h1 Genera un sitio web con la estética de tu evento
+            .contant-2-text
+              %h2
+                Hazlo accesible para todos
+                %br/
+                y desde cualquier dispositivo.
+              %p
+                Cada evento tiene su identidad propia.
+                %br/
+                Por eso brindamos un servicio personalizado
+                de diseño
+                = succeed "para" do
+                  %br/
+              %button.btn.btn-default.edit-button-2{:type => "button"} SABER MAS
+
+%section#footer
+  .container
+    .row
+      .col-md-12
+        .block
+          .footer-contant
+            %h3 Estemos en contacto
+            .social-icon
+              %a{:href => "#"}
+                %i.fa.fa-facebook
+              %a{:href => "#"}
+                %i.fa.fa-tumblr
+              %a{:href => "#"}
+                %i.fa.fa-google
+              %a{:href => "#"}
+                %i.fa.fa-flickr
+              %a{:href => "#"}
+                %i.fa.fa-youtube
+            .support-link
+              %ul
+                %li
+                  %a{:href => "#"} Contact
+                %li
+                  %a{:href => "#"} Twitter
+                %li
+                  %a{:href => "#"} Press
+                %li
+                  %a{:href => "#"} Support
+                %li
+                  %a{:href => "#"} Developers
+                %li
+                  %a{:href => "#"} Privacy
+
+%script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"}
+:javascript
+  window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
+%script{:src => "js/owl.carousel.min.js"}
+%script{:src => "js/bootstrap.min.js"}
+%script{:src => "js/plugins.js"}
+%script{:src => "js/main.js"}
+:javascript
+  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+  function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+  e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+  e.src='//www.google-analytics.com/analytics.js';
+  r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+  ga('create','UA-XXXXX-X');ga('send','pageview');

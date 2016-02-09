@@ -1,0 +1,31 @@
+%section.news#news
+	.news-container
+		%h1.news-title
+			News
+		%h2.news-subtitle
+			-
+		.news-grid
+			.swiper-wrapper
+				- @news.each do |news|
+					= link_to(festival_news_path(params[:id],news), class: 'news-item swiper-slide') do
+						.news-item-wrap
+							- if news.images.empty?
+								.news-item-ph{:style => "background-image: url(image-not-available.jpg)"}
+							- else
+								- news.images.each do |image|
+									.news-item-ph{:style => "background-image: url(#{image.file.url(:large)})"}
+							.news-item-hover
+								%p.news-item-hover-caption
+									+
+						.news-item-caption
+							%h2.news-item-caption-title
+								#{news.title}
+							%h3.news-item-caption-subtitle
+								#{news.subtitle}
+:javascript
+	var swiper = new Swiper('.news-grid', {
+		slidesPerView: 'auto',
+		centeredSlides: true,
+		paginationClickable: true,
+		spaceBetween: 30
+	});

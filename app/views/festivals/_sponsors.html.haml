@@ -1,0 +1,21 @@
+%section.sponsors#sponsors
+	.sponsors-container
+		%h1.sponsors-title
+			Sponsors
+		%h2.sponsors-subtitle
+			-
+		.sponsors-grid
+			- @sponsors.each do |sponsor|
+				= link_to '#{sponsor.link}', class: 'sponsors-item' do
+					- if sponsor.images.empty?
+						.sponsors-item-ph{:style => "background-image: url(image-not-available.jpg)"}
+					- else
+						- sponsor.images.each do |image|
+							.sponsors-item-ph{:style => "background-image: url(#{image.file.url(:large)})"}
+					.sponsors-item-hover
+						%p.sponsors-item-hover-caption
+							+
+					.sponsors-item-caption
+						%h2.sponsors-item-caption-title
+							#{sponsor.name}
+

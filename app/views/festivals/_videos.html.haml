@@ -1,0 +1,25 @@
+%section.videos#videos
+	.videos-container
+		%h1.videos-title
+			Videos
+		%h2.videos-subtitle
+			-
+		.videos-grid
+			- @videos.each do |video|
+				= link_to(video.link, class: 'videos-item swipebox') do
+					.videos-item-wrap
+						- if video.images.empty?
+							.videos-item-ph{:style => "background-image: url(image-not-available.jpg)"}
+						- else
+							- video.images.each do |image|
+								.videos-item-ph{:style => "background-image: url(#{image.file.url(:large)})"}
+						.videos-item-hover
+							.videos-item-hover-caption
+								%p.videos-item-hover-caption-text
+									#{video.name}
+								%p.videos-item-hover-caption-icon.icon.icon-play
+									= icon('play')
+					.videos-item-caption
+						%h2.videos-item-caption-title
+							#{video.name}
+						%h3.videos-item-caption-subtitle

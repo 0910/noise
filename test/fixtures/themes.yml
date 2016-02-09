@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  festival_id: 
+  custom_html: MyText
+  custom_html_preview: MyText
+  custom_css: MyText
+  custom_css_preview: MyText
+  custom_js: MyText
+  custom_js_preview: MyText
+
+two:
+  name: MyString
+  festival_id: 
+  custom_html: MyText
+  custom_html_preview: MyText
+  custom_css: MyText
+  custom_css_preview: MyText
+  custom_js: MyText
+  custom_js_preview: MyText

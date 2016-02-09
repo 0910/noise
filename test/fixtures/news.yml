@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  subtitle: MyString
+  date: 2016-02-02
+  body: MyText
+  festival_id: 
+
+two:
+  title: MyString
+  subtitle: MyString
+  date: 2016-02-02
+  body: MyText
+  festival_id: 

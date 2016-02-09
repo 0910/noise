@@ -1,4 +1,4 @@
-server '40.76.56.133', roles: [:web, :app, :db], primary: true
+server '40.113.19.65', roles: [:web, :app, :db], primary: true
 set :domain, "noiseapp.cloudapp.net"
 set :repo_url,        'git@github.com:0910/noise.git'
 set :application,     'festivals'

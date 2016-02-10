@@ -97,14 +97,13 @@ ActiveAdmin.register Festival, :namespace => :super_admin do
         f.inputs 'Festival information' do
           f.semantic_errors
           f.input :name, :require => true
-          f.input :slug, :require => true
           f.input :description, :require => true
           f.input :facebook
           f.input :twitter
           f.input :instagram
           f.input :resident
           f.input :soundcloud
-          f.input :theme, :as => :select2, :collection => Theme.all, :include_blank => false
+          f.input :themes, :as => :select2, :collection => Theme.where(festival_id: current_festival), :include_blank => false
         end
       end
       tab 'Account' do

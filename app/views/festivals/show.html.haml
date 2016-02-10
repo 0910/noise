@@ -1,6 +1,6 @@
 - @theme.each do |theme|
 	%style
-
+		= theme.theme.custom_css.html_safe
 
 	.main{:style => "background-image: url(#{theme.theme.home_photo.url(:high)})"}
 		= render 'header'

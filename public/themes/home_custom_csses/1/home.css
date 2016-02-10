@@ -36,6 +36,7 @@ body.festivals {
   margin: 0;
   font-family: Roboto;
   height: 100%;
+  background-image: image-url("bg.jpg");
   background-position: top center;
   background-repeat: repeat-y;
   background-size: 100%;
@@ -74,6 +75,7 @@ body.festivals nav.navbar {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 3000;
 }
 
 body.festivals nav.navbar .navbar-container {
@@ -82,7 +84,7 @@ body.festivals nav.navbar .navbar-container {
 
 body.festivals nav.navbar .navbar-header {
   position: relative;
-  z-index: 2000;
+  z-index: 3000;
 }
 
 body.festivals nav.navbar .navbar-brand {
@@ -102,46 +104,32 @@ body.festivals nav.navbar .navbar-collapse {
   width: 100%;
   height: 100%;
   position: fixed;
-  background-color: rgba(141, 73, 57, 0.8);
+  z-index: 2000;
+  background-color: rgba(45, 49, 46, 0.85);
   top: 0;
   left: 0;
-  z-index: -9999;
-  opacity: 0;
-  transition: all 0.5s ease 0s;
-  -webkit-transition: all 0.5s ease 0s;
-}
-body.festivals nav.navbar .navbar-collapse.show{
-  opacity: 1;
-  z-index: 1900;
+  display: none;
 }
 
 body.festivals nav.navbar .navbar-collapse ul.navbar-nav {
-  text-align: right;
+  text-align: center;
   list-style: none;
   position: absolute;
-  right: 0%;
+  left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
-  opacity: 0;
-  margin-top: 50px;
-  transition: all 1s ease 0s;
-  -webkit-transition: all 1s ease 0s;
 }
 
-body.festivals nav.navbar .navbar-collapse.show ul.navbar-nav {
-  opacity: 1;
-  margin-top: 0;
-}
 body.festivals nav.navbar .navbar-collapse ul.navbar-nav li a {
   font-family: 'Roboto Condensed';
   color: #fff1c6;
   text-transform: uppercase;
-  font-size: 3.5em;
+  font-size: 3em;
   text-decoration: none;
 }
 
-body.festivals nav.navbar .navbar-collapse ul.navbar-nav li a:hover, body.festivals nav.navbar .navbar-collapse ul.navbar-nav li a.active {
+body.festivals nav.navbar .navbar-collapse ul.navbar-nav li a:hover {
   color: #fff;
 }
 
@@ -154,7 +142,6 @@ body.festivals nav.navbar button.navbar-toggle {
   font-size: 1.25em;
   background-color: transparent;
   text-transform: uppercase;
-  cursor: pointer;
 }
 
 body.festivals nav.navbar button.navbar-toggle .icon {
@@ -194,62 +181,11 @@ body.festivals nav.navbar button.navbar-toggle .icon span::after {
   bottom: -6px;
 }
 
-body.festivals nav.navbar .footer-social {
-  text-align: center;
-  width: 33.3333%;
-  float: left;
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 18px;
-  margin: 0;
-  font-family: 'Roboto Condensed';
-  color: #fff1c6;
-}
-
-body.festivals nav.navbar .navbar-social-link {
-  display: inline-block;
-  height: 40px;
-  margin: 10px 5px 0 5px;
-  text-align: center;
-  width: 40px;
-}
-
-body.festivals nav.navbar .navbar-social-link span {
-  border: 2px solid #fff1c6;
-  border-radius: 100%;
-  display: block;
-  height: 100%;
-  opacity: 0.6;
-  transform: scale(0.9);
-  -webkit-transform: scale(0.9);
-  transition: all 0.3s ease 0s;
-  -webkit-transition: all 0.3s ease 0s;
-  width: 100%;
-}
-
-body.festivals nav.navbar .navbar-social-link span .fa {
-  color: #fff1c6;
-  font-size: 20px;
-  margin-top: 10px;
-}
-
-body.festivals nav.navbar .navbar-social-link:hover span {
-  border: 3px solid #fff;
-  color: #fff;
-  transform: scale(1);
-  -webkit-transform: scale(1);
-  opacity: 1;
-}
-
-body.festivals nav.navbar .navbar-social-link:hover .fa {
-  color: #fff;
-}
-
 /* 03 - Header */
 
 
 body.festivals header.header {
-  height: 100vh;
+  height: 100%;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -377,14 +313,7 @@ body.festivals section.artists .artists-item-caption h2.artists-item-caption-tit
   text-align: center;
   margin: 0;
   text-transform: uppercase;
-
 }
-body.festivals section.artists .artists-item-caption h2.artists-item-caption-title::after {
-    content: " / ";
-} 
-body.festivals section.artists .artists-item-caption h2.artists-item-caption-title:last-child::after {
-    content: "";
-} 
 
 body.festivals section.artists.animated a.artist-item {
   opacity: 1;

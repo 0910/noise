@@ -1,13 +1,17 @@
 !!!
-%html.no-js
+%html
 	%head
 		%meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
 			%title
-				Noise
+				- if controller.controller_name == 'festivals'
+					#{@festival.name}
+				- else 
+					NOISE
 			= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
 			= javascript_include_tag 'application', 'data-turbolinks-track' => true
 			= csrf_meta_tags
 			= yield(:head)
-
-	%body{:class => "#{controller_name} #{action_name}"}
-		= yield
+	- if controller.controller_name == 'festivals'
+		%body{:class => "#{controller_name} #{action_name}"}
+			= render 'nav'
+			= yield

@@ -10,6 +10,9 @@ ActiveAdmin.register Video, :namespace => :super_admin do
     column :id
     column :name
     column :festival
+    column 'Featured', :sortable => :featured do |resource|
+      column_select(resource, :featured, ["No", "Yes"])
+    end
     actions
   end
   
@@ -52,6 +55,9 @@ ActiveAdmin.register Video, :namespace => :admin do
   index do
     column :id
     column :name
+    column 'Featured', :sortable => :featured do |resource|
+      column_select(resource, :featured, ["No", "Yes"])
+    end
     actions
   end
   

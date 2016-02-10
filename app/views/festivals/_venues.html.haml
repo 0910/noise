@@ -6,7 +6,7 @@
 			-
 		.venues-grid
 			- @venues.each do |venue|
-				= link_to(festival_venues_path(params[:id],venue), :class => "venues-item") do
+				= link_to(festival_venue_path(params[:id],venue), :class => "venues-item") do
 					.venues-item-wrap
 						- if venue.images.empty?
 							.venues-item-ph{:style => "background-image: url(image-not-available.jpg)"}

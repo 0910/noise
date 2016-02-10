@@ -11,7 +11,9 @@ class Festival < ActiveRecord::Base
   has_many :news
   has_many :sponsors
   has_many :videos
-  has_many :themes
+  
+  has_many :festival_themes, :dependent => :destroy
+  has_many :themes, :through => :festival_themes
 
   extend FriendlyId
 	friendly_id :name, use: :slugged

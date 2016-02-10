@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160209120631) do
+ActiveRecord::Schema.define(version: 20160210045428) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -90,6 +90,16 @@ ActiveRecord::Schema.define(version: 20160209120631) do
   add_index "events", ["festival_id"], name: "index_events_on_festival_id", using: :btree
   add_index "events", ["venue_id"], name: "index_events_on_venue_id", using: :btree
 
+  create_table "festival_themes", force: :cascade do |t|
+    t.integer  "festival_id", limit: 4
+    t.integer  "theme_id",    limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "festival_themes", ["festival_id"], name: "index_festival_themes_on_festival_id", using: :btree
+  add_index "festival_themes", ["theme_id"], name: "index_festival_themes_on_theme_id", using: :btree
+
   create_table "festivals", force: :cascade do |t|
     t.string   "name",                   limit: 255
     t.text     "description",            limit: 65535
@@ -106,7 +116,6 @@ ActiveRecord::Schema.define(version: 20160209120631) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
-    t.integer  "theme_id",               limit: 4
     t.string   "facebook",               limit: 255
     t.string   "twitter",                limit: 255
     t.string   "instagram",              limit: 255
@@ -116,7 +125,6 @@ ActiveRecord::Schema.define(version: 20160209120631) do
 
   add_index "festivals", ["email"], name: "index_festivals_on_email", unique: true, using: :btree
   add_index "festivals", ["reset_password_token"], name: "index_festivals_on_reset_password_token", unique: true, using: :btree
-  add_index "festivals", ["theme_id"], name: "index_festivals_on_theme_id", using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
@@ -163,8 +171,9 @@ ActiveRecord::Schema.define(version: 20160209120631) do
     t.text     "body",        limit: 65535
     t.integer  "festival_id", limit: 4
     t.string   "slug",        limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "featured",    limit: 255,   default: "No"
   end
 
   add_index "news", ["festival_id"], name: "index_news_on_festival_id", using: :btree
@@ -210,30 +219,6 @@ ActiveRecord::Schema.define(version: 20160209120631) do
     t.string   "intro_photo_content_type",   limit: 255
     t.integer  "intro_photo_file_size",      limit: 4
     t.datetime "intro_photo_updated_at"
-    t.string   "artists_title",              limit: 255
-    t.text     "custom_artists_html",        limit: 65535
-    t.text     "custom_artists_css",         limit: 65535
-    t.text     "custom_artists_js",          limit: 65535
-    t.string   "events_title",               limit: 255
-    t.text     "custom_events_html",         limit: 65535
-    t.text     "custom_events_css",          limit: 65535
-    t.text     "custom_events_js",           limit: 65535
-    t.string   "news_title",                 limit: 255
-    t.text     "custom_news_html",           limit: 65535
-    t.text     "custom_news_css",            limit: 65535
-    t.text     "custom_news_js",             limit: 65535
-    t.string   "videos_title",               limit: 255
-    t.text     "custom_videos_html",         limit: 65535
-    t.text     "custom_videos_css",          limit: 65535
-    t.text     "custom_videos_js",           limit: 65535
-    t.string   "venues_title",               limit: 255
-    t.text     "custom_venues_html",         limit: 65535
-    t.text     "custom_venues_css",          limit: 65535
-    t.text     "custom_venues_js",           limit: 65535
-    t.string   "shows_title",                limit: 255
-    t.text     "custom_shows_html",          limit: 65535
-    t.text     "custom_shows_css",           limit: 65535
-    t.text     "custom_shows_js",            limit: 65535
     t.string   "home_photo_file_name",       limit: 255
     t.string   "home_photo_content_type",    limit: 255
     t.integer  "home_photo_file_size",       limit: 4
@@ -263,12 +248,6 @@ ActiveRecord::Schema.define(version: 20160209120631) do
     t.integer  "videos_photo_file_size",     limit: 4
     t.datetime "videos_photo_updated_at"
     t.string   "slug",                       limit: 255
-    t.text     "custom_nav_html",            limit: 65535
-    t.text     "custom_nav_css",             limit: 65535
-    t.text     "custom_nav_js",              limit: 65535
-    t.text     "custom_footer_html",         limit: 65535
-    t.text     "custom_footer_css",          limit: 65535
-    t.text     "custom_footer_js",           limit: 65535
   end
 
   add_index "themes", ["festival_id"], name: "index_themes_on_festival_id", using: :btree
@@ -292,8 +271,9 @@ ActiveRecord::Schema.define(version: 20160209120631) do
     t.text     "link",        limit: 65535
     t.integer  "festival_id", limit: 4
     t.string   "slug",        limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "featured",    limit: 255,   default: "No"
   end
 
   add_index "videos", ["festival_id"], name: "index_videos_on_festival_id", using: :btree
@@ -303,7 +283,8 @@ ActiveRecord::Schema.define(version: 20160209120631) do
   add_foreign_key "event_artists", "events"
   add_foreign_key "events", "festivals"
   add_foreign_key "events", "venues"
-  add_foreign_key "festivals", "themes"
+  add_foreign_key "festival_themes", "festivals"
+  add_foreign_key "festival_themes", "themes"
   add_foreign_key "images", "artists"
   add_foreign_key "images", "events"
   add_foreign_key "images", "news"

@@ -48,7 +48,7 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      sudo 'service unicorn_laluli restart'
+      sudo 'service unicorn_festivals restart'
       sudo 'service nginx restart'
     end
   end

@@ -1,17 +1,15 @@
 Rails.application.routes.draw do
   
-  get 'festivals/show'
-
-  resources :festivals do
+  resources :festivals, only: [:show, :index] do
     resources :events, only: [:show, :index] do
     end
     resources :shows, only: [:show, :index] do
     end
-    resources :artists, only: [:show, :index] do
+    resources :artists, only: [:show] do
     end
-    resources :venues, only: [:show, :index] do
+    resources :venues, only: [:show] do
     end
-    resources :news, only: [:show, :index] do
+    resources :news, only: [:show] do
     end
     resources :videos, only: [:index] do
     end
@@ -20,7 +18,6 @@ Rails.application.routes.draw do
   devise_for :festivals, ActiveAdmin::Devise.config.merge({path: '/admin'})
   devise_for :admin_users, ActiveAdmin::Devise.config.merge({path: '/super_admin'})
   ActiveAdmin.routes(self)
-  get 'admin/event', to: 'admin/events#show'
   root to: "dashboard#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

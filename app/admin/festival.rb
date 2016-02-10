@@ -24,15 +24,37 @@ ActiveAdmin.register Festival, :namespace => :admin do
       row :name
       row :slug
       row :description
+      row :facebook
+      row :twitter
+      row :instagram
+      row :resident
+      row :soundcloud
     end
   end
 
   form html: { multipart: true } do |f|
-    f.inputs 'Details' do
-      f.semantic_errors
-      f.input :name, :require => true
-      f.input :description, :require => true
-      f.input :theme_id, :as => :select2, :collection => Theme.where(festival_id: current_festival), :include_blank => false
+    tabs do
+      tab 'Festival' do
+        f.inputs 'Festival information' do
+          f.semantic_errors
+          f.input :name, :require => true
+          f.input :description, :require => true
+          f.input :facebook
+          f.input :twitter
+          f.input :instagram
+          f.input :resident
+          f.input :soundcloud
+          f.input :themes, :as => :select2, :collection => Theme.where(festival_id: current_festival), :include_blank => false
+        end
+      end
+      tab 'Account' do
+        f.inputs 'Account Settings' do
+          f.semantic_errors
+          f.input :email
+          f.input :password
+          f.input :password_confirmation
+        end
+      end
     end
     f.actions
   end
@@ -52,7 +74,6 @@ ActiveAdmin.register Festival, :namespace => :super_admin do
     column :name
     column :email
     column :current_sign_in_at
-    column :sign_in_count
     column :created_at
     actions
   end
@@ -62,19 +83,38 @@ ActiveAdmin.register Festival, :namespace => :super_admin do
       row :name
       row :slug
       row :description
+      row :facebook
+      row :twitter
+      row :instagram
+      row :resident
+      row :soundcloud
     end
   end
 
   form html: { multipart: true } do |f|
-    f.inputs 'Details' do
-      f.semantic_errors
-      f.input :name, :require => true
-      f.input :slug, :require => true
-      f.input :description, :require => true
-      f.input :theme, :as => :select2, :collection => Theme.where(festival_id: current_festival), :include_blank => false
-      f.input :email
-      f.input :password
-      f.input :password_confirmation
+    tabs do
+      tab 'Festival' do
+        f.inputs 'Festival information' do
+          f.semantic_errors
+          f.input :name, :require => true
+          f.input :slug, :require => true
+          f.input :description, :require => true
+          f.input :facebook
+          f.input :twitter
+          f.input :instagram
+          f.input :resident
+          f.input :soundcloud
+          f.input :theme, :as => :select2, :collection => Theme.all, :include_blank => false
+        end
+      end
+      tab 'Account' do
+        f.inputs 'Account Settings' do
+          f.semantic_errors
+          f.input :email
+          f.input :password
+          f.input :password_confirmation
+        end
+      end
     end
     f.actions
   end

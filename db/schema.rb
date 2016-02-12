@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160210045428) do
+ActiveRecord::Schema.define(version: 20160212065439) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -47,19 +47,23 @@ ActiveRecord::Schema.define(version: 20160210045428) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "artists", force: :cascade do |t|
-    t.string   "name",            limit: 255
-    t.string   "country",         limit: 255
-    t.text     "bio",             limit: 65535
-    t.string   "facebook_link",   limit: 255
-    t.string   "soundcloud_link", limit: 255
-    t.string   "twitter_link",    limit: 255
-    t.string   "instagram_link",  limit: 255
-    t.string   "youtube_link",    limit: 255
-    t.string   "beatport_link",   limit: 255
-    t.integer  "festival_id",     limit: 4
-    t.string   "slug",            limit: 255
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.string   "name",               limit: 255
+    t.string   "country",            limit: 255
+    t.text     "bio",                limit: 65535
+    t.string   "facebook_link",      limit: 255
+    t.string   "soundcloud_link",    limit: 255
+    t.string   "twitter_link",       limit: 255
+    t.string   "instagram_link",     limit: 255
+    t.string   "youtube_link",       limit: 255
+    t.string   "beatport_link",      limit: 255
+    t.integer  "festival_id",        limit: 4
+    t.string   "slug",               limit: 255
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
   end
 
   add_index "artists", ["festival_id"], name: "index_artists_on_festival_id", using: :btree
@@ -75,16 +79,22 @@ ActiveRecord::Schema.define(version: 20160210045428) do
   add_index "event_artists", ["event_id"], name: "index_event_artists_on_event_id", using: :btree
 
   create_table "events", force: :cascade do |t|
-    t.string   "name",        limit: 255
+    t.string   "name",               limit: 255
     t.datetime "starts_on"
     t.datetime "finish_on"
-    t.text     "description", limit: 65535
-    t.string   "slug",        limit: 255
-    t.integer  "festival_id", limit: 4
-    t.integer  "venue_id",    limit: 4
-    t.string   "tickets",     limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.text     "description",        limit: 65535
+    t.string   "slug",               limit: 255
+    t.integer  "festival_id",        limit: 4
+    t.integer  "venue_id",           limit: 4
+    t.string   "tickets",            limit: 255
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
+    t.string   "tickets_link",       limit: 255
+    t.text     "tickets_widget",     limit: 65535
   end
 
   add_index "events", ["festival_id"], name: "index_events_on_festival_id", using: :btree
@@ -165,15 +175,19 @@ ActiveRecord::Schema.define(version: 20160210045428) do
   add_index "images", ["video_id"], name: "index_images_on_video_id", using: :btree
 
   create_table "news", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.string   "subtitle",    limit: 255
+    t.string   "title",              limit: 255
+    t.string   "subtitle",           limit: 255
     t.date     "date"
-    t.text     "body",        limit: 65535
-    t.integer  "festival_id", limit: 4
-    t.string   "slug",        limit: 255
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-    t.string   "featured",    limit: 255,   default: "No"
+    t.text     "body",               limit: 65535
+    t.integer  "festival_id",        limit: 4
+    t.string   "slug",               limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.string   "featured",           limit: 255,   default: "No"
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
   end
 
   add_index "news", ["festival_id"], name: "index_news_on_festival_id", using: :btree
@@ -194,15 +208,72 @@ ActiveRecord::Schema.define(version: 20160210045428) do
   add_index "shows", ["festival_id"], name: "index_shows_on_festival_id", using: :btree
 
   create_table "sponsors", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "link",        limit: 255
-    t.integer  "festival_id", limit: 4
-    t.string   "slug",        limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "name",               limit: 255
+    t.string   "link",               limit: 255
+    t.integer  "festival_id",        limit: 4
+    t.string   "slug",               limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
   end
 
   add_index "sponsors", ["festival_id"], name: "index_sponsors_on_festival_id", using: :btree
+
+  create_table "templates", force: :cascade do |t|
+    t.string   "name",                       limit: 255
+    t.integer  "festival_id",                limit: 4
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "home_file_name",             limit: 255
+    t.string   "home_content_type",          limit: 255
+    t.integer  "home_file_size",             limit: 4
+    t.datetime "home_updated_at"
+    t.string   "artists_index_file_name",    limit: 255
+    t.string   "artists_index_content_type", limit: 255
+    t.integer  "artists_index_file_size",    limit: 4
+    t.datetime "artists_index_updated_at"
+    t.string   "artists_show_file_name",     limit: 255
+    t.string   "artists_show_content_type",  limit: 255
+    t.integer  "artists_show_file_size",     limit: 4
+    t.datetime "artists_show_updated_at"
+    t.string   "events_index_file_name",     limit: 255
+    t.string   "events_index_content_type",  limit: 255
+    t.integer  "events_index_file_size",     limit: 4
+    t.datetime "events_index_updated_at"
+    t.string   "events_show_file_name",      limit: 255
+    t.string   "events_show_content_type",   limit: 255
+    t.integer  "events_show_file_size",      limit: 4
+    t.datetime "events_show_updated_at"
+    t.string   "news_index_file_name",       limit: 255
+    t.string   "news_index_content_type",    limit: 255
+    t.integer  "news_index_file_size",       limit: 4
+    t.datetime "news_index_updated_at"
+    t.string   "news_show_file_name",        limit: 255
+    t.string   "news_show_content_type",     limit: 255
+    t.integer  "news_show_file_size",        limit: 4
+    t.datetime "news_show_updated_at"
+    t.string   "venues_index_file_name",     limit: 255
+    t.string   "venues_index_content_type",  limit: 255
+    t.integer  "venues_index_file_size",     limit: 4
+    t.datetime "venues_index_updated_at"
+    t.string   "venues_show_file_name",      limit: 255
+    t.string   "venues_show_content_type",   limit: 255
+    t.integer  "venues_show_file_size",      limit: 4
+    t.datetime "venues_show_updated_at"
+    t.string   "videos_index_file_name",     limit: 255
+    t.string   "videos_index_content_type",  limit: 255
+    t.integer  "videos_index_file_size",     limit: 4
+    t.datetime "videos_index_updated_at"
+    t.string   "videos_show_file_name",      limit: 255
+    t.string   "videos_show_content_type",   limit: 255
+    t.integer  "videos_show_file_size",      limit: 4
+    t.datetime "videos_show_updated_at"
+  end
+
+  add_index "templates", ["festival_id"], name: "index_templates_on_festival_id", using: :btree
 
   create_table "themes", force: :cascade do |t|
     t.string   "name",                       limit: 255
@@ -266,14 +337,18 @@ ActiveRecord::Schema.define(version: 20160210045428) do
   add_index "venues", ["festival_id"], name: "index_venues_on_festival_id", using: :btree
 
   create_table "videos", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.text     "description", limit: 65535
-    t.text     "link",        limit: 65535
-    t.integer  "festival_id", limit: 4
-    t.string   "slug",        limit: 255
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-    t.string   "featured",    limit: 255,   default: "No"
+    t.string   "name",               limit: 255
+    t.text     "description",        limit: 65535
+    t.text     "link",               limit: 65535
+    t.integer  "festival_id",        limit: 4
+    t.string   "slug",               limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.string   "featured",           limit: 255,   default: "No"
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
   end
 
   add_index "videos", ["festival_id"], name: "index_videos_on_festival_id", using: :btree
@@ -296,6 +371,7 @@ ActiveRecord::Schema.define(version: 20160210045428) do
   add_foreign_key "shows", "events"
   add_foreign_key "shows", "festivals"
   add_foreign_key "sponsors", "festivals"
+  add_foreign_key "templates", "festivals"
   add_foreign_key "themes", "festivals"
   add_foreign_key "venues", "festivals"
   add_foreign_key "videos", "festivals"

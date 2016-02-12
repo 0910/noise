@@ -1,0 +1,30 @@
+= render 'shared/navigation'
+
+%section.event-detail
+	.container
+		.row
+			%h1.section-heading
+				#{@event.name}
+		.row
+			.col-md-4.col-md-offset-4
+				= image_tag(@event.image.url(:large), class: 'event-image')
+		.row
+			.col-md-8.col-md-offset-2
+				%h2.section-subheading
+					#{@event.starts_on.to_date.to_formatted_s(:long)}
+					%br
+					#{@event.venue.name}
+		.row
+			= link_to('Get Tickets', @event.tickets_link, class: 'get-tickets swipebox')
+		.row.artists-list
+			- @event.artists.each do |artist|
+				= link_to(artist.name, festival_artist_path(params[:id],artist), :class => "artists-item")
+		.row
+			.col-md-8.col-md-offset-2
+				%p.section-body
+					#{@event.description}
+
+= render 'shared/footer'
+
+:javascript
+	$('.swipebox').swipebox();

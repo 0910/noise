@@ -4,6 +4,10 @@ class Theme < ActiveRecord::Base
   has_many :festival_themes, :dependent => :destroy
   has_many :festivals, :through => :festival_themes
 
+  has_attached_file :template, :content_type => { :content_type => "application/html" },
+                    :url  => "/assets/templates/:id/:style/:basename.:extension",
+                    :path => ":rails_root/public/assets/templates/:id/:style/:basename.:extension"
+
   has_attached_file :home_photo, :styles => { :thumb => "120x80>", :high => "" },
                     :url  => "/assets/festivals/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/festivals/:id/:style/:basename.:extension"
@@ -36,6 +40,7 @@ class Theme < ActiveRecord::Base
                     :url  => "/assets/festivals/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/festivals/:id/:style/:basename.:extension"
 
+  validates_attachment_content_type :template, content_type: 'application/html'
   validates_attachment_content_type :home_photo, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :intro_photo, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :artists_photo, content_type: /\Aimage\/.*\Z/

@@ -77,11 +77,8 @@ ActiveAdmin.register Video, :namespace => :admin do
       f.input :description
       f.input :link
     end
-    f.inputs "Video Images" do
-      f.has_many :images do |i|
-        i.input :file, as: :file, label: false, hint: i.object.new_record? ? i.template.content_tag(:span, "No Image Yet") : image_tag(i.object.file.url(:thumb))
-        i.input :_destroy, as: :boolean, label: "Destroy?" unless i.object.new_record?
-      end 
+    f.inputs "Video Image" do
+      f.input :image, :as => :file, label: 'Image', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))
     end
     f.actions
   end

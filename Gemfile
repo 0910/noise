@@ -36,6 +36,9 @@ gem 'mixitup_rails'
 gem 'select2-rails'
 gem 'activeadmin-select2', github: 'mfairburn/activeadmin-select2'
 gem 'swipebox'
+#gem 'curly-templates'
+#gem 'redcarpet'
+#gem 'liquid-rails'
 
 group :development do
     gem 'capistrano'

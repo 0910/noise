@@ -7,16 +7,17 @@ ActiveAdmin.register Festival, :namespace => :admin do
   end
 
   menu label: "Festival", priority: 2
-  controller do
-    define_method(:index) do
-      redirect_to edit_admin_festival_path(current_festival.id)
-    end
-  end
 
   index do
     column :id
     column :name
     actions
+  end
+
+  controller do
+    define_method(:index) do
+      redirect_to edit_admin_festival_path(current_festival.id)
+    end
   end
   
   show do |p|
@@ -44,7 +45,6 @@ ActiveAdmin.register Festival, :namespace => :admin do
           f.input :instagram
           f.input :resident
           f.input :soundcloud
-          f.input :themes, :as => :select2, :collection => Theme.where(festival_id: current_festival), :include_blank => false
         end
       end
       tab 'Account' do
@@ -58,7 +58,6 @@ ActiveAdmin.register Festival, :namespace => :admin do
     end
     f.actions
   end
-
 end
 
 ActiveAdmin.register Festival, :namespace => :super_admin do
@@ -103,7 +102,6 @@ ActiveAdmin.register Festival, :namespace => :super_admin do
           f.input :instagram
           f.input :resident
           f.input :soundcloud
-          f.input :themes, :as => :select2, :collection => Theme.where(festival_id: current_festival), :include_blank => false
         end
       end
       tab 'Account' do
@@ -114,6 +112,7 @@ ActiveAdmin.register Festival, :namespace => :super_admin do
           f.input :password_confirmation
         end
       end
+  
     end
     f.actions
   end

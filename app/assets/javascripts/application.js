@@ -13,8 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require jquery.easing.min
 //= require mixitup
 //= require swiper.jquery
 //= require swipebox
+//= require jpreloader
 //= require_tree .

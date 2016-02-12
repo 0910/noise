@@ -32,11 +32,46 @@ ActiveAdmin.register Theme, :namespace => :super_admin do
           f.input :name
         end
       end
-      tab 'Advanced' do
-        f.inputs 'Advanced Customization' do
+      tab 'Home' do
+        f.inputs 'Home Customization' do
           f.input :custom_html, label: 'Custom HTML'
           f.input :custom_css, label: 'Custom CSS'
           f.input :custom_js, label: 'Custom JS'
+        end
+      end
+      tab 'Artists' do
+        f.inputs 'Artists Customization' do
+          f.input :custom_artists_html, label: 'Custom HTML'
+          f.input :custom_artists_css, label: 'Custom CSS'
+          f.input :custom_artists_js, label: 'Custom JS'
+        end
+      end
+      tab 'Events' do
+        f.inputs 'Events Customization' do
+          f.input :custom_events_html, label: 'Custom HTML'
+          f.input :custom_events_css, label: 'Custom CSS'
+          f.input :custom_events_js, label: 'Custom JS'
+        end
+      end
+      tab 'News' do
+        f.inputs 'News Customization' do
+          f.input :custom_news_html, label: 'Custom HTML'
+          f.input :custom_news_css, label: 'Custom CSS'
+          f.input :custom_news_js, label: 'Custom JS'
+        end
+      end
+      tab 'Venues' do
+        f.inputs 'Videos Customization' do
+          f.input :custom_venues_html, label: 'Custom HTML'
+          f.input :custom_venues_css, label: 'Custom CSS'
+          f.input :custom_venues_js, label: 'Custom JS'
+        end
+      end
+      tab 'Videos' do
+        f.inputs 'Videos Customization' do
+          f.input :custom_videos_html, label: 'Custom HTML'
+          f.input :custom_videos_css, label: 'Custom CSS'
+          f.input :custom_videos_js, label: 'Custom JS'
         end
       end
       tab 'Backgrounds' do
@@ -90,11 +125,46 @@ ActiveAdmin.register Theme, :namespace => :admin do
           f.input :name
         end
       end
-      tab 'Advanced' do
-        f.inputs 'Advanced Customization' do
+      tab 'Home' do
+        f.inputs 'Home Customization' do
           f.input :custom_html, label: 'Custom HTML'
           f.input :custom_css, label: 'Custom CSS'
           f.input :custom_js, label: 'Custom JS'
+        end
+      end
+      tab 'Artists' do
+        f.inputs 'Artists Customization' do
+          f.input :custom_artists_html, label: 'Custom HTML'
+          f.input :custom_artists_css, label: 'Custom CSS'
+          f.input :custom_artists_js, label: 'Custom JS'
+        end
+      end
+      tab 'Events' do
+        f.inputs 'Events Customization' do
+          f.input :custom_events_html, label: 'Custom HTML'
+          f.input :custom_events_css, label: 'Custom CSS'
+          f.input :custom_events_js, label: 'Custom JS'
+        end
+      end
+      tab 'News' do
+        f.inputs 'News Customization' do
+          f.input :custom_news_html, label: 'Custom HTML'
+          f.input :custom_news_css, label: 'Custom CSS'
+          f.input :custom_news_js, label: 'Custom JS'
+        end
+      end
+      tab 'Venues' do
+        f.inputs 'Videos Customization' do
+          f.input :custom_venues_html, label: 'Custom HTML'
+          f.input :custom_venues_css, label: 'Custom CSS'
+          f.input :custom_venues_js, label: 'Custom JS'
+        end
+      end
+      tab 'Videos' do
+        f.inputs 'Videos Customization' do
+          f.input :custom_videos_html, label: 'Custom HTML'
+          f.input :custom_videos_css, label: 'Custom CSS'
+          f.input :custom_videos_js, label: 'Custom JS'
         end
       end
       tab 'Backgrounds' do

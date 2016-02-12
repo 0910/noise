@@ -32,7 +32,7 @@ h1, h2, h3 {
   display: none;
 }
 
-body.festivals {
+body {
   margin: 0;
   font-family: Roboto;
   height: 100%;
@@ -40,6 +40,10 @@ body.festivals {
   background-repeat: repeat-y;
   background-size: 100%;
   background-color: #a48446;
+}
+.main{
+  float: left;
+  width: 100%;
 }
 
 .swiper-slide {
@@ -70,35 +74,35 @@ body.festivals {
 
 /* 02 - Navbar */
 
-body.festivals nav.navbar {
+nav.navbar {
   position: fixed;
   top: 0;
   width: 100%;
 }
 
-body.festivals nav.navbar .navbar-container {
+nav.navbar .navbar-container {
   margin: 30px;
 }
 
-body.festivals nav.navbar .navbar-header {
+nav.navbar .navbar-header {
   position: relative;
   z-index: 2000;
 }
 
-body.festivals nav.navbar .navbar-brand {
+nav.navbar .navbar-brand {
   text-indent: -9999px;
   width: 240px;
   display: block;
   float: left;
 }
 
-body.festivals nav.navbar .navbar-brand img {
+nav.navbar .navbar-brand img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-body.festivals nav.navbar .navbar-collapse {
+nav.navbar .navbar-collapse {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -110,12 +114,12 @@ body.festivals nav.navbar .navbar-collapse {
   transition: all 0.5s ease 0s;
   -webkit-transition: all 0.5s ease 0s;
 }
-body.festivals nav.navbar .navbar-collapse.show{
+nav.navbar .navbar-collapse.show{
   opacity: 1;
   z-index: 1900;
 }
 
-body.festivals nav.navbar .navbar-collapse ul.navbar-nav {
+nav.navbar .navbar-collapse ul.navbar-nav {
   text-align: right;
   list-style: none;
   position: absolute;
@@ -129,11 +133,11 @@ body.festivals nav.navbar .navbar-collapse ul.navbar-nav {
   -webkit-transition: all 1s ease 0s;
 }
 
-body.festivals nav.navbar .navbar-collapse.show ul.navbar-nav {
+nav.navbar .navbar-collapse.show ul.navbar-nav {
   opacity: 1;
   margin-top: 0;
 }
-body.festivals nav.navbar .navbar-collapse ul.navbar-nav li a {
+nav.navbar .navbar-collapse ul.navbar-nav li a {
   font-family: 'Roboto Condensed';
   color: #fff1c6;
   text-transform: uppercase;
@@ -141,11 +145,11 @@ body.festivals nav.navbar .navbar-collapse ul.navbar-nav li a {
   text-decoration: none;
 }
 
-body.festivals nav.navbar .navbar-collapse ul.navbar-nav li a:hover, body.festivals nav.navbar .navbar-collapse ul.navbar-nav li a.active {
+nav.navbar .navbar-collapse ul.navbar-nav li a:hover, body.festivals nav.navbar .navbar-collapse ul.navbar-nav li a.active {
   color: #fff;
 }
 
-body.festivals nav.navbar button.navbar-toggle {
+nav.navbar button.navbar-toggle {
   float: right;
   border: none;
   color: #fff;
@@ -157,7 +161,7 @@ body.festivals nav.navbar button.navbar-toggle {
   cursor: pointer;
 }
 
-body.festivals nav.navbar button.navbar-toggle .icon {
+nav.navbar button.navbar-toggle .icon {
   width: 20px;
   height: 20px;
   position: relative;
@@ -165,7 +169,7 @@ body.festivals nav.navbar button.navbar-toggle .icon {
   margin-right: 10px;
 }
 
-body.festivals nav.navbar button.navbar-toggle .icon span {
+nav.navbar button.navbar-toggle .icon span {
   display: block;
   position: absolute;
   top: 11px;
@@ -175,8 +179,8 @@ body.festivals nav.navbar button.navbar-toggle .icon span {
   background: #fff;
 }
 
-body.festivals nav.navbar button.navbar-toggle .icon span::before,
-body.festivals nav.navbar button.navbar-toggle .icon span::after {
+nav.navbar button.navbar-toggle .icon span::before,
+nav.navbar button.navbar-toggle .icon span::after {
   position: absolute;
   display: block;
   left: 0;
@@ -186,15 +190,15 @@ body.festivals nav.navbar button.navbar-toggle .icon span::after {
   content: "";
 }
 
-body.festivals nav.navbar button.navbar-toggle .icon span::before {
+nav.navbar button.navbar-toggle .icon span::before {
   top: -6px;
 }
 
-body.festivals nav.navbar button.navbar-toggle .icon span::after {
+nav.navbar button.navbar-toggle .icon span::after {
   bottom: -6px;
 }
 
-body.festivals nav.navbar .footer-social {
+nav.navbar .footer-social {
   text-align: center;
   width: 33.3333%;
   float: left;
@@ -206,7 +210,7 @@ body.festivals nav.navbar .footer-social {
   color: #fff1c6;
 }
 
-body.festivals nav.navbar .navbar-social-link {
+nav.navbar .navbar-social-link {
   display: inline-block;
   height: 40px;
   margin: 10px 5px 0 5px;
@@ -214,7 +218,7 @@ body.festivals nav.navbar .navbar-social-link {
   width: 40px;
 }
 
-body.festivals nav.navbar .navbar-social-link span {
+nav.navbar .navbar-social-link span {
   border: 2px solid #fff1c6;
   border-radius: 100%;
   display: block;
@@ -227,13 +231,13 @@ body.festivals nav.navbar .navbar-social-link span {
   width: 100%;
 }
 
-body.festivals nav.navbar .navbar-social-link span .fa {
+nav.navbar .navbar-social-link span .fa {
   color: #fff1c6;
   font-size: 20px;
   margin-top: 10px;
 }
 
-body.festivals nav.navbar .navbar-social-link:hover span {
+nav.navbar .navbar-social-link:hover span {
   border: 3px solid #fff;
   color: #fff;
   transform: scale(1);
@@ -241,7 +245,7 @@ body.festivals nav.navbar .navbar-social-link:hover span {
   opacity: 1;
 }
 
-body.festivals nav.navbar .navbar-social-link:hover .fa {
+nav.navbar .navbar-social-link:hover .fa {
   color: #fff;
 }
 
@@ -455,13 +459,6 @@ body.festivals section.news .news-container a.news-item {
   display: inline-block;
   position: relative;
   text-decoration: none;
-}
-
-body.festivals section.news .news-container a.news-item .news-item-wrap {
-  background-color: rgba(255, 255, 255, 0.075);
-  width: 720px;
-  height: 405px;
-  display: inline-block;
 }
 
 body.festivals section.news .news-container a.news-item .news-item-ph {
@@ -959,25 +956,27 @@ body.festivals section.sponsors a.sponsors-item:hover {
 
 /* 10 - Footer */
 
-body.festivals footer.footer {
+footer.footer {
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 100px 0;
+  float: left;
+  width: 100%;
 }
 
-body.festivals footer.footer .footer-container {
+footer.footer .footer-container {
   width: 1130px;
   margin: 0 auto;
 }
 
-body.festivals footer.footer .footer-copyright {
+footer.footer .footer-copyright {
   text-align: left;
   width: 33.3333%;
   float: left;
 }
 
-body.festivals footer.footer .footer-copyright-text {
+footer.footer .footer-copyright-text {
   color: #fff1c6;
   text-transform: uppercase;
   font-weight: 400;
@@ -987,7 +986,7 @@ body.festivals footer.footer .footer-copyright-text {
   margin-top: 32px;
 }
 
-body.festivals footer.footer .footer-social {
+footer.footer .footer-social {
   text-align: center;
   width: 33.3333%;
   float: left;
@@ -999,7 +998,7 @@ body.festivals footer.footer .footer-social {
   color: #fff1c6;
 }
 
-body.festivals footer.footer .footer-social-link {
+footer.footer .footer-social-link {
   display: inline-block;
   height: 60px;
   margin: 0 5px;
@@ -1007,7 +1006,7 @@ body.festivals footer.footer .footer-social-link {
   width: 60px;
 }
 
-body.festivals footer.footer .footer-social-link span {
+footer.footer .footer-social-link span {
   border: 3px solid #fff1c6;
   border-radius: 100%;
   display: block;
@@ -1020,19 +1019,19 @@ body.festivals footer.footer .footer-social-link span {
   width: 100%;
 }
 
-body.festivals footer.footer .footer-social-link span .fa {
+footer.footer .footer-social-link span .fa {
   color: #fff1c6;
   font-size: 24px;
   margin-top: 18px;
 }
 
-body.festivals footer.footer .footer-noise {
+footer.footer .footer-noise {
   text-align: right;
   width: 33.3333%;
   float: left;
 }
 
-body.festivals footer.footer .footer-noise-link {
+footer.footer .footer-noise-link {
   color: #fff1c6;
   text-transform: uppercase;
   font-weight: 400;
@@ -1042,11 +1041,11 @@ body.festivals footer.footer .footer-noise-link {
   margin-top: 32px;
 }
 
-body.festivals footer.footer .footer-noise-link a {
+footer.footer .footer-noise-link a {
   color: #fff1c6;
 }
 
-body.festivals footer.footer .footer-social-link:hover span {
+footer.footer .footer-social-link:hover span {
   border: 3px solid #fff;
   color: #fff;
   transform: scale(1);
@@ -1054,7 +1053,7 @@ body.festivals footer.footer .footer-social-link:hover span {
   opacity: 1;
 }
 
-body.festivals footer.footer .footer-social-link:hover .fa {
+footer.footer .footer-social-link:hover .fa {
   color: #fff;
 }
 

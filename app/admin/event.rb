@@ -9,11 +9,8 @@ ActiveAdmin.register Event, :namespace => :super_admin do
   index do
     column :id
     column :name
+    translation_status
     column :starts_on
-    column :finish_on
-    column :current_sign_in_at
-    column :sign_in_count
-    column :created_at
     actions
   end
   
@@ -21,7 +18,7 @@ ActiveAdmin.register Event, :namespace => :super_admin do
     attributes_table do
       row :name
       row :slug
-      row :description
+      row :desciption
       row :starts_on
       row :finish_on
       filter :current_sign_in_at
@@ -34,14 +31,17 @@ ActiveAdmin.register Event, :namespace => :super_admin do
     f.inputs 'Details' do
       f.semantic_errors
       f.input :name, :require => true
-      f.input :description, :require => true
+      f.inputs "Translated fields" do
+        f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
+          t.input :description
+        end
+      end
       f.input :starts_on, :require => true
       f.input :finish_on, :require => true
       f.input :venues, :as => :select, :collection => Venue.all, :include_blank => false, :require => true, :multiple => true
       f.input :shows, :as => :select, :collection => Show.all, :include_blank => false, :require => true, :multiple => true
       f.input :artists, :as => :select, :collection => Artist.all, :include_blank => false, :require => true, :multiple => true
       f.input :tickets_link
-      f.input :tickets_widget
     end
     f.inputs "Event Image" do
       f.input :image, :as => :file, label: 'Image', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))
@@ -68,10 +68,15 @@ ActiveAdmin.register Event, :namespace => :admin do
   index do
     column :id
     column :name
+    translation_status
     column :starts_on
-    column :finish_on
     actions
   end
+
+  filter :name
+  filter :venue
+  filter :starts_at
+  filter :created_at
   
   show do |p|
     attributes_table do
@@ -88,13 +93,16 @@ ActiveAdmin.register Event, :namespace => :admin do
     f.inputs 'Details' do
       f.semantic_errors
       f.input :name, :require => true
-      f.input :description, :require => true
+      f.inputs "Translated fields" do
+        f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
+          t.input :description
+        end
+      end
       f.input :starts_on, :require => true
       f.input :finish_on, :require => true
       f.input :venue, :as => :select2, :collection => Venue.all, :include_blank => false, :require => true
       f.input :artists, :as => :select, :collection => Artist.where(festival_id: current_festival), :include_blank => false, :require => true, :multiple => true
       f.input :tickets_link
-      f.input :tickets_widget
     end
     f.inputs "Event Image" do
       f.input :image, :as => :file, label: 'Image', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))

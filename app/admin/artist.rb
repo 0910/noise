@@ -10,6 +10,7 @@ ActiveAdmin.register Artist, :namespace => :super_admin do
     column :id
     column :name
     column :country
+    translation_status
     actions
   end
   
@@ -32,7 +33,11 @@ ActiveAdmin.register Artist, :namespace => :super_admin do
       f.semantic_errors
       f.input :name, :require => true
       f.input :country
-      f.input :bio
+      f.inputs "Translated fields" do
+        f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
+          t.input :bio
+        end
+      end
       f.input :facebook_link
       f.input :soundcloud_link
       f.input :twitter_link
@@ -40,6 +45,7 @@ ActiveAdmin.register Artist, :namespace => :super_admin do
       f.input :youtube_link
       f.input :beatport_link
     end
+
     f.inputs "Artist Image" do
       f.input :image, :as => :file, label: 'Image', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))
     end
@@ -66,8 +72,13 @@ ActiveAdmin.register Artist, :namespace => :admin do
     column :id
     column :name
     column :country
+    translation_status
     actions
   end
+
+  filter :country
+  filter :name
+  filter :created_at
   
   show do |p|
     attributes_table do
@@ -90,7 +101,11 @@ ActiveAdmin.register Artist, :namespace => :admin do
       f.semantic_errors
       f.input :name, :require => true
       f.input :country
-      f.input :bio
+      f.inputs "Translated fields" do
+        f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
+          t.input :bio
+        end
+      end
       f.input :facebook_link
       f.input :soundcloud_link
       f.input :twitter_link

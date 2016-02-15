@@ -5,6 +5,8 @@ class Event < ActiveRecord::Base
 
   has_many :shows
 
+  active_admin_translates :description
+
   has_attached_file :image, :styles => { :thumb => "120x80>", :small => '480x320>', :medium => '720x480>', :large => '1080x720>' },
             :url  => "/assets/events/:id/:style/:basename.:extension",
             :path => ":rails_root/public/assets/events/:id/:style/:basename.:extension"

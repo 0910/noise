@@ -3,6 +3,8 @@ class Venue < ActiveRecord::Base
 	has_many :events
 	has_many :shows
 
+	active_admin_translates :description
+
 	has_many :images, :dependent => :destroy
 	accepts_nested_attributes_for :images, :allow_destroy => true
 	

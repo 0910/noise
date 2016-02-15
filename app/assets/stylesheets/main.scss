@@ -206,12 +206,16 @@ nav.navbar .navbar-collapse.show ul.navbar-nav {
   opacity: 1;
   margin-top: 0;
 }
+nav.navbar .navbar-collapse ul.navbar-nav li {
+  line-height: 1;
+}
 nav.navbar .navbar-collapse ul.navbar-nav li a {
   font-family: 'Roboto Condensed';
   color: #fff1c6;
   text-transform: uppercase;
   font-size: 4.25em;
   text-decoration: none;
+  line-height: 1;
 }
 
 nav.navbar .navbar-collapse ul.navbar-nav li a:hover, body.festivals nav.navbar .navbar-collapse ul.navbar-nav li a.active {
@@ -306,7 +310,7 @@ nav.navbar .navbar-social-link span {
 nav.navbar .navbar-social-link span .fa {
   color: #fff1c6;
   font-size: 20px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 nav.navbar .navbar-social-link:hover span {
@@ -320,6 +324,29 @@ nav.navbar .navbar-social-link:hover span {
 nav.navbar .navbar-social-link:hover .fa {
   color: #fff;
 }
+
+nav.navbar .navbar-collapse .lang{
+  margin-top: 15px;
+}
+nav.navbar .navbar-collapse .lang a {
+  font-family: 'Roboto Condensed';
+  color: #fff1c6;
+  text-transform: uppercase;
+  font-size: 1.15em;
+  text-decoration: none;
+  line-height: 1;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+nav.navbar .navbar-collapse .lang a:hover{
+  color: #fff;
+}
+nav.navbar .navbar-collapse .lang a::after {
+    content: " / ";
+} 
+nav.navbar .navbar-collapse .lang a:last-child::after {
+    content: "";
+} 
 
 /* Header */
 
@@ -539,6 +566,14 @@ section.events{
   h1.section-heading{
     margin-bottom: 60px;
   }
+}
+.events-item{
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  width: 20%;
+  float: left;
 }
 .event-image{
   width: 80%;

@@ -53,6 +53,10 @@ ActiveAdmin.register Sponsor, :namespace => :admin do
     column :name
     actions
   end
+
+  filter :name
+  filter :link
+  filter :created_at
   
   show do |p|
     attributes_table do

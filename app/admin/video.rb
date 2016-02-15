@@ -10,6 +10,7 @@ ActiveAdmin.register Video, :namespace => :super_admin do
     column :id
     column :name
     column :festival
+    translation_status
     column 'Featured', :sortable => :featured do |resource|
       column_select(resource, :featured, ["No", "Yes"])
     end
@@ -55,11 +56,15 @@ ActiveAdmin.register Video, :namespace => :admin do
   index do
     column :id
     column :name
+    translation_status
     column 'Featured', :sortable => :featured do |resource|
       column_select(resource, :featured, ["No", "Yes"])
     end
     actions
   end
+
+  filter :name
+  filter :created_at
   
   show do |p|
     attributes_table do
@@ -73,8 +78,12 @@ ActiveAdmin.register Video, :namespace => :admin do
   form html: { multipart: true } do |f|
     f.inputs 'Video Information' do
       f.semantic_errors
-      f.input :name, :require => true
-      f.input :description
+      f.inputs "Translated fields" do
+        f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
+          t.input :name
+          t.input :description
+        end
+      end
       f.input :link
     end
     f.inputs "Video Image" do

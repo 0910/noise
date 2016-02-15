@@ -6,6 +6,8 @@
 			OFF AT FORUM
 		%h2.header-subtitle
 			OPEN AIR / DAY EVENTS / 2 STAGES / PRIVATE BEACH LOCATION
+		%h2.header-subtitle
+			16-19TH JUNE / OFF WEEK AT PARC DEL FORUM / BARCELONA
 
 %section.videos#videos
 	.container
@@ -23,10 +25,8 @@
 	.container
 		.row
 			%h1.section-heading
-				Artists
+				= t "artists.title"
 		.row.artists-filters
-			.artists-filter-button.filter{"data-filter" => "all"}
-				Todos
 			- @events.each do |event|
 				.artists-filter-button.filter{"data-filter" => ".#{event.slug}"}
 					#{event.name}
@@ -39,9 +39,9 @@
 	.container
 		.row
 			%h1.section-heading
-				Events
+				= t "events.title"
 		- @events.each do |event|
-			= link_to(festival_event_path(params[:id],event), class: 'col-md-3 events-item') do
+			= link_to(festival_event_path(params[:id],event), class: 'events-item') do
 				.row
 					= image_tag(event.image.url(:large), class: 'event-image')
 				.row
@@ -56,7 +56,7 @@
 		.col-md-12
 			.row
 				%h1.section-heading
-					News
+					= t "news.title"
 			.row
 				.swiper-container
 					.swiper-wrapper
@@ -81,7 +81,7 @@
 	.container
 		.row
 			%h1.section-heading
-				Location
+				= t "venues.title"
 		.row
 			.col-md-10.col-md-offset-1
 				- @venues.each do |venue|

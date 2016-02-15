@@ -34,27 +34,21 @@ ActiveAdmin.register Festival, :namespace => :admin do
   end
 
   form html: { multipart: true } do |f|
-    tabs do
-      tab 'Festival' do
-        f.inputs 'Festival information' do
-          f.semantic_errors
-          f.input :name, :require => true
-          f.input :description, :require => true
-          f.input :facebook
-          f.input :twitter
-          f.input :instagram
-          f.input :resident
-          f.input :soundcloud
-        end
-      end
-      tab 'Account' do
-        f.inputs 'Account Settings' do
-          f.semantic_errors
-          f.input :email
-          f.input :password
-          f.input :password_confirmation
-        end
-      end
+    f.inputs 'Festival information' do
+      f.semantic_errors
+      f.input :name, :require => true
+      f.input :description, :require => true
+      f.input :facebook
+      f.input :twitter
+      f.input :instagram
+      f.input :resident
+      f.input :soundcloud
+    end
+    f.inputs 'Account Settings' do
+      f.semantic_errors
+      f.input :email
+      f.input :password
+      f.input :password_confirmation
     end
     f.actions
   end

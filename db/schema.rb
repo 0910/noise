@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160212065439) do
+ActiveRecord::Schema.define(version: 20160215213637) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 20160212065439) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "artist_translations", force: :cascade do |t|
+    t.integer  "artist_id",  limit: 4,     null: false
+    t.string   "locale",     limit: 255,   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.text     "bio",        limit: 65535
+  end
+
+  add_index "artist_translations", ["artist_id"], name: "index_artist_translations_on_artist_id", using: :btree
+  add_index "artist_translations", ["locale"], name: "index_artist_translations_on_locale", using: :btree
+
   create_table "artists", force: :cascade do |t|
     t.string   "name",               limit: 255
     t.string   "country",            limit: 255
@@ -77,6 +88,17 @@ ActiveRecord::Schema.define(version: 20160212065439) do
 
   add_index "event_artists", ["artist_id"], name: "index_event_artists_on_artist_id", using: :btree
   add_index "event_artists", ["event_id"], name: "index_event_artists_on_event_id", using: :btree
+
+  create_table "event_translations", force: :cascade do |t|
+    t.integer  "event_id",    limit: 4,     null: false
+    t.string   "locale",      limit: 255,   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.text     "description", limit: 65535
+  end
+
+  add_index "event_translations", ["event_id"], name: "index_event_translations_on_event_id", using: :btree
+  add_index "event_translations", ["locale"], name: "index_event_translations_on_locale", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -191,6 +213,19 @@ ActiveRecord::Schema.define(version: 20160212065439) do
   end
 
   add_index "news", ["festival_id"], name: "index_news_on_festival_id", using: :btree
+
+  create_table "news_translations", force: :cascade do |t|
+    t.integer  "news_id",    limit: 4,     null: false
+    t.string   "locale",     limit: 255,   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "title",      limit: 255
+    t.string   "subtitle",   limit: 255
+    t.text     "body",       limit: 65535
+  end
+
+  add_index "news_translations", ["locale"], name: "index_news_translations_on_locale", using: :btree
+  add_index "news_translations", ["news_id"], name: "index_news_translations_on_news_id", using: :btree
 
   create_table "shows", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -323,6 +358,17 @@ ActiveRecord::Schema.define(version: 20160212065439) do
 
   add_index "themes", ["festival_id"], name: "index_themes_on_festival_id", using: :btree
 
+  create_table "venue_translations", force: :cascade do |t|
+    t.integer  "venue_id",    limit: 4,     null: false
+    t.string   "locale",      limit: 255,   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.text     "description", limit: 65535
+  end
+
+  add_index "venue_translations", ["locale"], name: "index_venue_translations_on_locale", using: :btree
+  add_index "venue_translations", ["venue_id"], name: "index_venue_translations_on_venue_id", using: :btree
+
   create_table "venues", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.string   "location",    limit: 255
@@ -335,6 +381,18 @@ ActiveRecord::Schema.define(version: 20160212065439) do
   end
 
   add_index "venues", ["festival_id"], name: "index_venues_on_festival_id", using: :btree
+
+  create_table "video_translations", force: :cascade do |t|
+    t.integer  "video_id",    limit: 4,     null: false
+    t.string   "locale",      limit: 255,   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+  end
+
+  add_index "video_translations", ["locale"], name: "index_video_translations_on_locale", using: :btree
+  add_index "video_translations", ["video_id"], name: "index_video_translations_on_video_id", using: :btree
 
   create_table "videos", force: :cascade do |t|
     t.string   "name",               limit: 255

@@ -34,6 +34,7 @@ ActiveAdmin.setup do |config|
   #
   # Default:
   config.default_namespace = :admin
+
   #
   # You can customize the settings for each namespace by using
   # a namespace block. For example, to change the site title
@@ -53,6 +54,17 @@ ActiveAdmin.setup do |config|
     admin.authentication_method = :authenticate_festival!
     admin.current_user_method = :current_festival
     admin.logout_link_path = :destroy_festival_session_path
+    #admin.build_menu :utility_navigation do |menu|
+    #  menu.add :label => "Languages" do |lang|
+    #    lang.add :label => "English",:url => proc { url_for(:locale => 'en') }, id: 'i18n-en', :priority => 1
+    #    lang.add :label => "Español",:url => proc { url_for(:locale => 'es') }, id: 'i18n-es', :priority => 2
+    #  end
+    #  menu.add :label => proc { display_name current_festival },
+    #            :url => '#',
+    #            :id => 'current_festival',
+    #            :if => proc { current_active_admin_user? }
+    #  admin.add_logout_button_to_menu menu
+    #end
   end
 
   config.namespace :super_admin do |super_admin|
@@ -165,7 +177,7 @@ ActiveAdmin.setup do |config|
   # Breadcrumbs are enabled by default. You can customize them for individual
   # resources or you can disable them globally from here.
   #
-  # config.breadcrumb = false
+  config.breadcrumb = false
 
   # == Register Stylesheets & Javascripts
   #

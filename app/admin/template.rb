@@ -1,4 +1,4 @@
-ActiveAdmin.register Template, :namespace => :admin do
+ActiveAdmin.register Template, :namespace => :super_admin do
 
   index do
     column :id

@@ -10,14 +10,15 @@ ActiveAdmin.register News, :namespace => :super_admin do
     column :id
     column :title
     column :date
+    translation_status
     actions
   end
   
   show do |p|
     attributes_table do
+      row :date
       row :title
       row :subtitle
-      row :date
       row :body
     end
   end
@@ -25,10 +26,14 @@ ActiveAdmin.register News, :namespace => :super_admin do
   form html: { multipart: true } do |f|
     f.inputs 'Details' do
       f.semantic_errors
-      f.input :title, :require => true
-      f.input :subtitle
       f.input :date
-      f.input :body
+      f.inputs "Translated fields" do
+        f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
+          t.input :title
+          t.input :subtitle
+          t.input :body
+        end
+      end
     end
     f.inputs "News Image" do
       f.input :image, :as => :file, label: 'Image', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))
@@ -56,8 +61,14 @@ ActiveAdmin.register News, :namespace => :admin do
     column :id
     column :title
     column :date
+    translation_status
     actions
   end
+
+  filter :title
+  filter :subtitle
+  filter :date
+  filter :created_at
   
   show do |p|
     attributes_table do
@@ -72,10 +83,14 @@ ActiveAdmin.register News, :namespace => :admin do
   form html: { multipart: true } do |f|
     f.inputs 'News Information' do
       f.semantic_errors
-      f.input :title, :require => true
-      f.input :subtitle
       f.input :date
-      f.input :body
+      f.inputs "Translated fields" do
+        f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
+          t.input :title
+          t.input :subtitle
+          t.input :body
+        end
+      end
     end
     f.inputs "News Image" do
       f.input :image, :as => :file, label: 'Image', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))

@@ -10,28 +10,34 @@
 					Menu
 		.navbar-collapse
 			%ul.navbar-nav
-				%li.active
-					= link_to('Home', '#header')
-				%li
-					= link_to('Videos', '#videos')
-				%li
-					= link_to('Artists', '#artists')
-				%li
-					= link_to('News', '#news')
-				%li
-					= link_to('Location', '#venues')
-				= link_to(festival.facebook, class: 'navbar-social-link') do
-					%span
-						= icon('facebook')
-				= link_to(festival.instagram, class: 'navbar-social-link') do
-					%span
-						= icon('instagram')
-				= link_to(festival.twitter, class: 'navbar-social-link') do
-					%span
-						= icon('twitter')
-				= link_to(festival.soundcloud, class: 'navbar-social-link') do
-					%span
-						= icon('youtube')
+				.row
+					%li.active
+						= link_to('Home', '#header')
+					%li
+						= link_to('Videos', '#videos')
+					%li
+						= link_to('Artists', '#artists')
+					%li
+						= link_to('News', '#news')
+					%li
+						= link_to('Location', '#venues')
+				.row
+					= link_to(festival.facebook, class: 'navbar-social-link') do
+						%span
+							= icon('facebook')
+					= link_to(festival.instagram, class: 'navbar-social-link') do
+						%span
+							= icon('instagram')
+					= link_to(festival.twitter, class: 'navbar-social-link') do
+						%span
+							= icon('twitter')
+					= link_to(festival.soundcloud, class: 'navbar-social-link') do
+						%span
+							= icon('youtube')
+				.row.lang
+					= link_to 'English', change_locale_path(:en)
+					= link_to 'Español', change_locale_path(:es)
+					= link_to 'Català', change_locale_path(:ca)
 :javascript
 	$('.navbar-nav li a').click(function(event){
 		event.preventDefault();

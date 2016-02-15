@@ -55,6 +55,11 @@ ActiveAdmin.register Show, :namespace => :admin do
     column :name
     actions
   end
+
+  filter :name
+  filter :artist
+  filter :event
+  filter :created_at
   
   show do |p|
     attributes_table do

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215213637) do
+ActiveRecord::Schema.define(version: 20160217212740) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -153,6 +153,11 @@ ActiveRecord::Schema.define(version: 20160215213637) do
     t.string   "instagram",              limit: 255
     t.string   "resident",               limit: 255
     t.string   "soundcloud",             limit: 255
+    t.text     "template",               limit: 65535
+    t.string   "logo_file_name",         limit: 255
+    t.string   "logo_content_type",      limit: 255
+    t.integer  "logo_file_size",         limit: 4
+    t.datetime "logo_updated_at"
   end
 
   add_index "festivals", ["email"], name: "index_festivals_on_email", unique: true, using: :btree
@@ -258,54 +263,16 @@ ActiveRecord::Schema.define(version: 20160215213637) do
   add_index "sponsors", ["festival_id"], name: "index_sponsors_on_festival_id", using: :btree
 
   create_table "templates", force: :cascade do |t|
-    t.string   "name",                       limit: 255
-    t.integer  "festival_id",                limit: 4
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "home_file_name",             limit: 255
-    t.string   "home_content_type",          limit: 255
-    t.integer  "home_file_size",             limit: 4
-    t.datetime "home_updated_at"
-    t.string   "artists_index_file_name",    limit: 255
-    t.string   "artists_index_content_type", limit: 255
-    t.integer  "artists_index_file_size",    limit: 4
-    t.datetime "artists_index_updated_at"
-    t.string   "artists_show_file_name",     limit: 255
-    t.string   "artists_show_content_type",  limit: 255
-    t.integer  "artists_show_file_size",     limit: 4
-    t.datetime "artists_show_updated_at"
-    t.string   "events_index_file_name",     limit: 255
-    t.string   "events_index_content_type",  limit: 255
-    t.integer  "events_index_file_size",     limit: 4
-    t.datetime "events_index_updated_at"
-    t.string   "events_show_file_name",      limit: 255
-    t.string   "events_show_content_type",   limit: 255
-    t.integer  "events_show_file_size",      limit: 4
-    t.datetime "events_show_updated_at"
-    t.string   "news_index_file_name",       limit: 255
-    t.string   "news_index_content_type",    limit: 255
-    t.integer  "news_index_file_size",       limit: 4
-    t.datetime "news_index_updated_at"
-    t.string   "news_show_file_name",        limit: 255
-    t.string   "news_show_content_type",     limit: 255
-    t.integer  "news_show_file_size",        limit: 4
-    t.datetime "news_show_updated_at"
-    t.string   "venues_index_file_name",     limit: 255
-    t.string   "venues_index_content_type",  limit: 255
-    t.integer  "venues_index_file_size",     limit: 4
-    t.datetime "venues_index_updated_at"
-    t.string   "venues_show_file_name",      limit: 255
-    t.string   "venues_show_content_type",   limit: 255
-    t.integer  "venues_show_file_size",      limit: 4
-    t.datetime "venues_show_updated_at"
-    t.string   "videos_index_file_name",     limit: 255
-    t.string   "videos_index_content_type",  limit: 255
-    t.integer  "videos_index_file_size",     limit: 4
-    t.datetime "videos_index_updated_at"
-    t.string   "videos_show_file_name",      limit: 255
-    t.string   "videos_show_content_type",   limit: 255
-    t.integer  "videos_show_file_size",      limit: 4
-    t.datetime "videos_show_updated_at"
+    t.text     "name",        limit: 65535
+    t.text     "body",        limit: 65535
+    t.boolean  "partial",     limit: 1,     default: false
+    t.string   "path",        limit: 255
+    t.string   "format",      limit: 255,   default: "html"
+    t.string   "locale",      limit: 255
+    t.string   "handler",     limit: 255,   default: "curly"
+    t.integer  "festival_id", limit: 4
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
 
   add_index "templates", ["festival_id"], name: "index_templates_on_festival_id", using: :btree
@@ -370,14 +337,18 @@ ActiveRecord::Schema.define(version: 20160215213637) do
   add_index "venue_translations", ["venue_id"], name: "index_venue_translations_on_venue_id", using: :btree
 
   create_table "venues", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "location",    limit: 255
-    t.integer  "capacity",    limit: 4
-    t.text     "description", limit: 65535
-    t.string   "slug",        limit: 255
-    t.integer  "festival_id", limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "name",               limit: 255
+    t.string   "location",           limit: 255
+    t.integer  "capacity",           limit: 4
+    t.text     "description",        limit: 65535
+    t.string   "slug",               limit: 255
+    t.integer  "festival_id",        limit: 4
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
   end
 
   add_index "venues", ["festival_id"], name: "index_venues_on_festival_id", using: :btree

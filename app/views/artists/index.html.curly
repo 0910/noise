@@ -1,0 +1,50 @@
+{{navigation}}
+
+<section class="artists" id="artists">
+  <div class="container">
+    <div class="row">
+      <h1 class="section-heading">
+      {{t.artists.title}}
+      </h1>
+    </div>
+    <div class="row">
+      <div class="section-heading-hr">
+        <img src="assets/arrow-down.png" alt=""/>
+      </div>
+    </div>
+    <div class="row artists-filters">
+      <div class="artists-filter-button filter" data-filter="all">
+      {{t.filters.filter.all}}
+      </div>
+      {{*events}}
+        <div class="artists-filter-button filter" data-filter=".{{slug}}">
+          {{name}}
+        </div>
+      {{/events}}
+    </div>
+    <div class="row artists-grid">
+      {{*events}}
+        <div class="col-md-12 mix {{slug}}">
+          <div class="row">
+            <h1 class="artists-title">
+              {{name}}
+            </h1>
+          </div>
+          <div class="row">
+            {{*artists}}
+              <a class="artists-item" href="{{artist_detail_link}}">
+              {{name}}
+              </a>
+            {{/artists}}
+          </div>
+        </div>
+      {{/events}}
+    </div>
+  </div>
+</section>
+
+{{footer}}
+
+<script type="text/javascript">
+  $('.artists-grid').mixItUp();
+</script>

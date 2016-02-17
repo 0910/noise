@@ -1,0 +1,47 @@
+<footer class="footer">
+  <div class="container">
+    <div class="col-md-4 footer-copyright">
+      <p class="footer-copyright-text">
+        © Off At Forum - 2016
+      </p>
+    </div>
+    <div class="col-md-4 footer-social">
+      <a href="{{facebook}}" class="footer-social-link">
+        <span>
+          <i class="fa fa-facebook"></i>
+        </span>
+      </a>
+      <a href="{{instagram}}" class="footer-social-link">
+        <span>
+          <i class="fa fa-instagram"></i>
+        </span>
+      </a>
+      <a href="{{twitter}}" class="footer-social-link">
+        <span>
+          <i class="fa fa-twitter"></i>
+        </span>
+      </a>
+      <a href="{{soundcloud}}" class="footer-social-link">
+        <span>
+          <i class="fa fa-youtube"></i>
+        </span>
+      </a>
+    </div>
+    <div class="col-md-4 footer-noise">
+      <p class="footer-noise-link">
+        made with
+        <i class="fa fa-heart"></i>
+        by
+        {{noise}}
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script type="text/javascript">
+  $('body').jpreLoader({
+    loaderVPos: '50%',
+    autoClose: true,
+    showPercentage: true
+  });
+</script>

@@ -1,0 +1,334 @@
+{{ navigation }}
+
+<header class="header" id="header">
+  <div class="header-container">
+    <h1 class="header-title">
+      OFF AT FORUM
+    </h1>
+    <h2 class="header-subtitle">
+      OPEN AIR / DAY EVENTS / 2 STAGES / PRIVATE BEACH LOCATION
+    </h2>
+    <h2 class="header-subtitle">
+      16-19TH JUNE / OFF WEEK / BARCELONA
+    </h2>
+  </div>
+</header>
+
+<section class="videos" id="videos">
+  <div class="container">
+    <div class="row videos-grid no-gutter">
+      {{*videos}}
+        <a href="{{youtube_link}}" class="col-md-6 col-md-offset-3 videos-item swipebox">
+          <img class="video-image" src="{{cover}}" alt=""/>
+          <div class="videos-item-hover">
+            <div class="videos-item-hover-caption">
+              <p class="videos-item-hover-caption-text">
+                {{name}}
+              </p>
+              <p class="videos-item-hover-caption-icon icon icon-play">
+                <i class="fa fa-play"></i>
+              </p>
+            </div>
+          </div>
+        </a>
+      {{/videos}}
+    </div>
+  </div>
+</section>
+
+<section class="artists" id="artists">
+  <div class="container">
+    <div class="row">
+      <h1 class="section-heading">
+      {{t.artists.title}}
+      </h1>
+    </div>
+    <div class="row artists-filters">
+      <div class="artists-filter-button filter" data-filter="all">
+      {{t.filters.filter.all}}
+      </div>
+      {{*events}}
+        <div class="artists-filter-button filter" data-filter=".{{slug}}">
+          {{name}}
+        </div>
+      {{/events}}
+    </div>
+    <div class="row artists-grid">
+      {{*events}}
+        <div class="col-md-12 mix {{slug}}">
+          <div class="row">
+            <h1 class="artists-title">
+              {{name}}
+            </h1>
+          </div>
+          <div class="row">
+            {{*artists}}
+              <a class="artists-item" href="{{artist_detail_link}}">
+              {{name}}
+              </a>
+            {{/artists}}
+          </div>
+        </div>
+      {{/events}}
+    </div>
+  </div>
+</section>}}
+
+<section class="events" id="events">
+  <div class="container">
+    <div class="row">
+      <h1 class="section-heading">
+        {{t.events.title}}
+      </h1>
+    </div>
+    <div class="row">
+      {{*events}}
+        <a href="{{detail_link}}" class="events-item">
+          <div class="row">
+            <img class="event-image" src="{{image}}" alt="{{name}}"/>
+          </div>
+          <div class="row">
+            <div class="events-item-caption">
+              <h2 class="events-item-caption-title">
+                {{name}}
+              </h2>
+              <h3 class="events-item-caption-subtitle">
+                {{date}}
+              </h3>
+            </div>
+          </div>
+        </a>
+      {{/events}}
+    </div>
+  </div>
+</section>
+
+<section class="news no-gutter" id="news">
+  <div class="container-fluid">
+    <div class="col-md-12">
+      <div class="row">
+        <h1 class="section-heading">
+          {{t.news.title}}
+        </h1>
+      </div>
+      <div class="row">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+          {{*news}}
+            <a href="{{detail_link}}" class="news-item swiper-slide">
+              <div class="row no-gutter">
+                <div class="col-md-12">
+                  <img src="{{image}}" alt="{{title}}" class="news-image"/>
+                  <div class="item-hover">
+                    <p class="news-item-hover-caption">
+                      +
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row no-gutter">
+                <div class="item-caption">
+                  <h2>
+                    {{title}}
+                  </h2>
+                  <h3>
+                    {{subtitle}}
+                  </h3>
+                </div> 
+              </div>
+            </a>
+          {{/news}}
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="venue" id="venue">
+  <div class="container">
+    <div class="row">
+      <h1 class="section-heading">
+        {{t.venues.title}}
+      </h1>
+    </div>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        {{*venues}}
+          <a href="{{detail_link}}" class="venues-item"> 
+            <div class="row no-gutter">
+              <div class="col-md-12">
+                <img src="{{image}}" alt="{{name}}" class="venue-image"/>
+                <div class="item-hover">
+                  <p>
+                    +
+                  </p>
+                </div>  
+              </div>
+            </div>
+            <div class="row no-gutter">
+              <div class="item-caption">
+                <h2>
+                  {{name}}
+                </h2>
+              </div>
+            </div>
+          </a>
+        {{/venues}}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sponsors" id="sponsors">
+  <div class="container">
+    {{*sponsors}}
+       <a href="{{sponsor_link}}" target="_blank" class="sponsor-item">
+        <img src="{{image}}" alt="{{name}}" class="news-image"/>
+      </a>
+    {{/sponsors}}
+  </div>
+</section>
+
+{{footer}}
+
+<div class="animated-objects">
+  <div class="object quarter"></div>
+  <div class="object ball"></div>
+</div>
+
+<script type="text/javascript">
+  $('.videos-item').swipebox();
+  $('.artists-grid').mixItUp();
+  var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    paginationClickable: true,
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    breakpoints: {
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 60
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 15
+      },
+      460: {
+        slidesPerView: 1,
+        spaceBetween: 15
+      }
+    }
+  });
+
+  var _containerHeight = 4000;
+  var _width, _height, _scrollHeight;
+  var _movingElements = [];
+  var _scrollPercent = 0;
+  var pre = prefix();
+  var _jsPrefix  = pre.lowercase;
+  if(_jsPrefix == 'moz') _jsPrefix = 'Moz'
+  var _cssPrefix = pre.css;
+  var _positions = [
+    {
+      name: 'quarter', 
+      start: {
+        percent: 0.01, x: 0, y: 0.25
+      },
+      end: {
+        percent: 0.28, x: 0, y: 0.005
+      }
+    },
+    {
+      name: 'ball', 
+      start: {
+        percent: 0.01, x: 0.65, y: 0.5
+      },
+      end: {
+        percent: 0.5, x: 0.65, y: 0.01
+      }
+    }
+  ]
+
+  resize();
+  initMovingElements();
+
+  function initMovingElements() {
+    for (var i = 0; i < _positions.length; i++) {
+      _positions[i].diff = {
+      percent: _positions[i].end.percent - _positions[i].start.percent,
+      x: _positions[i].end.x - _positions[i].start.x,
+      y: _positions[i].end.y - _positions[i].start.y,
+      }
+      _positions[i].target = {};
+      _positions[i].current = {};
+      var el = document.getElementsByClassName('object '+_positions[i].name)[0];
+      _movingElements.push(el);
+    }
+  }
+
+  function resize() {
+    _width = window.innerWidth;
+    _height = window.innerHeight;
+    _scrollHeight = _containerHeight-_height;
+  }
+
+
+  function updateElements() {
+    for (var i = 0; i < _movingElements.length; i++) {
+    var p = _positions[i];
+    if(_scrollPercent <= p.start.percent) {
+      p.target.x = p.start.x*_width;
+      p.target.y = p.start.y*_containerHeight;
+    } else if(_scrollPercent >= p.end.percent) {
+      p.target.x = p.end.x*_width;
+      p.target.y = p.end.y*_containerHeight;
+    } else {
+      p.target.x = p.start.x*_width + (p.diff.x*(_scrollPercent-p.start.percent)/p.diff.percent*_width);
+      p.target.y = p.start.y*_containerHeight + (p.diff.y*(_scrollPercent-p.start.percent)/p.diff.percent*_containerHeight);
+    }
+
+    if(!p.current.x) {
+      p.current.x = p.target.x;
+      p.current.y = p.target.y;
+    } else {
+      p.current.x = p.current.x + (p.target.x - p.current.x)*0.1;
+      p.current.y = p.current.y + (p.target.y - p.current.y)*0.1;
+    }
+    _movingElements[i].style[_jsPrefix+'Transform'] = 'translate3d('+p.current.x+'px, '+ p.current.y+'px, 0px)';
+    }
+  }
+
+
+
+  function loop() {
+    _scrollOffset = window.pageYOffset || window.scrollTop;
+    _scrollPercent = _scrollOffset/_scrollHeight || 0;
+    updateElements();
+
+    requestAnimationFrame(loop);
+  }
+
+  loop();
+
+  window.addEventListener('resize', resize);
+
+
+  function prefix() {
+    var styles = window.getComputedStyle(document.documentElement, ''),
+      pre = (Array.prototype.slice
+      .call(styles)
+      .join('') 
+      .match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o'])
+      )[1],
+      dom = ('WebKit|Moz|MS|O').match(new RegExp('(' + pre + ')', 'i'))[1];
+    return {
+      dom: dom,
+      lowercase: pre,
+      css: '-' + pre + '-',
+      js: pre[0].toUpperCase() + pre.substr(1)
+    };
+  }
+</script>

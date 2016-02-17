@@ -1,0 +1,40 @@
+{{navigation}}
+
+<section class="artist-detail">
+  <div class="container">
+    <div class="row">
+      <h1 class="section-heading">
+        {{name}}
+      </h1>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <img class="artist-image" src="{{image}}" alt="{{name}}"/>
+      </div>
+    </div>
+    <div class="row artist-social">
+       <a href="{{facebook}}" target="_blank" class="artist-social-link">
+        <span>
+           <i class="fa fa-facebook"></i>
+        </span>
+       </a>
+       <a href="{{instagram}}" target="_blank" class="artist-social-link">
+        <span>
+           <i class="fa fa-instagram"></i>
+        </span>
+       </a>
+       <a href="{{twitter}}" target="_blank" class="artist-social-link">
+        <span>
+           <i class="fa fa-twitter"></i>
+        </span>
+       </a>
+       <a href="{{soundcloud}}" target="_blank" class="artist-social-link">
+        <span>
+           <i class="fa fa-soundcloud"></i>
+        </span>
+       </a>
+    </div>
+  </div>
+</section>
+
+{{footer}}

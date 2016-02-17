@@ -1,0 +1,30 @@
+{{navigation}}
+
+<section class="videos" id="videos">
+  <div class="container">
+  	<div class="row">
+      <h1 class="section-heading">
+        {{t.videos.title}}
+      </h1>
+    </div>
+    <div class="row videos-grid no-gutter">
+      {{*videos}}
+        <a href="{{youtube_link}}" class="col-md-3 videos-item swipebox">
+          <img class="video-image" src="{{cover}}" alt=""/>
+          <div class="videos-item-hover">
+            <div class="videos-item-hover-caption">
+              <p class="videos-item-hover-caption-text">
+                {{name}}
+              </p>
+              <p class="videos-item-hover-caption-icon icon icon-play">
+                <i class="fa fa-play"></i>
+              </p>
+            </div>
+          </div>
+        </a>
+      {{/videos}}
+    </div>
+  </div>
+</section>
+
+{{footer}}

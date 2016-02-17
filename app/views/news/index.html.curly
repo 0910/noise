@@ -1,0 +1,42 @@
+{{navigation}}
+
+<section class="news" id="news">
+  <div class="container">
+    <div class="col-md-12">
+      <div class="row">
+        <h1 class="section-heading">
+          {{t.news.title}}
+        </h1>
+      </div>
+      <div class="row">
+        {{*news}}
+          <a href="{{detail_link}}" class="item col-md-4">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="item-wrap">
+                  <img src="{{image}}" alt="{{title}}" class="item-image"/>
+                  <div class="item-hover">
+                    <p class="news-item-hover-caption">
+                      +
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row no-gutter">
+              <div class="item-caption">
+                <h2>
+                  {{title}}
+                </h2>
+                <h3>
+                  {{subtitle}}
+                </h3>
+              </div> 
+            </div>
+          </a>
+        {{/news}}
+    </div>
+  </div>
+</section>
+
+{{footer}}

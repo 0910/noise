@@ -246,6 +246,8 @@ es:
 
   artists:
     title: "Artists"
+    filter:
+      all: "Todos"
 
   events:
     title: "Tickets"

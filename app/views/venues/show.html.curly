@@ -1,0 +1,32 @@
+{{navigation}}
+
+<section class="venue-detail">
+  <div class="container">
+    <div class="row">
+      <h1 class="section-heading">
+        {{name}}
+      </h1>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <img src="{{image}}" alt="{{name}}" class="venue-image"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2 class="section-subheading">
+          {{location}}
+        </h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="section-body">
+          {{description}}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{footer}}

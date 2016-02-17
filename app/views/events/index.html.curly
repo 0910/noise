@@ -1,0 +1,32 @@
+{{navigation}}
+
+<section class="events" id="events">
+  <div class="container">
+    <div class="row">
+      <h1 class="section-heading">
+        {{t.events.title}}
+      </h1>
+    </div>
+    <div class="row">
+      {{*events}}
+        <a href="{{detail_link}}" class="events-item">
+          <div class="row">
+            <img class="event-image" src="{{image}}" alt="{{name}}"/>
+          </div>
+          <div class="row">
+            <div class="events-item-caption">
+              <h2 class="events-item-caption-title">
+                {{name}}
+              </h2>
+              <h3 class="events-item-caption-subtitle">
+                {{date}}
+              </h3>
+            </div>
+          </div>
+        </a>
+      {{/events}}
+    </div>
+  </div>
+</section>
+
+{{footer}}

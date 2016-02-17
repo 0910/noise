@@ -216,6 +216,8 @@ ca:
         tr: "Turkish"
   artists:
     title: "Artistes"
+    filter:
+      all: "Tots"
 
   events:
     title: "Entrades"

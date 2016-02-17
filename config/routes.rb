@@ -1,17 +1,21 @@
 Rails.application.routes.draw do
   
+  get 'videos/index'
+
   resources :festivals, only: [:show, :index] do
     resources :events, only: [:show, :index] do
     end
     resources :shows, only: [:show, :index] do
     end
-    resources :artists, only: [:show] do
+    resources :artists, only: [:show, :index] do
     end
-    resources :venues, only: [:show] do
+    resources :venues, only: [:show, :index] do
     end
-    resources :news, only: [:show] do
+    resources :news, only: [:show, :index] do
     end
-    resources :videos, only: [:index] do
+    resources :videos, only: [:show, :index] do
+    end
+    resources :sponsors, only: [:index] do
     end
   end
 

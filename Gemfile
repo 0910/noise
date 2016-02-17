@@ -39,10 +39,9 @@ gem 'swipebox'
 gem 'globalize', '~> 5.0.0'
 gem 'activeadmin-globalize', '~> 1.0.0.pre', github: 'fabn/activeadmin-globalize', branch: 'develop'
 gem 'rails-i18n', '~> 4.0.0' 
-#gem 'globalize-accessors'
-#gem 'curly-templates'
-#gem 'redcarpet'
-#gem 'liquid-rails'
+gem 'curly-templates'
+gem 'redcarpet'
+
 
 group :development do
     gem 'capistrano'

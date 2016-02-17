@@ -1,0 +1,51 @@
+{{navigation}}
+
+<section class="event-detail">
+  <div class="container">
+    <div class="row">
+      <h1 class="section-heading">
+        {{name}}
+      </h1>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+      	<img src="{{image}}" alt="{{name}}" class="event-image"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2 class="section-subheading">
+          {{date}}
+          <br/>
+          {{venue}}
+        </h2>
+      </div>
+    </div>
+    <div class="row">
+      <a href="{{tickets}}" class="get-tickets swipebox">
+        Get Tickets
+      </a>
+    </div>
+    <div class="row artists-list">
+      {{*artists}}
+        <a href="{{artist_detail_link}}" class="artists-item">
+          {{name}}
+        </a>
+      {{/artists}}
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <p class="section-body">
+          {{description}}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{{footer}}
+
+<script type="text/javascript">
+	$('.swipebox').swipebox();
+</script>

@@ -1,6 +1,6 @@
 class News::ShowPresenter < ApplicationPresenter
 
-	presents :news
+	presents :news, :festival
 
 	def title
 		@news.title
@@ -21,5 +21,9 @@ class News::ShowPresenter < ApplicationPresenter
 	def image
 		@news.image.url(:large)
 	end	
+
+	def page_title
+		content_for :title, @festival.name + ' - ' + @news.title
+	end
 
 end

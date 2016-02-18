@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217212740) do
+ActiveRecord::Schema.define(version: 20160218070835) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -158,6 +158,17 @@ ActiveRecord::Schema.define(version: 20160217212740) do
     t.string   "logo_content_type",      limit: 255
     t.integer  "logo_file_size",         limit: 4
     t.datetime "logo_updated_at"
+    t.text     "css",                    limit: 65535
+    t.string   "url",                    limit: 255
+    t.string   "keywords",               limit: 255
+    t.string   "image_file_name",        limit: 255
+    t.string   "image_content_type",     limit: 255
+    t.integer  "image_file_size",        limit: 4
+    t.datetime "image_updated_at"
+    t.string   "css_file_file_name",     limit: 255
+    t.string   "css_file_content_type",  limit: 255
+    t.integer  "css_file_file_size",     limit: 4
+    t.datetime "css_file_updated_at"
   end
 
   add_index "festivals", ["email"], name: "index_festivals_on_email", unique: true, using: :btree
@@ -191,10 +202,12 @@ ActiveRecord::Schema.define(version: 20160217212740) do
     t.datetime "updated_at",                                    null: false
     t.integer  "sponsor_id",        limit: 4
     t.integer  "video_id",          limit: 4
+    t.integer  "festival_id",       limit: 4
   end
 
   add_index "images", ["artist_id"], name: "index_images_on_artist_id", using: :btree
   add_index "images", ["event_id"], name: "index_images_on_event_id", using: :btree
+  add_index "images", ["festival_id"], name: "index_images_on_festival_id", using: :btree
   add_index "images", ["news_id"], name: "index_images_on_news_id", using: :btree
   add_index "images", ["show_id"], name: "index_images_on_show_id", using: :btree
   add_index "images", ["sponsor_id"], name: "index_images_on_sponsor_id", using: :btree
@@ -391,6 +404,7 @@ ActiveRecord::Schema.define(version: 20160217212740) do
   add_foreign_key "festival_themes", "themes"
   add_foreign_key "images", "artists"
   add_foreign_key "images", "events"
+  add_foreign_key "images", "festivals"
   add_foreign_key "images", "news"
   add_foreign_key "images", "shows"
   add_foreign_key "images", "sponsors"

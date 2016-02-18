@@ -9,5 +9,9 @@ class Artists::IndexPresenter < ApplicationPresenter
 	def events
 		@festival.events
 	end
+
+	def page_title
+		content_for :title, @festival.name + ' - Artists'
+	end
 	
 end

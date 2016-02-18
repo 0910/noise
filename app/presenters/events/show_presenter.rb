@@ -1,6 +1,6 @@
 class Events::ShowPresenter < ApplicationPresenter
 
-	presents :event
+	presents :event, :festival
 
 	def name
 		@event.name
@@ -28,6 +28,10 @@ class Events::ShowPresenter < ApplicationPresenter
 
 	def artists
 		@event.artists
+	end
+
+	def page_title
+		content_for :title, @festival.name + ' - ' + @event.name
 	end
 
 end

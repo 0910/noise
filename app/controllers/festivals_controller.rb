@@ -14,5 +14,8 @@ class FestivalsController < ApplicationController
   	@sponsors = Sponsor.where(:festival_id => @festival.id)
   	@videos = Video.where(:festival_id => @festival.id)
   	@venues = Venue.where(:festival_id => @festival.id)
+
+    set_meta_tags title: @festival.name, description: @festival.description, keywords: @festival.keywords, og: { title: @festival.name, type:'website', url: @festival.url, image: @festival.image.url(:large), description: @festival.description }
+    
   end
 end

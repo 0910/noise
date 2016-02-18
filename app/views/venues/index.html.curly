@@ -1,0 +1,40 @@
+{{page_title}}
+
+{{navigation}}
+
+<section class="venue" id="venue">
+  <div class="container">
+    <div class="row">
+      <h1 class="section-heading">
+        {{t.venues.title}}
+      </h1>
+    </div>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        {{*venues}}
+          <a href="{{detail_link}}" class="venues-item"> 
+            <div class="row no-gutter">
+              <div class="col-md-12">
+                <img src="{{image}}" alt="{{name}}" class="venue-image"/>
+                <div class="item-hover">
+                  <p>
+                    +
+                  </p>
+                </div>  
+              </div>
+            </div>
+            <div class="row no-gutter">
+              <div class="item-caption">
+                <h2>
+                  {{name}}
+                </h2>
+              </div>
+            </div>
+          </a>
+        {{/venues}}
+      </div>
+    </div>
+  </div>
+</section>
+
+{{footer}}

@@ -6,4 +6,8 @@ class Events::IndexPresenter < ApplicationPresenter
     @festival.events
   end
   
+  def page_title
+    content_for :title, @festival.name + ' - Events'
+  end
+
 end

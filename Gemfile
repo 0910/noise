@@ -41,6 +41,7 @@ gem 'activeadmin-globalize', '~> 1.0.0.pre', github: 'fabn/activeadmin-globalize
 gem 'rails-i18n', '~> 4.0.0' 
 gem 'curly-templates'
 gem 'redcarpet'
+gem 'meta-tags'
 
 
 group :development do

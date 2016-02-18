@@ -1,6 +1,6 @@
 class Artists::ShowPresenter < ApplicationPresenter
 
-	presents :artist
+	presents :artist, :festival
 
 	def name
 		@artist.name
@@ -28,6 +28,10 @@ class Artists::ShowPresenter < ApplicationPresenter
 
 	def soundcloud
 		@artist.soundcloud_link
+	end
+
+	def page_title
+		content_for :title, @festival.name + ' - ' + @artist.name
 	end
 
 end

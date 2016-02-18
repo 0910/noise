@@ -1,6 +1,6 @@
 class Venues::ShowPresenter < ApplicationPresenter
 
-	presents :venue
+	presents :venue, :festival
 
 	def name
 		@venue.name
@@ -20,6 +20,10 @@ class Venues::ShowPresenter < ApplicationPresenter
 
 	def image
 		@venue.image.url(:large)
-	end	
+	end
+
+	def page_title
+		content_for :title, @festival.name + ' - ' + @venue.name
+	end
 
 end

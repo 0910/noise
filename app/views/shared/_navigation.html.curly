@@ -1,7 +1,7 @@
 <nav class="navbar">
   <div class="navbar-container">
     <div class="navbar-header">
-      <a href="" class="navbar-brand">
+      <a href="{{go_to_home}}" class="navbar-brand">
         <img src="{{logo}}" alt="{{name}}"/>
       </a>
       <button class="toggle-navbar">
@@ -13,59 +13,59 @@
         </span>
       </button>
     </div>
-    <div class="navbar-collapse">
-      <ul class="navbar-nav">
-        <div class="row">
-          <li class="active">
-            <a href="{{go_to_home}}">Home</a>
-          </li>
-          <li>
-            <a href="{{go_to_artists}}">Artists</a>
-          </li>
-          <li>
-            <a href="{{go_to_events}}">Tickets</a>
-          </li>
-          <li>
-            <a href="{{go_to_news}}">News</a>
-          </li>
-          <li>
-            <a href="{{go_to_videos}}">Videos</a>
-          </li>
-          <li>
-            <a href="{{go_to_venues}}">Venues</a>
-          </li>
-        </div>
-        <div class="row">
-          <a href="{{facebook}}" class="navbar-social-link">
-            <span>
-              <i class="fa fa-facebook"></i>
-            </span>
-          </a>
-          <a href="{{instagram}}" class="navbar-social-link">
-            <span>
-              <i class="fa fa-instagram"></i>
-            </span>
-          </a>
-          <a href="{{twitter}}" class="navbar-social-link">
-            <span>
-              <i class="fa fa-twitter"></i>
-            </span>
-          </a>
-          <a href="{{soundcloud}}" class="navbar-social-link">
-            <span>
-              <i class="fa fa-youtube"></i>
-            </span>
-          </a>
-        </div>
-        <div class="row lang">
-          {{lang_english}}
-          {{lang_spanish}}
-          {{lang_catalan}}
-        </div>
-      </ul>
-    </div>
   </div>
 </nav>
+<div class="navbar-collapse">
+  <ul class="navbar-nav">
+    <div class="row">
+      <li class="active">
+        <a href="{{go_to_home}}">Home</a>
+      </li>
+      <li>
+        <a href="{{go_to_artists}}">Artists</a>
+      </li>
+      <li>
+        <a href="{{go_to_events}}">Tickets</a>
+      </li>
+      <li>
+        <a href="{{go_to_news}}">News</a>
+      </li>
+      <li>
+        <a href="{{go_to_videos}}">Videos</a>
+      </li>
+      <li>
+        <a href="{{go_to_venues}}">Venues</a>
+      </li>
+    </div>
+    <div class="row">
+      <a href="{{facebook}}" class="navbar-social-link">
+        <span>
+          <i class="fa fa-facebook"></i>
+        </span>
+      </a>
+      <a href="{{instagram}}" class="navbar-social-link">
+        <span>
+          <i class="fa fa-instagram"></i>
+        </span>
+      </a>
+      <a href="{{twitter}}" class="navbar-social-link">
+        <span>
+          <i class="fa fa-twitter"></i>
+        </span>
+      </a>
+      <a href="{{soundcloud}}" class="navbar-social-link">
+        <span>
+          <i class="fa fa-youtube"></i>
+        </span>
+      </a>
+    </div>
+    <div class="row lang">
+      {{lang_english}}
+      {{lang_spanish}}
+      {{lang_catalan}}
+    </div>
+  </ul>
+</div>
 <script type="text/javascript">
   function toggleMenu() {
     if($('.navbar-collapse').hasClass('show')){

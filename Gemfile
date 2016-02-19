@@ -51,6 +51,7 @@ group :development do
     gem 'capistrano-bundler'
     gem 'capistrano-faster-assets', '~> 1.0'
     gem 'mysql2', '~> 0.3.13'
+    gem 'byebug'
 end
 
 group :production do

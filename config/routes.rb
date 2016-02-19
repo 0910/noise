@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'domains/dispatch'
+
   get 'videos/index'
 
   resources :festivals, only: [:show, :index] do
@@ -22,7 +24,8 @@ Rails.application.routes.draw do
   devise_for :festivals, ActiveAdmin::Devise.config.merge({path: '/admin'})
   devise_for :admin_users, ActiveAdmin::Devise.config.merge({path: '/super_admin'})
   ActiveAdmin.routes(self)
-  root to: "dashboard#index"
+  
+  root to: "festivals#lookup"
 
   get '/change_locale/:locale', to: 'settings#change_locale', as: :change_locale
 

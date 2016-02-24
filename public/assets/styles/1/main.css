@@ -609,11 +609,18 @@ a.artists-item:last-child::after {
 }
 
 /* Artist Detail*/
+
 body.artists {
   background-position: top center;
   background-repeat: repeat-y;
   background-size: cover;
   background-image: url("assets/bg2.jpg");
+}
+
+section.artist-detail {
+  padding: 0 0 100px 0;
+  width: 100%;
+  text-align: center;
 }
 
 .artist-image {

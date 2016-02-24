@@ -23,7 +23,7 @@ class Festivals::EventPresenter < Curly::Presenter
   end
 
   def artists
-    @event.artists
+    @event.artists.order('name desc')
   end
 
 end

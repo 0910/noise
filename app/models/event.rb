@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
-  belongs_to :festival, :dependent => :destroy
+  belongs_to :festival
 
-  belongs_to :venue, :dependent => :destroy
+  belongs_to :venue
 
   has_many :shows
 

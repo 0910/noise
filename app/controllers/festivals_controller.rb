@@ -8,12 +8,6 @@ class FestivalsController < ApplicationController
 
   def show
   	@festival = Festival.friendly.find(params[:id])
-  	@events = Event.where(:festival_id => @festival.id).order(starts_on: :asc)
-  	@artists = Artist.where(:festival_id => @festival.id).order(name: :asc)
-  	@news = News.where(:festival_id => @festival.id)
-  	@sponsors = Sponsor.where(:festival_id => @festival.id)
-  	@videos = Video.where(:festival_id => @festival.id)
-  	@venues = Venue.where(:festival_id => @festival.id)
 
     set_meta_tags(
       title: @festival.name,
@@ -30,7 +24,7 @@ class FestivalsController < ApplicationController
   end
 
   def lookup
-    if festival = Festival.find_by_url(request.domain(10))
+    if festival = Festival.find_by_url(request.domain(10).gsub(/^www./,""))
       params[:id] = festival.id
       show
       render action: :show

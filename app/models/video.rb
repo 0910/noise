@@ -1,5 +1,5 @@
 class Video < ActiveRecord::Base
-	belongs_to :festival, :dependent => :destroy
+	belongs_to :festival
 
 	active_admin_translates :name, :description
 

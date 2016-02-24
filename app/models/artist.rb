@@ -1,5 +1,5 @@
 class Artist < ActiveRecord::Base
-	belongs_to :festival, :dependent => :destroy
+	belongs_to :festival
 	has_many :show
 
 	active_admin_translates :bio

@@ -1,5 +1,5 @@
 class Sponsor < ActiveRecord::Base
-	belongs_to :festival, :dependent => :destroy
+	belongs_to :festival
 
 	has_attached_file :image, :styles => { :thumb => "120x80>", :small => '480x320>', :medium => '720x480>', :large => '1080x720>' },
             :url  => "/assets/sponsors/:id/:style/:basename.:extension",

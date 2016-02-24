@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160218070835) do
+ActiveRecord::Schema.define(version: 20160224175434) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -192,27 +192,15 @@ ActiveRecord::Schema.define(version: 20160218070835) do
     t.string   "file_content_type", limit: 255
     t.integer  "file_file_size",    limit: 4
     t.datetime "file_updated_at"
-    t.integer  "event_id",          limit: 4
-    t.integer  "venue_id",          limit: 4
     t.integer  "show_id",           limit: 4
-    t.integer  "artist_id",         limit: 4
-    t.integer  "news_id",           limit: 4
     t.boolean  "cover",             limit: 1,   default: false
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
-    t.integer  "sponsor_id",        limit: 4
-    t.integer  "video_id",          limit: 4
     t.integer  "festival_id",       limit: 4
   end
 
-  add_index "images", ["artist_id"], name: "index_images_on_artist_id", using: :btree
-  add_index "images", ["event_id"], name: "index_images_on_event_id", using: :btree
   add_index "images", ["festival_id"], name: "index_images_on_festival_id", using: :btree
-  add_index "images", ["news_id"], name: "index_images_on_news_id", using: :btree
   add_index "images", ["show_id"], name: "index_images_on_show_id", using: :btree
-  add_index "images", ["sponsor_id"], name: "index_images_on_sponsor_id", using: :btree
-  add_index "images", ["venue_id"], name: "index_images_on_venue_id", using: :btree
-  add_index "images", ["video_id"], name: "index_images_on_video_id", using: :btree
 
   create_table "news", force: :cascade do |t|
     t.string   "title",              limit: 255
@@ -402,14 +390,8 @@ ActiveRecord::Schema.define(version: 20160218070835) do
   add_foreign_key "events", "venues"
   add_foreign_key "festival_themes", "festivals"
   add_foreign_key "festival_themes", "themes"
-  add_foreign_key "images", "artists"
-  add_foreign_key "images", "events"
   add_foreign_key "images", "festivals"
-  add_foreign_key "images", "news"
   add_foreign_key "images", "shows"
-  add_foreign_key "images", "sponsors"
-  add_foreign_key "images", "venues"
-  add_foreign_key "images", "videos"
   add_foreign_key "news", "festivals"
   add_foreign_key "shows", "events"
   add_foreign_key "shows", "festivals"

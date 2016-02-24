@@ -4,14 +4,14 @@ class Festival < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :artists
-  has_many :events
-  has_many :venues
-  has_many :shows
-  has_many :news
-  has_many :sponsors
-  has_many :videos
-  has_many :templates
+  has_many :artists, :dependent => :destroy
+  has_many :events, :dependent => :destroy
+  has_many :venues, :dependent => :destroy
+  has_many :shows, :dependent => :destroy
+  has_many :news, :dependent => :destroy
+  has_many :sponsors, :dependent => :destroy
+  has_many :videos, :dependent => :destroy
+  has_many :templates, :dependent => :destroy
 
   has_many :images, :dependent => :destroy
   accepts_nested_attributes_for :images, :allow_destroy => true

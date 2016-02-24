@@ -1,5 +1,5 @@
 class Venue < ActiveRecord::Base
-	belongs_to :festival, :dependent => :destroy
+	belongs_to :festival
 	has_many :events
 	has_many :shows
 

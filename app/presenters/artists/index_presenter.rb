@@ -3,11 +3,11 @@ class Artists::IndexPresenter < ApplicationPresenter
 	presents :festival
 
 	def artists
-		@festival.artists
+		@festival.artists.order(name: :asc)
 	end
 
 	def events
-		@festival.events
+		@festival.events.order(starts_on: :asc)
 	end
 
 	def page_title

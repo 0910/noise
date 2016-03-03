@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     end
     resources :sponsors, only: [:index] do
     end
+    resources :newsletters, only: [:new, :create]
+    resources :contacts, only: [:new, :create]
   end
 
   devise_for :festivals, ActiveAdmin::Devise.config.merge({path: '/admin'})

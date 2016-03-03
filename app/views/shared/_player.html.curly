@@ -1,0 +1,42 @@
+<div id="player">
+    <ol id="playlist" class="playlist"></ol>
+    <div class="controls">
+        <div class="player-button play">
+            <span>
+                <i class="fa fa-play"></i>
+            </span>
+        </div>
+        <div class="player-button stop">
+            <span>
+                <i class="fa fa-stop"></i>
+            </span>
+        </div>
+        <div class="player-button prev">
+            <span>
+                <i class="fa fa-backward"></i>
+            </span>
+        </div>
+        <div class="player-button next">
+            <span>
+                <i class="fa fa-forward"></i>
+            </span>
+        </div>
+        <div class="player-button plist">
+            <span>
+                <i class="fa fa-bars"></i>
+            </span>
+        </div>
+    </div>
+    <div id="waveform">
+        <div class="buffer"></div>
+        <div class="played"></div>
+        <img />
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('.plist').click(function(event){
+        event.preventDefault();
+        $('#playlist').slideToggle();
+    });
+</script>

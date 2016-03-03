@@ -1,4 +1,4 @@
-class Shared::NavigationPresenter < Curly::Presenter
+class Shared::NavigationPresenter < ApplicationPresenter
 
 	def name
 		festival.name
@@ -36,6 +36,10 @@ class Shared::NavigationPresenter < Curly::Presenter
 		festival_sponsors_path(festival)
 	end
 
+	def go_to_contact
+		new_festival_contact_path(festival)
+	end
+
 	def facebook
 		festival.facebook
 	end
@@ -62,6 +66,18 @@ class Shared::NavigationPresenter < Curly::Presenter
 
 	def lang_catalan
 		link_to 'Català', change_locale_path(:ca)
+	end
+
+	def lang_english_short
+		link_to 'En', change_locale_path(:en)
+	end
+
+	def lang_spanish_short
+		link_to 'Es', change_locale_path(:es)
+	end
+
+	def lang_catalan_short
+		link_to 'Ca', change_locale_path(:ca)
 	end
 
 end

@@ -1,5 +1,5 @@
-class Shared::FooterPresenter < Curly::Presenter
-
+class Shared::FooterPresenter < ApplicationPresenter
+	
 	def name
 		festival.name
 	end
@@ -57,7 +57,7 @@ class Shared::FooterPresenter < Curly::Presenter
 	end
 
 	def noise
-		link_to 'NOISE', 'http://www.wemakenoise.tv', target: '_blank'
+		link_to 'NOISE', 'http://www.wemakenoise.tv', target: '_blank', class: 'noise-link'
 	end
 
 end

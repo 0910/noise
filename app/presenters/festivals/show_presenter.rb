@@ -74,4 +74,12 @@ class Festivals::ShowPresenter < ApplicationPresenter
 		link_to 'NOISE', 'http://www.wemakenoise.tv', target: '_blank'
 	end
 
+	def page_title
+		content_for :title, @festival.name
+	end
+
+	def get_tickets
+		festival_events_path(festival)
+	end
+
 end

@@ -1,11 +1,7 @@
+{{newsletter}}
 <footer class="footer">
   <div class="container-fluid">
-    <div class="col-md-4 footer-copyright">
-      <p class="footer-copyright-text">
-        © Off At Forum - 2016
-      </p>
-    </div>
-    <div class="col-md-4 footer-social">
+    <div class="col-md-6 footer-social">
       <a href="{{facebook}}" class="footer-social-link">
         <span>
           <i class="fa fa-facebook"></i>
@@ -26,22 +22,47 @@
           <i class="fa fa-youtube"></i>
         </span>
       </a>
+      <a class="toggle-newsletter" href="#">{{t.newsletters.subscribe}}</a>
     </div>
-    <div class="col-md-4 footer-noise">
-      <p class="footer-noise-link">
-        made with
-        <i class="fa fa-heart"></i>
-        by
-        {{noise}}
-      </p>
+    <div class="col-md-6">
+      {{player}}
     </div>
   </div>
 </footer>
+<div class="bottom">
+  <p class="footer-copyright-text">
+    © Off At Forum - 2016
+    made with
+    <i class="fa fa-heart"></i>
+    by
+    {{noise}}
+  </p>
+</div>
+
+{{load_widgets}}
 
 <script type="text/javascript">
   $('body').jpreLoader({
     loaderVPos: '50%',
     autoClose: true,
     showPercentage: true
+  });
+
+  function toggleNewsletter() {
+    if($('.newsletter').hasClass('show')){
+      $('body').css('overflow', 'auto');
+      $('.newsletter').removeClass('show');
+      $('.toggle-newsletter').text('Subscribe to Newsletter');
+    } 
+    else {
+      $('.newsletter').addClass('show');
+      $('body').css('overflow', 'hidden');
+      $('.navbar-collpse').removeClass('show');
+      $('.toggle-newsletter').text('Close');
+    }
+  }
+  $('.toggle-newsletter').click(function(event) {
+    event.preventDefault();
+    toggleNewsletter();
   });
 </script>

@@ -221,9 +221,26 @@ ca:
 
   events:
     title: "Entrades"
+    tickets: "Aconseguir Entrades"
 
   news:
     title: "Notícies"
 
   venues:
     title: "Ubicació"
+
+  videos:
+    title: "Vídeos"
+
+  newsletters:
+    subscribe: 'Subscrigui al nostre butlletí'
+    create:
+      successful: "Ha afegir al nostre butlletí de notícies"
+
+  contacts:
+    title: 'Contacte'
+    name: 'Nom'
+    email: 'Email'
+    message: 'Missatge'
+    submit: 'Enviar'
+

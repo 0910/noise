@@ -1,0 +1,12 @@
+<div class="newsletter">
+	<div class="newsletter-container">
+		<%= form_for [festival, newsletter] do |f| %>
+		  <p>
+		    <%= f.label "newsletter:" %><br/>
+		    <%= f.text_field :email, :placeholder => 'Enter your email...' %>
+		    <%= f.hidden_field :section, :value => controller_name %>
+		    <%= f.submit "OK" %>
+		  </p>
+		<% end %>
+	</div>
+</div>

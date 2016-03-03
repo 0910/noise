@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224175434) do
+ActiveRecord::Schema.define(version: 20160303005046) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -79,6 +79,14 @@ ActiveRecord::Schema.define(version: 20160224175434) do
 
   add_index "artists", ["festival_id"], name: "index_artists_on_festival_id", using: :btree
 
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.text     "message",    limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "event_artists", force: :cascade do |t|
     t.integer  "event_id",   limit: 4
     t.integer  "artist_id",  limit: 4
@@ -133,42 +141,44 @@ ActiveRecord::Schema.define(version: 20160224175434) do
   add_index "festival_themes", ["theme_id"], name: "index_festival_themes_on_theme_id", using: :btree
 
   create_table "festivals", force: :cascade do |t|
-    t.string   "name",                   limit: 255
-    t.text     "description",            limit: 65535
-    t.string   "slug",                   limit: 255
-    t.string   "email",                  limit: 255,   default: "", null: false
-    t.string   "encrypted_password",     limit: 255,   default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "name",                    limit: 255
+    t.text     "description",             limit: 65535
+    t.string   "slug",                    limit: 255
+    t.string   "email",                   limit: 255,   default: "", null: false
+    t.string   "encrypted_password",      limit: 255,   default: "", null: false
+    t.string   "reset_password_token",    limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,     default: 0,  null: false
+    t.integer  "sign_in_count",           limit: 4,     default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
-    t.string   "facebook",               limit: 255
-    t.string   "twitter",                limit: 255
-    t.string   "instagram",              limit: 255
-    t.string   "resident",               limit: 255
-    t.string   "soundcloud",             limit: 255
-    t.text     "template",               limit: 65535
-    t.string   "logo_file_name",         limit: 255
-    t.string   "logo_content_type",      limit: 255
-    t.integer  "logo_file_size",         limit: 4
+    t.string   "current_sign_in_ip",      limit: 255
+    t.string   "last_sign_in_ip",         limit: 255
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
+    t.string   "facebook",                limit: 255
+    t.string   "twitter",                 limit: 255
+    t.string   "instagram",               limit: 255
+    t.string   "resident",                limit: 255
+    t.string   "soundcloud",              limit: 255
+    t.text     "template",                limit: 65535
+    t.string   "logo_file_name",          limit: 255
+    t.string   "logo_content_type",       limit: 255
+    t.integer  "logo_file_size",          limit: 4
     t.datetime "logo_updated_at"
-    t.text     "css",                    limit: 65535
-    t.string   "url",                    limit: 255
-    t.string   "keywords",               limit: 255
-    t.string   "image_file_name",        limit: 255
-    t.string   "image_content_type",     limit: 255
-    t.integer  "image_file_size",        limit: 4
+    t.text     "css",                     limit: 65535
+    t.string   "url",                     limit: 255
+    t.string   "keywords",                limit: 255
+    t.string   "image_file_name",         limit: 255
+    t.string   "image_content_type",      limit: 255
+    t.integer  "image_file_size",         limit: 4
     t.datetime "image_updated_at"
-    t.string   "css_file_file_name",     limit: 255
-    t.string   "css_file_content_type",  limit: 255
-    t.integer  "css_file_file_size",     limit: 4
+    t.string   "css_file_file_name",      limit: 255
+    t.string   "css_file_content_type",   limit: 255
+    t.integer  "css_file_file_size",      limit: 4
     t.datetime "css_file_updated_at"
+    t.string   "regular_contact_address", limit: 255
+    t.string   "press_contact_address",   limit: 255
   end
 
   add_index "festivals", ["email"], name: "index_festivals_on_email", unique: true, using: :btree
@@ -232,6 +242,16 @@ ActiveRecord::Schema.define(version: 20160224175434) do
 
   add_index "news_translations", ["locale"], name: "index_news_translations_on_locale", using: :btree
   add_index "news_translations", ["news_id"], name: "index_news_translations_on_news_id", using: :btree
+
+  create_table "newsletters", force: :cascade do |t|
+    t.string   "email",       limit: 255
+    t.string   "section",     limit: 255
+    t.integer  "festival_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "newsletters", ["festival_id"], name: "index_newsletters_on_festival_id", using: :btree
 
   create_table "shows", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -383,6 +403,16 @@ ActiveRecord::Schema.define(version: 20160224175434) do
 
   add_index "videos", ["festival_id"], name: "index_videos_on_festival_id", using: :btree
 
+  create_table "widgets", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "code",        limit: 65535
+    t.integer  "festival_id", limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "widgets", ["festival_id"], name: "index_widgets_on_festival_id", using: :btree
+
   add_foreign_key "artists", "festivals"
   add_foreign_key "event_artists", "artists"
   add_foreign_key "event_artists", "events"
@@ -393,6 +423,7 @@ ActiveRecord::Schema.define(version: 20160224175434) do
   add_foreign_key "images", "festivals"
   add_foreign_key "images", "shows"
   add_foreign_key "news", "festivals"
+  add_foreign_key "newsletters", "festivals"
   add_foreign_key "shows", "events"
   add_foreign_key "shows", "festivals"
   add_foreign_key "sponsors", "festivals"
@@ -400,4 +431,5 @@ ActiveRecord::Schema.define(version: 20160224175434) do
   add_foreign_key "themes", "festivals"
   add_foreign_key "venues", "festivals"
   add_foreign_key "videos", "festivals"
+  add_foreign_key "widgets", "festivals"
 end

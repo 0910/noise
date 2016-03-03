@@ -42,6 +42,7 @@ gem 'rails-i18n', '~> 4.0.0'
 gem 'curly-templates'
 gem 'redcarpet'
 gem 'meta-tags'
+gem 'mail_form'
 
 
 group :development do

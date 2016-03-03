@@ -1,3 +1,4 @@
+{{page_title}}
 {{ navigation }}
 
 <header class="header" id="header">
@@ -11,6 +12,7 @@
     <h2 class="header-subtitle">
       16-19TH JUNE / OFF WEEK / BARCELONA
     </h2>
+    <a href="{{get_tickets}}" class="get-tickets">{{t.events.tickets}}</a>
   </div>
 </header>
 
@@ -72,7 +74,7 @@
       {{/events}}
     </div>
   </div>
-</section>}}
+</section>
 
 <section class="events revealOnScroll" id="events">
   <div class="container">
@@ -187,7 +189,7 @@
   <div class="container">
     {{*sponsors}}
        <a href="{{sponsor_link}}" target="_blank" class="sponsor-item">
-        <img src="{{image}}" alt="{{name}}" class="news-image"/>
+        <img src="{{image}}" alt="{{name}}" class="sponsor-image"/>
       </a>
     {{/sponsors}}
   </div>

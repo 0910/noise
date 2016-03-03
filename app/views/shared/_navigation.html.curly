@@ -12,6 +12,11 @@
           Menu
         </span>
       </button>
+      <div class="lang">
+        {{lang_english_short}}
+        {{lang_spanish_short}}
+        {{lang_catalan_short}}
+      </div>
     </div>
   </div>
 </nav>
@@ -34,35 +39,11 @@
         <a href="{{go_to_videos}}">Videos</a>
       </li>
       <li>
-        <a href="{{go_to_venues}}">Venues</a>
+        <a href="{{go_to_venues}}">Location</a>
       </li>
-    </div>
-    <div class="row">
-      <a href="{{facebook}}" class="navbar-social-link">
-        <span>
-          <i class="fa fa-facebook"></i>
-        </span>
-      </a>
-      <a href="{{instagram}}" class="navbar-social-link">
-        <span>
-          <i class="fa fa-instagram"></i>
-        </span>
-      </a>
-      <a href="{{twitter}}" class="navbar-social-link">
-        <span>
-          <i class="fa fa-twitter"></i>
-        </span>
-      </a>
-      <a href="{{soundcloud}}" class="navbar-social-link">
-        <span>
-          <i class="fa fa-youtube"></i>
-        </span>
-      </a>
-    </div>
-    <div class="row lang">
-      {{lang_english}}
-      {{lang_spanish}}
-      {{lang_catalan}}
+      <li>
+        <a href="{{go_to_contact}}">Contact</a>
+      </li>
     </div>
   </ul>
 </div>
@@ -75,6 +56,7 @@
     else {
       $('.navbar-collapse').addClass('show');
       $('body').css('overflow', 'hidden');
+      $('.newsletter').removeClass('show');
     }
   }
   $('.toggle-navbar').click(function(event) {

@@ -12,6 +12,21 @@ class ApplicationController < ActionController::Base
   end
   helper_method :festival
 
+  def newsletter
+    @newsletter = Newsletter.new
+  end
+  helper_method :newsletter
+
+  def section
+    controller_name
+  end
+  helper_method :section
+
+  def widgets
+    Widget.all
+  end
+  helper_method :widgets
+
   before_action :set_locale
 
   def set_locale

@@ -25,11 +25,6 @@
            <i class="fa fa-instagram"></i>
         </span>
        </a>
-       <a href="{{twitter}}" target="_blank" class="artist-social-link">
-        <span>
-           <i class="fa fa-twitter"></i>
-        </span>
-       </a>
        <a href="{{soundcloud}}" target="_blank" class="artist-social-link">
         <span>
            <i class="fa fa-soundcloud"></i>

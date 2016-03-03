@@ -11,4 +11,6 @@
 			= display_meta_tags
 			= yield(:head)
 	%body{:class => "#{controller_name} #{action_name}"}
+		- flash.each do |name, msg|
+			= content_tag :div, msg, class: name
 		= yield

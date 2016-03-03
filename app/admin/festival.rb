@@ -25,6 +25,8 @@ ActiveAdmin.register Festival, :namespace => :super_admin do
       row :instagram
       row :resident
       row :soundcloud
+      row :regular_contact_address
+      row :press_contact_address
     end
   end
 
@@ -40,6 +42,8 @@ ActiveAdmin.register Festival, :namespace => :super_admin do
           f.input :instagram
           f.input :resident
           f.input :soundcloud
+          f.input :regular_contact_address
+          f.input :press_contact_address
         end
         f.inputs "Apperance" do
           f.input :logo, :as => :file, label: 'Logo', hint: f.object.new_record? ? f.template.content_tag(:span, "No Logo Yet") : image_tag(f.object.logo.url(:thumb))
@@ -93,6 +97,8 @@ ActiveAdmin.register Festival, :namespace => :admin do
       row :instagram
       row :resident
       row :soundcloud
+      row :regular_contact_address
+      row :press_contact_address
       p.images.each do |image|
         row :images do
           content_tag(:span, image.file.url(:original))
@@ -111,6 +117,8 @@ ActiveAdmin.register Festival, :namespace => :admin do
       f.input :instagram
       f.input :resident
       f.input :soundcloud
+      f.input :regular_contact_address
+      f.input :press_contact_address
     end
     f.inputs 'Account Settings' do
       f.semantic_errors

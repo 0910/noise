@@ -251,9 +251,25 @@ es:
 
   events:
     title: "Tickets"
+    tickets: "Comprar Tickets"
 
   news:
     title: "Noticias"
 
   venues:
     title: "Locación"
+
+  videos:
+    title: "Videos"
+
+  newsletters:
+    subscribe: 'Subscríbete a nuestro newsletter'
+    create:
+      successful: "Has sido agregado con éxito a nuestro newsletter"
+
+  contacts:
+    title: 'Contacto'
+    name: 'Nombre'
+    email: 'Email'
+    message: 'Mensaje'
+    submit: 'Enviar'

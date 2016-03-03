@@ -19,4 +19,8 @@
 //= require swiper.jquery
 //= require swipebox
 //= require jpreloader
+//= require soundmanager2.js
+//= require sc-player.js
+//= require sc-player-waveform.js
+//= require player.js
 //= require_tree .

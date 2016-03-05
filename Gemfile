@@ -43,6 +43,9 @@ gem 'curly-templates'
 gem 'redcarpet'
 gem 'meta-tags'
 gem 'mail_form'
+gem 'multi-select-rails'
+gem 'acts_as_list'
+gem 'activeadmin-sortable'
 
 
 group :development do

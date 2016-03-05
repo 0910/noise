@@ -86,6 +86,11 @@ ActiveAdmin.register Event, :namespace => :admin do
       row :starts_on
       row :finish_on
       row :venue
+      row :artists do 
+        event.artists.collect.each do |a|
+          a.name
+        end
+      end
     end
   end
 

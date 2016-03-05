@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303005046) do
+ActiveRecord::Schema.define(version: 20160305195516) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 20160303005046) do
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
+    t.integer  "position",           limit: 4
+    t.string   "ra_link",            limit: 255
   end
 
   add_index "artists", ["festival_id"], name: "index_artists_on_festival_id", using: :btree
@@ -179,6 +181,7 @@ ActiveRecord::Schema.define(version: 20160303005046) do
     t.datetime "css_file_updated_at"
     t.string   "regular_contact_address", limit: 255
     t.string   "press_contact_address",   limit: 255
+    t.string   "ra_link",                 limit: 255
   end
 
   add_index "festivals", ["email"], name: "index_festivals_on_email", unique: true, using: :btree

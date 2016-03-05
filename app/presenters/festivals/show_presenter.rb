@@ -6,10 +6,6 @@ class Festivals::ShowPresenter < ApplicationPresenter
 		@festival.name
 	end
 
-	def artists
-		@festival.artists.order(name: :asc)
-	end
-
 	def events
 		@festival.events.order(starts_on: :asc)
 	end

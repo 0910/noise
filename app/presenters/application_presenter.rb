@@ -20,10 +20,6 @@ class ApplicationPresenter < Curly::Presenter
 		  render partial: 'shared/player'
   	end
 
-  	def load_widgets
-      render partial: 'shared/widgets'
-  	end
-
     def contact_form
       render partial: 'shared/contact_form'
     end

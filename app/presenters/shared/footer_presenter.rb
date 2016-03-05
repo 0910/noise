@@ -44,6 +44,10 @@ class Shared::FooterPresenter < ApplicationPresenter
 		festival.soundcloud
 	end
 
+	def ra_link
+		festival.ra_link
+	end
+
 	def lang_english
 		link_to 'English', change_locale_path(:en)
 	end

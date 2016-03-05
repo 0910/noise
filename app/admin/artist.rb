@@ -1,5 +1,10 @@
 ActiveAdmin.register Artist, :namespace => :super_admin do
 
+  config.sort_order = 'position_asc' # assumes you are using 'position' for your acts_as_list column
+  config.paginate   = false # optional; drag-and-drop across pages is not supported
+
+  sortable # creates the controller action which handles the sorting
+
   controller do
     def find_resource
       scoped_collection.friendly.find(params[:id])
@@ -25,6 +30,7 @@ ActiveAdmin.register Artist, :namespace => :super_admin do
       row :instagram_link
       row :youtube_link
       row :beatport_link
+      row :ra_link
     end
   end
 
@@ -44,6 +50,7 @@ ActiveAdmin.register Artist, :namespace => :super_admin do
       f.input :instagram_link
       f.input :youtube_link
       f.input :beatport_link
+      f.input :ra_link
     end
 
     f.inputs "Artist Image" do
@@ -74,8 +81,10 @@ ActiveAdmin.register Artist, :namespace => :admin do
     column :country
     translation_status
     actions
+    sortable_handle_column # inserts a drag handle
   end
 
+  filter :events
   filter :country
   filter :name
   filter :created_at
@@ -93,6 +102,7 @@ ActiveAdmin.register Artist, :namespace => :admin do
       row :instagram_link
       row :youtube_link
       row :beatport_link
+      row :ra_link
     end
   end
 
@@ -112,6 +122,7 @@ ActiveAdmin.register Artist, :namespace => :admin do
       f.input :instagram_link
       f.input :youtube_link
       f.input :beatport_link
+      f.input :ra_link
     end
     f.inputs "Artist Image" do
       f.input :image, :as => :file, label: 'Image', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))

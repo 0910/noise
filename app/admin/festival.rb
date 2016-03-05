@@ -25,6 +25,7 @@ ActiveAdmin.register Festival, :namespace => :super_admin do
       row :instagram
       row :resident
       row :soundcloud
+      row :ra_link
       row :regular_contact_address
       row :press_contact_address
     end
@@ -42,6 +43,7 @@ ActiveAdmin.register Festival, :namespace => :super_admin do
           f.input :instagram
           f.input :resident
           f.input :soundcloud
+          f.input :ra_link
           f.input :regular_contact_address
           f.input :press_contact_address
         end
@@ -97,6 +99,7 @@ ActiveAdmin.register Festival, :namespace => :admin do
       row :instagram
       row :resident
       row :soundcloud
+      row :ra_link
       row :regular_contact_address
       row :press_contact_address
       p.images.each do |image|
@@ -117,6 +120,7 @@ ActiveAdmin.register Festival, :namespace => :admin do
       f.input :instagram
       f.input :resident
       f.input :soundcloud
+      f.input :ra_link
       f.input :regular_contact_address
       f.input :press_contact_address
     end

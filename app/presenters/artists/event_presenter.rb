@@ -22,6 +22,14 @@ class Artists::EventPresenter < Curly::Presenter
     festival_event_path(festival,@event)
   end
 
+  def artists_asc
+    @event.artists.order(name: :asc)
+  end
+
+  def artists_desc
+    @event.artists.order(name: :desc)
+  end
+
   def artists
     @event.artists
   end

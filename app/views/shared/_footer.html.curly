@@ -39,8 +39,6 @@
   </p>
 </div>
 
-{{load_widgets}}
-
 <script type="text/javascript">
   $('body').jpreLoader({
     loaderVPos: '50%',

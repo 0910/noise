@@ -499,7 +499,7 @@ header.header {
 header.header .header-container {
   width: 1130px;
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -741,7 +741,7 @@ section.event-detail .artists-list {
 
 a.get-tickets {
   border: 3px solid #fff;
-  color: #fff;
+  color: #965339;
   display: inline-block;
   padding: 10px 25px;
   text-align: center;
@@ -752,11 +752,12 @@ a.get-tickets {
   transition: all 0.3s ease 0s;
   -webkit-transition: all 0.3s ease 0s;
   margin-top: 30px;
+  background-color: #fff;
 }
 
 a.get-tickets:hover {
-  background-color: #fff;
-  color: #965339;
+  background-color: transparent;
+  color: #fff;
 }
 
 section.events h1.section-heading {
@@ -768,12 +769,11 @@ section.events h1.section-heading {
   padding-left: 15px;
   padding-right: 15px;
   position: relative;
-  width: 20%;
   float: left;
 }
 
 .event-image {
-  width: 80%;
+  width: 60%;
   height: auto;
 }
 
@@ -1114,9 +1114,9 @@ footer {
 /* Newsletter */
 
 .toggle-newsletter {
-  background-color: transparent;
+  background-color: #fff;
   border: 2px solid #fff;
-  color: #fff;
+  color: #965339;
   cursor: pointer;
   display: inline-block;
   float: left;
@@ -1129,8 +1129,8 @@ footer {
   transition: all 0.3s ease 0s;
 }
 .toggle-newsletter:hover, .toggle-newsletter:active, .toggle-newsletter:focus{
-  background-color: #fff;
-  color: #965339;
+  background-color: transparent;
+  color: #fff;
 }
 .newsletter.show {
     opacity: 1;

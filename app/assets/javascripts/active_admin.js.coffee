@@ -1,9 +1,11 @@
 #= require active_admin/base
 #= require active_admin/select2
 #= require jquery.multiple.select
+#= require activeadmin-sortable
+#= require multi-select
 
 ready = ->
-	$('#event_artist_ids').multipleSelect()
+	$('#event_artist_ids').multiSelect({ keepOrder: true })
 	set_admin_selectable_events()
 
 set_admin_selectable_events = ->

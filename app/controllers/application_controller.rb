@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   helper_method :section
 
   def widgets
-    Widget.all
+    festival.widgets.all
   end
   helper_method :widgets
 

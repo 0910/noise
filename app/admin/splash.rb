@@ -13,11 +13,7 @@ ActiveAdmin.register Splash, :namespace => :super_admin do
       row :subtitle
       row :call_to_action
       row :call_to_action_link
-      p.images.each do |image|
-        row :images do
-          content_tag(:span, image.file.url(:original))
-        end
-      end
+      row :photo
     end
   end
 
@@ -32,7 +28,7 @@ ActiveAdmin.register Splash, :namespace => :super_admin do
       f.input :call_to_action_link
     end
     f.inputs "Image" do
-      f.input :image, :as => :file, label: 'Image', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))
+      f.input :photo, :as => :file, label: 'Image', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))
     end
     f.actions
   end
@@ -66,11 +62,7 @@ ActiveAdmin.register Splash, :namespace => :admin do
       row :slug
       row :subtitle
       row :body
-      p.images.each do |image|
-        row :images do
-          content_tag(:span, image.file.url(:original))
-        end
-      end
+      row :photo
     end
   end
 
@@ -85,7 +77,7 @@ ActiveAdmin.register Splash, :namespace => :admin do
       f.input :call_to_action_link
     end
     f.inputs "Image" do
-      f.input :image, :as => :file, label: 'Image', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))
+      f.input :photo, :as => :file, label: 'Image', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.photo.url(:thumb))
     end
     f.actions
   end

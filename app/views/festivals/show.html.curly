@@ -85,7 +85,7 @@
     </div>
     <div class="row">
       {{*events}}
-        <a href="{{detail_link}}" class="col-xs-12 col-sm-4 col-md-4 events-item">
+        <a href="{{detail_link}}" class="col-xs-12 col-sm-6 col-md-3 events-item">
           <div class="row">
             <img class="event-image" src="{{image}}" alt="{{name}}"/>
           </div>

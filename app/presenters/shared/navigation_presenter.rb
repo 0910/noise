@@ -9,35 +9,35 @@ class Shared::NavigationPresenter < ApplicationPresenter
 	end
 
 	def go_to_home
-		festival_path(festival)
+		root_path
 	end
 
 	def go_to_artists
-		festival_artists_path(festival)
+		artists_path
 	end
 
 	def go_to_events
-		festival_events_path(festival)
+		events_path
 	end
 
 	def go_to_news
-		festival_news_index_path(festival)
+		news_index_path
 	end
 
 	def go_to_videos
-		festival_videos_path(festival)
+		videos_path
 	end
 
 	def go_to_venues
-		festival_venues_path(festival)
+		venues_path
 	end
 
 	def go_to_sponsors
-		festival_sponsors_path(festival)
+		sponsors_path
 	end
 
 	def go_to_contact
-		new_festival_contact_path(festival)
+		new_contact_path
 	end
 
 	def menu_title_home

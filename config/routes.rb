@@ -5,23 +5,23 @@ Rails.application.routes.draw do
   get 'videos/index'
 
   resources :festivals, only: [:show, :index] do
-    resources :events, only: [:show, :index] do
-    end
-    resources :shows, only: [:show, :index] do
-    end
-    resources :artists, only: [:show, :index] do
-    end
-    resources :venues, only: [:show, :index] do
-    end
-    resources :news, only: [:show, :index] do
-    end
-    resources :videos, only: [:show, :index] do
-    end
-    resources :sponsors, only: [:index] do
-    end
-    resources :newsletters, only: [:new, :create]
-    resources :contacts, only: [:new, :create]
   end
+  resources :events, only: [:show, :index] do
+  end
+  resources :shows, only: [:show, :index] do
+  end
+  resources :artists, only: [:show, :index] do
+  end
+  resources :venues, only: [:show, :index] do
+  end
+  resources :news, only: [:show, :index] do
+  end
+  resources :videos, only: [:show, :index] do
+  end
+  resources :sponsors, only: [:index] do
+  end
+  resources :newsletters, only: [:new, :create]
+  resources :contacts, only: [:new, :create]
 
   devise_for :festivals, ActiveAdmin::Devise.config.merge({path: '/admin'})
   devise_for :admin_users, ActiveAdmin::Devise.config.merge({path: '/super_admin'})

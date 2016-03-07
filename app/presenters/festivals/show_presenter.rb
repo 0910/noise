@@ -27,27 +27,26 @@ class Festivals::ShowPresenter < ApplicationPresenter
 	end
 
 	def go_to_home
-		festival_path(festival)
 	end
 
 	def go_to_artists
-		festival_artists_path(festival)
+		artists_path
 	end
 
 	def go_to_events
-		festival_events_path(festival)
+		events_path
 	end
 
 	def go_to_news
-		festival_news_index_path(festival)
+		news_index_path
 	end
 
 	def go_to_videos
-		festival_videos_path(festival)
+		videos_path
 	end
 
 	def go_to_venues
-		festival_venues_path(festival)
+		venues_path
 	end
 
 	def facebook
@@ -79,7 +78,7 @@ class Festivals::ShowPresenter < ApplicationPresenter
 	end
 
 	def get_tickets
-		festival_events_path(festival)
+		events_path
 	end
 
 end

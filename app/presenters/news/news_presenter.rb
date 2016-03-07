@@ -27,7 +27,7 @@ class News::NewsPresenter < Curly::Presenter
   end
 
   def detail_link
-    festival_news_path(festival,@news)
+    news_path(@news)
   end
 
 end

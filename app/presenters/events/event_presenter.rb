@@ -19,7 +19,7 @@ class Events::EventPresenter < Curly::Presenter
   end
 
   def detail_link
-    festival_event_path(festival,@event)
+    event_path(@event)
   end
 
   def artists

@@ -10,13 +10,4 @@ class Splash < ActiveRecord::Base
             
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
-  extend FriendlyId
-	friendly_id :title, use: :slugged
-
-	def slug_candidates
-    [
-      :title,
-      [:title, :id]
-    ]
-  end
 end

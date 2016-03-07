@@ -1,11 +1,5 @@
 ActiveAdmin.register Splash, :namespace => :super_admin do
 
-  controller do
-    def find_resource
-      scoped_collection.friendly.find(params[:id])
-    end
-  end
-
   index do
     column :id
     column :title
@@ -51,12 +45,6 @@ ActiveAdmin.register Splash, :namespace => :admin do
 
   before_create do |splash|
     splash.festival = current_festival
-  end
-
-  controller do
-    def find_resource
-      scoped_collection.friendly.find(params[:id])
-    end
   end
 
   index do

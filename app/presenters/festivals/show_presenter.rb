@@ -66,6 +66,10 @@ class Festivals::ShowPresenter < ApplicationPresenter
 		@festival.soundcloud
 	end
 
+	def ra
+		@festival.ra_link
+	end
+
 	def noise
 		link_to 'NOISE', 'http://www.wemakenoise.tv', target: '_blank'
 	end

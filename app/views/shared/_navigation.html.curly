@@ -24,25 +24,25 @@
   <ul class="navbar-nav">
     <div class="row">
       <li class="active">
-        <a href="{{go_to_home}}">Home</a>
+        <a href="{{go_to_home}}">{{menu_title_home}}</a>
       </li>
       <li>
-        <a href="{{go_to_artists}}">Artists</a>
+        <a href="{{go_to_artists}}">{{menu_title_artists}}</a>
       </li>
       <li>
-        <a href="{{go_to_events}}">Tickets</a>
+        <a href="{{go_to_events}}">{{menu_title_events}}</a>
       </li>
       <li>
-        <a href="{{go_to_news}}">News</a>
+        <a href="{{go_to_news}}">{{menu_title_news}}</a>
       </li>
       <li>
-        <a href="{{go_to_videos}}">Videos</a>
+        <a href="{{go_to_videos}}">{{menu_title_videos}}</a>
       </li>
       <li>
-        <a href="{{go_to_venues}}">Location</a>
+        <a href="{{go_to_venues}}">{{menu_title_venues}}</a>
       </li>
       <li>
-        <a href="{{go_to_contact}}">Contact</a>
+        <a href="{{go_to_contact}}">{{menu_title_contacts}}</a>
       </li>
     </div>
   </ul>

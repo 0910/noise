@@ -140,6 +140,18 @@ ActiveAdmin.register Festival, :namespace => :admin do
       f.input :url
     end
 
+    f.inputs "Menu Items" do
+      f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
+        t.input :menu_title_home
+        t.input :menu_title_artists
+        t.input :menu_title_events
+        t.input :menu_title_news
+        t.input :menu_title_videos
+        t.input :menu_title_venues
+        t.input :menu_title_contacts
+      end
+    end
+    
     f.inputs "Images" do
       f.has_many :images do |i|
         i.input :file, as: :file, label: false, hint: i.object.new_record? ? i.template.content_tag(:span, "No Image Yet") : image_tag(i.object.file.url(:thumb))

@@ -1,4 +1,4 @@
-ActiveAdmin.register News, :namespace => :super_admin do
+ActiveAdmin.register Splash, :namespace => :super_admin do
 
   controller do
     def find_resource
@@ -9,17 +9,16 @@ ActiveAdmin.register News, :namespace => :super_admin do
   index do
     column :id
     column :title
-    column :date
     translation_status
     actions
   end
   
   show do |p|
     attributes_table do
-      row :date
       row :title
       row :subtitle
-      row :body
+      row :call_to_action
+      row :call_to_action_link
       p.images.each do |image|
         row :images do
           content_tag(:span, image.file.url(:original))
@@ -31,32 +30,27 @@ ActiveAdmin.register News, :namespace => :super_admin do
   form html: { multipart: true } do |f|
     f.inputs 'Details' do
       f.semantic_errors
-      f.input :date
       f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
         t.input :title
         t.input :subtitle
-        t.input :body
+        t.input :call_to_action
       end
-      f.input :news_type, as: :select2, :collection => ['normal', 'video'], :include_blank => false
-      f.input :link
+      f.input :call_to_action_link
     end
-    f.inputs "Images" do
-      f.has_many :images do |i|
-        i.input :file, as: :file, label: false, hint: i.object.new_record? ? i.template.content_tag(:span, "No Image Yet") : image_tag(i.object.file.url(:thumb))
-        i.input :_destroy, as: :boolean, label: "Destroy?" unless i.object.new_record?
-      end 
+    f.inputs "Image" do
+      f.input :image, :as => :file, label: 'Image', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))
     end
     f.actions
   end
 
 end
 
-ActiveAdmin.register News, :namespace => :admin do
+ActiveAdmin.register Splash, :namespace => :admin do
   
   scope_to :current_festival
 
-  before_create do |news|
-    news.festival = current_festival
+  before_create do |splash|
+    splash.festival = current_festival
   end
 
   controller do
@@ -68,14 +62,13 @@ ActiveAdmin.register News, :namespace => :admin do
   index do
     column :id
     column :title
-    column :date
     translation_status
     actions
   end
 
   filter :title
   filter :subtitle
-  filter :date
+  filter :call_to_action
   filter :created_at
   
   show do |p|
@@ -94,23 +87,17 @@ ActiveAdmin.register News, :namespace => :admin do
   end
 
   form html: { multipart: true } do |f|
-    f.inputs 'News Information' do
+    f.inputs 'Details' do
       f.semantic_errors
-      f.input :date
       f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
         t.input :title
         t.input :subtitle
-        t.input :body
+        t.input :call_to_action
       end
-      f.input :news_type, as: :select2, :collection => ['normal', 'video'], :include_blank => false
-      f.input :link
+      f.input :call_to_action_link
     end
-    f.inputs "Images" do
-      f.input :image, :as => :file, label: 'Cover Image', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))
-      f.has_many :images do |i|
-        i.input :file, as: :file, label: false, hint: i.object.new_record? ? i.template.content_tag(:span, "No Image Yet") : image_tag(i.object.file.url(:thumb))
-        i.input :_destroy, as: :boolean, label: "Destroy?" unless i.object.new_record?
-      end 
+    f.inputs "Image" do
+      f.input :image, :as => :file, label: 'Image', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))
     end
     f.actions
   end

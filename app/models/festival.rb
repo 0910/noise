@@ -4,6 +4,8 @@ class Festival < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  active_admin_translates :menu_title_home, :menu_title_artists, :menu_title_events, :menu_title_news, :menu_title_videos, :menu_title_venues, :menu_title_contacts
+
   has_many :artists, :dependent => :destroy
   has_many :events, :dependent => :destroy
   has_many :venues, :dependent => :destroy
@@ -14,6 +16,7 @@ class Festival < ActiveRecord::Base
   has_many :templates, :dependent => :destroy
   has_many :widgets, :dependent => :destroy
   has_many :newsletters, :dependent => :destroy
+  has_many :splashes, :dependent => :destroy
 
   has_many :images, :dependent => :destroy
   accepts_nested_attributes_for :images, :allow_destroy => true

@@ -4,4 +4,5 @@ class Image < ActiveRecord::Base
 	validates_attachment :file, presence: true, content_type: { content_type: ['image/jpg', 'image/png', 'image/gif', 'image/jpeg'] }
 
 	belongs_to :festival
+	belongs_to :news
 end

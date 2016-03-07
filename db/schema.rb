@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305195516) do
+ActiveRecord::Schema.define(version: 20160307040251) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -142,6 +142,23 @@ ActiveRecord::Schema.define(version: 20160305195516) do
   add_index "festival_themes", ["festival_id"], name: "index_festival_themes_on_festival_id", using: :btree
   add_index "festival_themes", ["theme_id"], name: "index_festival_themes_on_theme_id", using: :btree
 
+  create_table "festival_translations", force: :cascade do |t|
+    t.integer  "festival_id",         limit: 4,   null: false
+    t.string   "locale",              limit: 255, null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "menu_title_home",     limit: 255
+    t.string   "menu_title_artists",  limit: 255
+    t.string   "menu_title_events",   limit: 255
+    t.string   "menu_title_news",     limit: 255
+    t.string   "menu_title_videos",   limit: 255
+    t.string   "menu_title_venues",   limit: 255
+    t.string   "menu_title_contacts", limit: 255
+  end
+
+  add_index "festival_translations", ["festival_id"], name: "index_festival_translations_on_festival_id", using: :btree
+  add_index "festival_translations", ["locale"], name: "index_festival_translations_on_locale", using: :btree
+
   create_table "festivals", force: :cascade do |t|
     t.string   "name",                    limit: 255
     t.text     "description",             limit: 65535
@@ -182,6 +199,13 @@ ActiveRecord::Schema.define(version: 20160305195516) do
     t.string   "regular_contact_address", limit: 255
     t.string   "press_contact_address",   limit: 255
     t.string   "ra_link",                 limit: 255
+    t.string   "menu_title_home",         limit: 255
+    t.string   "menu_title_artists",      limit: 255
+    t.string   "menu_title_events",       limit: 255
+    t.string   "menu_title_news",         limit: 255
+    t.string   "menu_title_videos",       limit: 255
+    t.string   "menu_title_venues",       limit: 255
+    t.string   "menu_title_contacts",     limit: 255
   end
 
   add_index "festivals", ["email"], name: "index_festivals_on_email", unique: true, using: :btree
@@ -210,9 +234,11 @@ ActiveRecord::Schema.define(version: 20160305195516) do
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
     t.integer  "festival_id",       limit: 4
+    t.integer  "news_id",           limit: 4
   end
 
   add_index "images", ["festival_id"], name: "index_images_on_festival_id", using: :btree
+  add_index "images", ["news_id"], name: "index_images_on_news_id", using: :btree
   add_index "images", ["show_id"], name: "index_images_on_show_id", using: :btree
 
   create_table "news", force: :cascade do |t|
@@ -229,6 +255,8 @@ ActiveRecord::Schema.define(version: 20160305195516) do
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
+    t.string   "link",               limit: 255
+    t.string   "news_type",          limit: 255
   end
 
   add_index "news", ["festival_id"], name: "index_news_on_festival_id", using: :btree
@@ -270,6 +298,35 @@ ActiveRecord::Schema.define(version: 20160305195516) do
 
   add_index "shows", ["event_id"], name: "index_shows_on_event_id", using: :btree
   add_index "shows", ["festival_id"], name: "index_shows_on_festival_id", using: :btree
+
+  create_table "splash_translations", force: :cascade do |t|
+    t.integer  "splash_id",      limit: 4,     null: false
+    t.string   "locale",         limit: 255,   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.text     "title",          limit: 65535
+    t.text     "subtitle",       limit: 65535
+    t.text     "call_to_action", limit: 65535
+  end
+
+  add_index "splash_translations", ["locale"], name: "index_splash_translations_on_locale", using: :btree
+  add_index "splash_translations", ["splash_id"], name: "index_splash_translations_on_splash_id", using: :btree
+
+  create_table "splashes", force: :cascade do |t|
+    t.string   "title",               limit: 255
+    t.string   "subtitle",            limit: 255
+    t.string   "call_to_action",      limit: 255
+    t.string   "call_to_action_link", limit: 255
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "photo_file_name",     limit: 255
+    t.string   "photo_content_type",  limit: 255
+    t.integer  "photo_file_size",     limit: 4
+    t.datetime "photo_updated_at"
+    t.integer  "festival_id",         limit: 4
+  end
+
+  add_index "splashes", ["festival_id"], name: "index_splashes_on_festival_id", using: :btree
 
   create_table "sponsors", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -424,11 +481,13 @@ ActiveRecord::Schema.define(version: 20160305195516) do
   add_foreign_key "festival_themes", "festivals"
   add_foreign_key "festival_themes", "themes"
   add_foreign_key "images", "festivals"
+  add_foreign_key "images", "news"
   add_foreign_key "images", "shows"
   add_foreign_key "news", "festivals"
   add_foreign_key "newsletters", "festivals"
   add_foreign_key "shows", "events"
   add_foreign_key "shows", "festivals"
+  add_foreign_key "splashes", "festivals"
   add_foreign_key "sponsors", "festivals"
   add_foreign_key "templates", "festivals"
   add_foreign_key "themes", "festivals"

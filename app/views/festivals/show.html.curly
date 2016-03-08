@@ -120,7 +120,11 @@
             <a href="{{detail_link}}" class="news-item swiper-slide">
               <div class="row no-gutter">
                 <div class="col-md-12">
-                  <img src="{{image}}" alt="{{title}}" class="news-image"/>
+                  <div class="news-image-wrap">
+                    {{*cover}}
+                      <div class="news-image" style="background-image:url({{source}});"></div>
+                    {{/cover}}
+                  </div>
                   <div class="item-hover">
                     <p class="news-item-hover-caption">
                       +

@@ -10,6 +10,10 @@ class Festivals::EventPresenter < Curly::Presenter
     @event.starts_on.to_date.to_formatted_s(:long)
   end
 
+  def short_date
+    @event.starts_on.to_date.to_formatted_s(:short)
+  end
+
   def slug
     @event.slug
   end

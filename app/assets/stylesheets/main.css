@@ -773,7 +773,7 @@ section.events h1.section-heading {
 }
 
 .event-image {
-  width: 60%;
+  width: 100%;
   height: auto;
 }
 
@@ -795,22 +795,26 @@ body.news {
   background-image: url(/assets/images/14/original/bg2.jpg);
 }
 
-section.news-detail .news-image {
+section.news-detail .news-image-wrap {
   border: 12.5px solid rgba(255, 255, 255, 0.075);
   width: 100%;
-  height: auto;
+  height: 411px;
 }
+
+section.news-detail .news-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 
 section.news .swiper-container {
   width: 100%;
   text-align: center;
 }
 
-section.news .swiper-container .news-image {
-  border: 12.5px solid rgba(255, 255, 255, 0.075);
-  width: 100%;
-  height: auto;
-}
 
 section.news .swiper-container .swiper-slide {
   width: 45%;
@@ -872,12 +876,26 @@ section.news .swiper-container .swiper-slide:hover .item-hover p {
   margin-top: 0;
 }
 
-.swiper-button-prev, .swiper-button-next {
+section.news .swiper-button-prev, section.news .swiper-button-next {
   margin-top: -80px;
 }
 
-.swiper-container-horizontal > .swiper-pagination {
+section.news .swiper-container-horizontal > .swiper-pagination {
   bottom: 0px;
+}
+
+section.news .news-image-wrap {
+  border: 12.5px solid rgba(255, 255, 255, 0.075);
+  width: 100%;
+  height: 411px;
+}
+
+section.news .news-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Venues List */

@@ -39,10 +39,12 @@ ActiveAdmin.register News, :namespace => :super_admin do
       end
       f.input :news_type, as: :select2, :collection => ['normal', 'video'], :include_blank => false
       f.input :link
+      f.input :video
     end
     f.inputs "Images" do
       f.has_many :images do |i|
         i.input :file, as: :file, label: false, hint: i.object.new_record? ? i.template.content_tag(:span, "No Image Yet") : image_tag(i.object.file.url(:thumb))
+        i.input :cover, as: :boolean, label: "Cover"
         i.input :_destroy, as: :boolean, label: "Destroy?" unless i.object.new_record?
       end 
     end
@@ -104,11 +106,13 @@ ActiveAdmin.register News, :namespace => :admin do
       end
       f.input :news_type, as: :select2, :collection => ['normal', 'video'], :include_blank => false
       f.input :link
+      f.input :video
     end
     f.inputs "Images" do
       f.input :image, :as => :file, label: 'Cover Image', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))
       f.has_many :images do |i|
         i.input :file, as: :file, label: false, hint: i.object.new_record? ? i.template.content_tag(:span, "No Image Yet") : image_tag(i.object.file.url(:thumb))
+        i.input :cover, as: :boolean, label: "Cover"
         i.input :_destroy, as: :boolean, label: "Destroy?" unless i.object.new_record?
       end 
     end

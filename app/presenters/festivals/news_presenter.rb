@@ -26,8 +26,36 @@ class Festivals::NewsPresenter < Curly::Presenter
     @news.image.url(:large)
   end
 
+  def images
+    @news.images
+  end
+
+  class ImagePresenter < ApplicationPresenter
+    presents :news, :image
+
+    def source
+      @image.file.url(:large)
+    end
+  end
+
+  def cover
+    @news.images.where(:cover => true)
+  end
+
+  class CoverPresenter < ApplicationPresenter
+    presents :news, :cover
+
+    def source
+      @cover.file.url(:large)
+    end
+  end
+
   def detail_link
     news_path(@news)
+  end
+
+  def video
+    @news.video
   end
 
 end

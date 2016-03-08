@@ -11,7 +11,25 @@
     </div>
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <img src="{{image}}" alt="{{title}}" class="news-image"/>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+          <a href="{{video}}" class="news-item swiper-slide swipebox">
+            <div class="news-image-wrap">
+              <div class="news-image" style="background-image:url({{image}});"></div>
+            </div>
+          </a>
+          {{*images}}
+            <a href="#" class="news-item swiper-slide swipebox">
+              <div class="news-image-wrap">
+                <div class="news-image" style="background-image:url({{source}});"></div>
+              </div>
+            </a>
+          {{/images}}
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -30,5 +48,34 @@
     </div>
   </div>
 </section>
+
+<script type="text/javascript">
+  $('.swipebox').swipebox();
+  var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    pagination: '.swiper-pagination',
+    paginationClickable: true,
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    keyboardControl: true,
+    spaceBetween: 30,
+    loop: true,
+    breakpoints: {
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 60
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 15
+      },
+      460: {
+        slidesPerView: 1,
+        spaceBetween: 15
+      }
+    }
+  });
+</script>
 
 {{footer}}

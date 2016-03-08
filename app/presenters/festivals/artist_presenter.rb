@@ -3,7 +3,7 @@ class Festivals::ArtistPresenter < Curly::Presenter
   presents :festival, :artist
 
   def name
-    @artist.name
+    @artist.artist.name
   end
 
   def bio

@@ -35,7 +35,7 @@ class Festivals::EventPresenter < Curly::Presenter
   end
 
   def artists
-    @event.artists
+    @event.event_artists.order(position: :asc)
   end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308001330) do
+ActiveRecord::Schema.define(version: 20160308060613) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20160308001330) do
     t.integer  "artist_id",  limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "position",   limit: 4
   end
 
   add_index "event_artists", ["artist_id"], name: "index_event_artists_on_artist_id", using: :btree
@@ -235,6 +236,7 @@ ActiveRecord::Schema.define(version: 20160308001330) do
     t.datetime "updated_at",                                    null: false
     t.integer  "festival_id",       limit: 4
     t.integer  "news_id",           limit: 4
+    t.integer  "position",          limit: 4
   end
 
   add_index "images", ["festival_id"], name: "index_images_on_festival_id", using: :btree

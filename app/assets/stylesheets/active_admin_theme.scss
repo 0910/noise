@@ -55,6 +55,34 @@ form{
                     }
                 }
             }
+            li.has_many_container{
+                padding: 0 0 20px 0 !important;
+                .has_many_fields{
+                    border-bottom: 1px solid #ccc;
+                    width: 100%;
+                    margin: 0;
+                    border-radius: 0;
+                    ol{
+                        li{
+                            padding: 0 !important;
+                            label{
+                                width: auto;
+                                margin-right: 1em;
+                                margin-top: 3px;
+                            }
+                        }
+                    }
+                }
+                a.button.has_many_add{
+                    margin-top: 20px;
+                }
+                a.button.has_many_remove{
+                    margin-top: 5px;
+                }
+                h3{
+                    display: none;
+                }
+            }
 		}
         legend{
             span {

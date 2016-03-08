@@ -1,6 +1,7 @@
 $(function(){
 	$controls = $(".controls");
 	var scplayer = new SoundCloudPlayer([
+			
 		],{
 		  consumer_key: "1f33918d48c27530b0c78e7e5d617c14"
 		, autoplay: false

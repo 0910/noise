@@ -1,7 +1,7 @@
 <nav class="navbar">
   <div class="navbar-container">
     <div class="navbar-header">
-      <a href="{{go_to_home}}" class="navbar-brand">
+      <a href="{{go_to_home}}" class="col-xs-6 col-sm-3 col-md-3 navbar-brand">
         <img src="{{logo}}" alt="{{name}}"/>
       </a>
       <button class="toggle-navbar">
@@ -12,7 +12,7 @@
           Menu
         </span>
       </button>
-      <div class="lang">
+      <div class="lang hidden-xs">
         {{lang_english_short}}
         {{lang_spanish_short}}
         {{lang_catalan_short}}

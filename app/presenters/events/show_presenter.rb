@@ -27,7 +27,7 @@ class Events::ShowPresenter < ApplicationPresenter
 	end		
 
 	def artists
-		@event.artists.order(name: :asc)
+		@event.event_artists.order(position: :asc)
 	end
 
 	def page_title

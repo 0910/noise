@@ -3,19 +3,19 @@ class Events::ArtistPresenter < Curly::Presenter
   presents :event, :artist
 
   def name
-    @artist.name
+    @artist.artist.name
   end
 
   def bio
-    SafeMarkdown.render(@artist.bio)
+    SafeMarkdown.render(@artist.artist.bio)
   end
 
   def image
-    @artist.image.url(:large)
+    @artist.artist.image.url(:large)
   end
 
   def artist_detail_link
-    artist_path(@artist)
+    artist_path(@artist.artist)
   end
 
 end

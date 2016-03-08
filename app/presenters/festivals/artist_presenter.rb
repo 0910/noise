@@ -7,15 +7,15 @@ class Festivals::ArtistPresenter < Curly::Presenter
   end
 
   def bio
-    @artist.bio.html_safe
+    @artist.artist.bio.html_safe
   end
 
   def cover
-    @artist.image.url(:large)
+    @artist.artist.image.url(:large)
   end
 
   def artist_detail_link
-    artist_path(@artist)
+    artist_path(@artist.artist)
   end
 
 end

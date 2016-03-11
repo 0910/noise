@@ -706,3 +706,94 @@ body.logged_in .flash.flash_notice {
     margin-left: 20%;
     padding: 30px;
 }
+
+/* 11. Login */
+
+body.logged_out{
+    background-color: #56b596;
+    background-image: radial-gradient(circle, rgba(0,0,0,0), rgba(0,0,0,0.25));
+    .flash{
+        color: #fff;
+        text-shadow: none;
+    }
+    #festival_remember_me_input{
+        label{
+            width: auto;
+        }
+    }
+    form input[type="submit"], form input[type="button"], form button {
+        background-color: #fff;
+        background-image: none;
+        color: #56b596;
+        font-family: 'Lato', helvetica, arial, sans-serif;
+        text-transform: uppercase;
+        border:2px solid #fff;
+    }
+    form input[type="submit"]:hover:not(.disabled), form input[type="button"]:hover:not(.disabled), form button:hover:not(.disabled) {
+        background-color: transparent;
+        background-image: none;
+        color: #fff;
+        border:2px solid #fff;
+    }
+    form fieldset ol > li label {
+        color: #fff;
+        display: block;
+        float: left;
+        font-size: 1em;
+        font-weight: bold;
+        margin-top: 6px;
+        text-transform: uppercase;
+        width: 20%;
+    }
+    form input[type="text"], form input[type="password"], form input[type="email"], form input[type="number"], form input[type="url"], form input[type="tel"], form textarea {
+        background: rgba(0, 0, 0, 0.05) none repeat scroll 0 0;
+        border: 2px solid #fff;
+        border-radius: 0;
+        color: #fff;
+        font-family: 'Lato', helvetica, arial, sans-serif;
+        font-size: 0.95em;
+        outline: medium none;
+        padding: 8px 10px 7px;
+    }
+
+    h2 {
+        background-color: transparent;
+        background-image: none;
+        border: medium none;
+        box-shadow: none;
+        color: #fff;
+        font-size: 1.25em;
+        font-weight: bold;
+        line-height: 18px;
+        margin: -13px -30px 20px;
+        padding: 25px;
+        text-align: center;
+        text-shadow: none;
+        text-indent: -9999px;
+        background-image: image-url('admin-logo.png');
+    }
+    #content_wrapper{
+        margin-top: 120px;
+        #active_admin_content{
+            margin: 0;
+            min-height: auto;
+            box-shadow: none;
+            background: rgba(255, 255, 255, 0.05) none repeat scroll 0 0;
+            border: 2px solid #ffffff;
+        }
+    }
+
+    #footer{
+        display: none;
+    }
+    #login{
+        width: 100%;
+        a{
+            color: #fff;
+            margin-top: -48px;
+        }
+    }
+}
+body.logged_out #login form fieldset input[type="email"], body.logged_out #login form fieldset input[type="password"] {
+    width: calc(80% - 25px);
+}

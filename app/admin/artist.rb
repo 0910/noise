@@ -1,9 +1,6 @@
 ActiveAdmin.register Artist, :namespace => :super_admin do
 
-  config.sort_order = 'position_asc' # assumes you are using 'position' for your acts_as_list column
-  config.paginate   = false # optional; drag-and-drop across pages is not supported
-
-  sortable # creates the controller action which handles the sorting
+  csv_importable :columns => [:name, :ra_link, :facebook_link, :soundcloud_link, :festival_id], :import_unique_key => :code
 
   controller do
     def find_resource
@@ -39,10 +36,8 @@ ActiveAdmin.register Artist, :namespace => :super_admin do
       f.semantic_errors
       f.input :name, :require => true
       f.input :country
-      f.inputs "Translated fields" do
-        f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
-          t.input :bio
-        end
+      f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
+        t.input :bio
       end
       f.input :facebook_link
       f.input :soundcloud_link
@@ -62,6 +57,15 @@ ActiveAdmin.register Artist, :namespace => :super_admin do
 end
 
 ActiveAdmin.register Artist, :namespace => :admin do
+
+  csv do
+    column :name
+    column :ra_link
+    column :facebook_link
+    column :soundcloud_link
+  end
+
+  csv_importable :columns => [:name, :ra_link, :facebook_link, :soundcloud_link, :festival_id], :import_unique_key => :code
   
   scope_to :current_festival
 
@@ -81,7 +85,6 @@ ActiveAdmin.register Artist, :namespace => :admin do
     column :country
     translation_status
     actions
-    sortable_handle_column # inserts a drag handle
   end
 
   filter :events
@@ -111,10 +114,8 @@ ActiveAdmin.register Artist, :namespace => :admin do
       f.semantic_errors
       f.input :name, :require => true
       f.input :country
-      f.inputs "Translated fields" do
-        f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
-          t.input :bio
-        end
+      f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
+        t.input :bio
       end
       f.input :facebook_link
       f.input :soundcloud_link

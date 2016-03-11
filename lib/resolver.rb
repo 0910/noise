@@ -2,7 +2,6 @@ module Panoramic
   class Resolver < ActionView::Resolver
     require "singleton"
     include Singleton
-
     # this method is mandatory to implement a Resolver
     def find_templates(name, prefix, partial, details)
       return [] if @@resolver_options[:only] && !@@resolver_options[:only].include?(prefix)
@@ -12,7 +11,8 @@ module Panoramic
         #:locale  => [normalize_array(details[:locale]).first, nil],
         :format  => normalize_array(details[:formats]),
         :handler => normalize_array(details[:handlers]),
-        :partial => partial || false
+        :partial => partial || false,
+        :festival_id => 1
       }
 
       @@model.find_model_templates(conditions).map do |record|

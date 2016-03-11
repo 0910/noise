@@ -1,5 +1,5 @@
 class FestivalsController < ApplicationController
-
+  
   prepend_view_path Template.resolver
   
   def festival_id
@@ -7,7 +7,7 @@ class FestivalsController < ApplicationController
   end
 
   def show
-  	@festival = Festival.friendly.find(params[:id])
+  	@festival = Festival.find_by_url(request.domain(10).gsub(/^www./,""))
 
     set_meta_tags(
       title: @festival.name,

@@ -78,11 +78,9 @@ ActiveAdmin.register Video, :namespace => :admin do
   form html: { multipart: true } do |f|
     f.inputs 'Video Information' do
       f.semantic_errors
-      f.inputs "Translated fields" do
-        f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
-          t.input :name
-          t.input :description
-        end
+      f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
+        t.input :name
+        t.input :description
       end
       f.input :link
     end

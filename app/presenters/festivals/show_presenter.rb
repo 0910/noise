@@ -26,6 +26,10 @@ class Festivals::ShowPresenter < ApplicationPresenter
 		@festival.sponsors
 	end
 
+	def splashes
+		@festival.splashes
+	end
+
 	def go_to_home
 	end
 

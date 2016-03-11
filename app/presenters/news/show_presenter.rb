@@ -15,7 +15,7 @@ class News::ShowPresenter < ApplicationPresenter
 	end
 
 	def date
-		@news.starts_on.to_date.to_formatted_s(:long)
+		@news.date.to_date.to_formatted_s(:long)
 	end
 
 	def image

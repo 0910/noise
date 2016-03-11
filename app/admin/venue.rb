@@ -31,10 +31,8 @@ ActiveAdmin.register Venue, :namespace => :super_admin do
       f.input :event, :as => :select
       f.input :location
       f.input :capacity
-      f.inputs "Translated fields" do
-        f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
-          t.input :description
-        end
+      f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
+        t.input :description
       end
     end
     f.inputs "Venue Image" do
@@ -85,10 +83,8 @@ ActiveAdmin.register Venue, :namespace => :admin do
       f.input :name, :require => true
       f.input :location
       f.input :capacity
-      f.inputs "Translated fields" do
-        f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
-          t.input :description
-        end
+      f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
+        t.input :description
       end
     end
     f.inputs "Venue Image" do

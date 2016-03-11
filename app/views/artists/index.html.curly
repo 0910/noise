@@ -9,11 +9,6 @@
       {{t.artists.title}}
       </h1>
     </div>
-    <div class="row">
-      <div class="section-heading-hr">
-        <img src="assets/arrow-down.png" alt=""/>
-      </div>
-    </div>
     <div class="row artists-filters">
       <div class="artists-filter-button filter" data-filter="all">
       {{t.filters.filter.all}}

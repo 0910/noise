@@ -1,4 +1,4 @@
-<div id="player">
+<!--<div id="player">
     <ol id="playlist" class="playlist"></ol>
     <div class="controls">
         <div class="player-button play">
@@ -38,5 +38,21 @@
     $('.plist').click(function(event){
         event.preventDefault();
         $('#playlist').slideToggle();
+    });
+</script>
+!-->
+
+<div id="fap">
+    <a href="https://soundcloud.com/robsoulrecordings"></a>
+</div>
+
+<script type="text/javascript">
+    soundManager.url = 'swf/';
+    soundManager.flashVersion = 9;
+    soundManager.useHTML5Audio = true;
+    soundManager.debugMode = false;
+    $(document).ready(function(){
+    //put your own soundcloud key here
+    $('#fap').fullwidthAudioPlayer({autoPlay: false });
     });
 </script>

@@ -15,12 +15,20 @@ class Artist < ActiveRecord::Base
 	has_many :events, :through => :event_artists
 
 	extend FriendlyId
-	friendly_id :name, use: :slugged
+	friendly_id :slug_candidates, use: :history
 
 	def slug_candidates
-    [
-      :name,
-      [:current_festival, :name]
-    ]
-  end
+	  [
+	      [:id, :name]
+	  ]
+	end
+
+  	after_commit :update_slug, on: :create
+
+	def update_slug
+		unless slug.include? self.id.to_s
+			self.slug = nil
+			self.save
+		end
+	end
 end

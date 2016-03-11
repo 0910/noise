@@ -46,6 +46,7 @@ gem 'mail_form'
 gem 'multi-select-rails'
 gem 'acts_as_list'
 gem 'activeadmin-sortable'
+gem 'active_admin_csv_import'
 
 
 group :development do

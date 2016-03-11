@@ -1,7 +1,7 @@
 {{newsletter}}
 <footer class="footer">
   <div class="container-fluid">
-    <div class="col-md-6 footer-social">
+    <div class="col-md-12 footer-social">
       <a href="{{facebook}}" class="footer-social-link">
         <span>
           <i class="fa fa-facebook"></i>
@@ -24,9 +24,6 @@
       </a>
       <a class="toggle-newsletter" href="#">{{t.newsletters.subscribe}}</a>
     </div>
-    <div class="col-md-6">
-      {{player}}
-    </div>
   </div>
 </footer>
 <div class="bottom">
@@ -38,6 +35,7 @@
     {{noise}}
   </p>
 </div>
+{{player}}
 
 <script type="text/javascript">
   $('body').jpreLoader({

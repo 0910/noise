@@ -20,13 +20,21 @@ class Event < ActiveRecord::Base
   accepts_nested_attributes_for :event_artists, :allow_destroy => true
 
   extend FriendlyId
-	friendly_id :name, use: :slugged
+  friendly_id :slug_candidates, use: :history
 
-	def slug_candidates
+  def slug_candidates
     [
-      :name,
-      [:name, :id]
+        [:id, :name]
     ]
+  end
+
+    after_commit :update_slug, on: :create
+
+  def update_slug
+    unless slug.include? self.id.to_s
+      self.slug = nil
+      self.save
+    end
   end
 
 end

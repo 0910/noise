@@ -1,20 +1,19 @@
 {{page_title}}
 {{ navigation }}
 
-<header class="header" id="header">
-  <div class="header-container">
-    <h1 class="header-title">
-      OFF AT FORUM
-    </h1>
-    <h2 class="header-subtitle">
-      OPEN AIR / DAY EVENTS / 2 STAGES / PRIVATE BEACH LOCATION
-    </h2>
-    <h2 class="header-subtitle">
-      16-19TH JUNE / OFF WEEK / BARCELONA
-    </h2>
-    <a href="{{get_tickets}}" class="get-tickets">{{t.events.tickets}}</a>
-  </div>
-</header>
+{{*splashes}}
+  <header class="header" id="header" style="background-image:url({{image}})">
+    <div class="header-container">
+      <h1 class="header-title">
+        {{title}}
+      </h1>
+      <h2 class="header-subtitle">
+        {{subtitle}}
+      </h2>
+      <a href="{{call_to_action_link}}" class="get-tickets">{{call_to_action}}</a>
+    </div>
+  </header>
+{{/splashes}}
 
 <section class="videos revealOnScroll" id="videos">
   <div class="container">

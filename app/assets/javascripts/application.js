@@ -20,6 +20,7 @@
 //= require swipebox
 //= require jpreloader
 //= require soundcloud.sdk
+//= require soundmanager2
 //= require amplify.min
 //= require jquery.player
 //= require magic

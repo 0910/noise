@@ -16,7 +16,7 @@
 		= yield
 		= render 'shared/widgets'
 		#fap
-
+			%a(href="http://soundcloud.com/soulclap")
 
 :javascript
 	soundManager.url = 'swf/';
@@ -24,6 +24,5 @@
 	soundManager.useHTML5Audio = true;
 	soundManager.debugMode = false;
 	$(document).ready(function(){
-	//put your own soundcloud key here
 		$('#fap').fullwidthAudioPlayer({autoPlay: false });
 	});

@@ -15,3 +15,15 @@
 			= content_tag :div, msg, class: name
 		= yield
 		= render 'shared/widgets'
+		#fap
+
+
+:javascript
+	soundManager.url = 'swf/';
+	soundManager.flashVersion = 9;
+	soundManager.useHTML5Audio = true;
+	soundManager.debugMode = false;
+	$(document).ready(function(){
+	//put your own soundcloud key here
+		$('#fap').fullwidthAudioPlayer({autoPlay: false });
+	});

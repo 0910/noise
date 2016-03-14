@@ -22,5 +22,5 @@
 //= require soundcloud.sdk
 //= require amplify.min
 //= require jquery.player
-//= require magic.coffee
+//= require magic
 //= require_tree .

@@ -21,10 +21,11 @@ ActiveAdmin.register News, :namespace => :super_admin do
       row :subtitle
       row :body
       p.images.each do |image|
-        row :images do
-          content_tag(:span, image.file.url(:original))
+        row :image do
+          image_tag(image.file.url(:thumb))
         end
       end
+
     end
   end
 
@@ -107,9 +108,9 @@ ActiveAdmin.register News, :namespace => :admin do
       f.input :news_type, as: :select2, :collection => ['normal', 'video'], :include_blank => false
       f.input :link
       f.input :video
+      f.input :image, :as => :file, label: 'Video Cover', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))
     end
     f.inputs "Images" do
-      f.input :image, :as => :file, label: 'Cover Image', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))
       f.has_many :images, sortable: :position do |i|
         i.input :file, as: :file, label: false, hint: i.object.new_record? ? i.template.content_tag(:span, "No Image Yet") : image_tag(i.object.file.url(:thumb))
         i.input :cover, as: :boolean, label: "Cover"

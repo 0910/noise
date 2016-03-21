@@ -72,6 +72,9 @@ ActiveAdmin.register Video, :namespace => :admin do
       row :name
       row :description
       row :link
+      row :photo do
+        image_tag(video.image.url(:thumb))
+      end
     end
   end
 

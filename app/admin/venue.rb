@@ -74,6 +74,9 @@ ActiveAdmin.register Venue, :namespace => :admin do
       row :location
       row :description
       row :capacity
+      row :photo do
+        image_tag(venue.image.url(:thumb))
+      end
     end
   end
 

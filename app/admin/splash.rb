@@ -62,7 +62,9 @@ ActiveAdmin.register Splash, :namespace => :admin do
       row :slug
       row :subtitle
       row :body
-      row :photo
+      row :photo do
+        image_tag(splash.photo.url(:thumb))
+      end
     end
   end
 

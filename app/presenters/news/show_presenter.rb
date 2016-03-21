@@ -50,6 +50,10 @@ class News::ShowPresenter < ApplicationPresenter
 	    @news.video
 	end
 
+	def has_video?
+	    @news.news_type = video 
+	end
+
 	def page_title
 		content_for :title, @festival.name + ' - ' + @news.title
 	end

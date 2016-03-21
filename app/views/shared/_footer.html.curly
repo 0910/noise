@@ -35,7 +35,6 @@
     {{noise}}
   </p>
 </div>
-{{player}}
 
 <script type="text/javascript">
   $('body').jpreLoader({

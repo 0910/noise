@@ -19,7 +19,7 @@ class Festivals::SplashPresenter < Curly::Presenter
   end
 
   def image
-    @splash.photo.url(:large)
+    @splash.photo.url(:high)
   end
 
 end

@@ -1,16 +1,16 @@
 {{page_title}}
-{{ navigation }}
+{{navigation}}
 
 {{*splashes}}
   <header class="header" id="header" style="background-image:url({{image}})">
     <div class="header-container">
       <h1 class="header-title">
-        {{title}}
+        {{splash_title}}
       </h1>
       <h2 class="header-subtitle">
-        {{subtitle}}
+        {{splash_subtitle}}
       </h2>
-      <a href="{{call_to_action_link}}" class="get-tickets">{{call_to_action}}</a>
+      <a href="{{call_to_action_link}}" class="get-tickets">{{splash_call_to_action}}</a>
     </div>
   </header>
 {{/splashes}}
@@ -41,7 +41,7 @@
   <div class="container">
     <div class="row">
       <h1 class="section-heading">
-      {{t.artists.title}}
+      {{menu_title_artists}}
       </h1>
     </div>
     <div class="row artists-filters">
@@ -79,7 +79,7 @@
   <div class="container">
     <div class="row">
       <h1 class="section-heading">
-        {{t.events.title}}
+        {{menu_title_events}}
       </h1>
     </div>
     <div class="row">
@@ -109,7 +109,7 @@
     <div class="col-md-12">
       <div class="row">
         <h1 class="section-heading">
-          {{t.news.title}}
+          {{menu_title_news}}
         </h1>
       </div>
       <div class="row">
@@ -157,7 +157,7 @@
   <div class="container">
     <div class="row">
       <h1 class="section-heading">
-        {{t.venues.title}}
+        {{menu_title_venues}}
       </h1>
     </div>
     <div class="row">
@@ -206,7 +206,7 @@
 </div>
 
 <script type="text/javascript">
-  $('.videos-item').swipebox();
+  $('.videos-item').swipebox({autoplayVideos: true});
   $('.artists-grid').mixItUp();
   var swiper = new Swiper('.swiper-container', {
     slidesPerView: 'auto',

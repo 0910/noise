@@ -12,16 +12,19 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery.pjax
 //= require bootstrap-sprockets
 //= require jquery.easing.min
 //= require mixitup
 //= require swiper.jquery
 //= require swipebox
 //= require jpreloader
-//= require soundcloud.sdk
 //= require soundmanager2
-//= require amplify.min
-//= require jquery.player
-//= require magic
+//= require sc-player
+//= require sc-player-waveform
+//= require player
 //= require_tree .
+$(function() {
+  $.pjax.defaults.timeout = 6000
+  $(document).pjax('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])', '[data-pjax-container]')
+});

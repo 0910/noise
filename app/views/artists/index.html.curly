@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row">
       <h1 class="section-heading">
-      {{t.artists.title}}
+      {{menu_title_artists}}
       </h1>
     </div>
     <div class="row artists-filters">

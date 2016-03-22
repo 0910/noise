@@ -7,7 +7,7 @@
     <div class="col-md-12">
       <div class="row">
         <h1 class="section-heading">
-          {{t.news.title}}
+          {{menu_title_news}}
         </h1>
       </div>
       <div class="row">

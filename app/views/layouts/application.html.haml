@@ -10,10 +10,10 @@
 			= csrf_meta_tags
 			= display_meta_tags
 			= yield(:head)
-	%body{:class => "#{controller_name} #{action_name}"}
+	%body{:class => "#{controller_name} #{action_name}", "ng-app" => "player"}
 		- flash.each do |name, msg|
 			= content_tag :div, msg, class: name
-		= yield
+		#layout_content{"data-pjax-container" => ""}
+			= yield
 		= render 'shared/widgets'
-		#fap
-			%a(href="http://soundcloud.com/soulclap")
+		= render 'shared/player'

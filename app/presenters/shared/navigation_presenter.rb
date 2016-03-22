@@ -9,7 +9,7 @@ class Shared::NavigationPresenter < ApplicationPresenter
 	end
 
 	def go_to_home
-		root_path
+		params[:locale]
 	end
 
 	def go_to_artists
@@ -40,34 +40,6 @@ class Shared::NavigationPresenter < ApplicationPresenter
 		new_contact_path
 	end
 
-	def menu_title_home
-		festival.menu_title_home
-	end
-
-	def menu_title_artists
-		festival.menu_title_artists
-	end
-
-	def menu_title_events
-		festival.menu_title_events
-	end
-
-	def menu_title_news
-		festival.menu_title_news
-	end
-
-	def menu_title_videos
-		festival.menu_title_videos
-	end
-
-	def menu_title_venues
-		festival.menu_title_venues
-	end
-
-	def menu_title_contacts
-		festival.menu_title_contacts
-	end
-
 	def facebook
 		festival.facebook
 	end
@@ -85,27 +57,27 @@ class Shared::NavigationPresenter < ApplicationPresenter
 	end
 
 	def lang_english
-		link_to 'English', change_locale_path(:en)
+		link_to 'English', '/en'
 	end
 
 	def lang_spanish
-		link_to 'Español', change_locale_path(:es)
+		link_to 'Español', '/es'
 	end
 
 	def lang_catalan
-		link_to 'Català', change_locale_path(:ca)
+		link_to 'Català', '/ca'
 	end
 
 	def lang_english_short
-		link_to 'En', change_locale_path(:en)
+		link_to 'En', '/en'
 	end
 
 	def lang_spanish_short
-		link_to 'Es', change_locale_path(:es)
+		link_to 'Es', '/es'
 	end
 
 	def lang_catalan_short
-		link_to 'Ca', change_locale_path(:ca)
+		link_to 'Ca', '/ca'
 	end
 
 end

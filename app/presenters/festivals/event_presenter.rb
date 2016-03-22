@@ -23,7 +23,7 @@ class Festivals::EventPresenter < Curly::Presenter
   end
 
   def detail_link
-    event_path(@event)
+    event_path(@event, :locale => I18n.locale)
   end
 
   def artists_asc

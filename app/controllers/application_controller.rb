@@ -27,16 +27,29 @@ class ApplicationController < ActionController::Base
   end
   helper_method :widgets
 
-  before_action :set_locale
+  before_filter :set_locale
+
+  protected
 
   def set_locale
-    if cookies[:user_locale] && I18n.available_locales.include?(cookies[:user_locale].to_sym)
-      l = cookies[:user_locale].to_sym
-    else
-      l = I18n.default_locale
-      cookies.permanent[:user_locale] = l
-    end
-    I18n.locale = l
+    I18n.locale = params[:locale] || I18n.default_locale
   end
+
+  def default_url_options(options = {})
+    { locale: I18n.locale }.merge options
+  end
+
+
+  #before_action :set_locale
+
+  #def set_locale
+  #  if cookies[:user_locale] && I18n.available_locales.include?(cookies[:user_locale].to_sym)
+  #    l = cookies[:user_locale].to_sym
+  #  else
+  #    l = I18n.default_locale
+  #    cookies.permanent[:user_locale] = l
+  #  end
+  #  I18n.locale = l
+  #end
 
 end

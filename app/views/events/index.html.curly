@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row">
       <h1 class="section-heading">
-        {{t.events.title}}
+        {{menu_title_events}}
       </h1>
     </div>
     <div class="row">

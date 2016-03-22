@@ -51,7 +51,7 @@ class Festivals::NewsPresenter < Curly::Presenter
   end
 
   def detail_link
-    news_path(@news)
+    news_path(@news, :locale => I18n.locale)
   end
 
   def video

@@ -27,7 +27,7 @@ class Festivals::VenuePresenter < Curly::Presenter
   end
 
   def detail_link
-    venue_path(@venue)
+    venue_path(@venue, :locale => I18n.locale)
   end
 
 end

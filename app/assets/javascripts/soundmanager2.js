@@ -2593,7 +2593,7 @@ function SoundManager(smURL, smID) {
     this._processOnPosition = function() {
 
       var i, item, j = onPositionItems.length;
-		
+    
       if (!j || !s.playState || onPositionFired >= j) {
         return false;
       }
@@ -2604,10 +2604,10 @@ function SoundManager(smURL, smID) {
           item.fired = true;
           onPositionFired++;
           item.method.apply(item.scope, [item.position]);
-		  j = onPositionItems.length; //  reset j -- onPositionItems.length can be changed in the item callback above... occasionally breaking the loop.
+      j = onPositionItems.length; //  reset j -- onPositionItems.length can be changed in the item callback above... occasionally breaking the loop.
         }
       }
-	
+  
       return true;
 
     };

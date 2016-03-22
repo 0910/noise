@@ -15,7 +15,8 @@ class Festivals::ArtistPresenter < Curly::Presenter
   end
 
   def artist_detail_link
-    artist_path(@artist.artist)
+    artist_path(@artist.artist, :locale => I18n.locale)
+
   end
 
 end

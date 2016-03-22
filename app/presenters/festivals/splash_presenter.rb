@@ -2,15 +2,15 @@ class Festivals::SplashPresenter < Curly::Presenter
 
   presents :festival, :splash
 
-  def title
+  def splash_title
     @splash.title
   end
 
-  def subtitle
+  def splash_subtitle
     simple_format(@splash.subtitle)
   end
 
-  def call_to_action
+  def splash_call_to_action
     @splash.call_to_action
   end
 

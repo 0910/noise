@@ -16,12 +16,16 @@
           {{#has_video?}}
             <a href="{{video}}" class="news-item swiper-slide swipebox">
               <div class="news-image-wrap">
-                <div class="news-image" style="background-image:url({{image}});"></div>
+                <div class="news-image" style="background-image:url({{image}});">
+                    <p class="video-icon">
+                      <i class="fa fa-play"></i>
+                    </p>
+                </div>
               </div>
             </a>
           {{/has_video?}}
           {{*images}}
-            <a href="{{source}}" class="news-item swiper-slide swipebox">
+            <a href="{{source}}" class="news-item swiper-slide">
               <div class="news-image-wrap">
                 <div class="news-image" style="background-image:url({{source}});"></div>
               </div>
@@ -52,7 +56,7 @@
 </section>
 
 <script type="text/javascript">
-  $('.swipebox').swipebox();
+  $('.swipebox').swipebox(({autoplayVideos: true}));
   var swiper = new Swiper('.swiper-container', {
     slidesPerView: 'auto',
     centeredSlides: true,

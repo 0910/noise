@@ -7,7 +7,7 @@ class NewslettersController < ApplicationController
   	@festival = festival
     @newsletter = @festival.newsletters.create(newsletter_params)
     if @newsletter.save
-      redirect_to festival_path(festival), notice: t('.successful')
+      redirect_to root_path, notice: t('.successful')
     end
   end
   def newsletter_params

@@ -17,3 +17,8 @@
 			= yield
 		= render 'shared/widgets'
 		= render 'shared/player'
+	:javascript
+		$(document).on('pjax:complete', function() {
+			$('.navbar-collapse').removeClass('show');
+			$('body').css('overflow', 'auto');
+		})

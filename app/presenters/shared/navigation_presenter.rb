@@ -9,7 +9,11 @@ class Shared::NavigationPresenter < ApplicationPresenter
 	end
 
 	def go_to_home
-		'/'+ params[:locale]
+		if params[:locale]
+			'/'+ params[:locale]
+		else
+			'/en'
+		end
 	end
 
 	def go_to_artists

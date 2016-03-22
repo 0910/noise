@@ -7,7 +7,7 @@ class NewslettersController < ApplicationController
   	@festival = festival
     @newsletter = @festival.newsletters.create(newsletter_params)
     if @newsletter.save
-      redirect_to root_path, notice: t('.successful')
+      redirect_to '/'+ params[:locale], notice: t('.successful')
     end
   end
   def newsletter_params

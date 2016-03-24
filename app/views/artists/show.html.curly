@@ -15,21 +15,23 @@
       </div>
     </div>
     <div class="row artist-social">
-       <a href="{{facebook}}" target="_blank" class="artist-social-link">
-        <span>
-           <i class="fa fa-facebook"></i>
-        </span>
-       </a>
-       <a href="{{instagram}}" target="_blank" class="artist-social-link">
-        <span>
-           <i class="fa fa-instagram"></i>
-        </span>
-       </a>
-       <a href="{{soundcloud}}" target="_blank" class="artist-social-link">
-        <span>
-           <i class="fa fa-soundcloud"></i>
-        </span>
-       </a>
+      <div class="artist-social-container">
+         <a href="{{facebook}}" target="_blank" class="artist-social-link">
+          <span>
+             <i class="fa fa-facebook"></i>
+          </span>
+         </a>
+         <a href="{{ra}}" target="_blank" class="artist-social-link">
+          <span>
+             <i class="fa fa-resident-advisor"></i>
+          </span>
+         </a>
+         <a href="{{soundcloud}}" target="_blank" class="artist-social-link">
+          <span>
+             <i class="fa fa-soundcloud"></i>
+          </span>
+         </a>
+      </div>
     </div>
   </div>
 </section>

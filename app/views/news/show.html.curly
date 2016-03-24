@@ -25,11 +25,11 @@
             </a>
           {{/has_video?}}
           {{*images}}
-            <a href="{{source}}" class="news-item swiper-slide">
+            <div class="news-item swiper-slide">
               <div class="news-image-wrap">
                 <div class="news-image" style="background-image:url({{source}});"></div>
               </div>
-            </a>
+            </div>
           {{/images}}
           </div>
           <div class="swiper-pagination"></div>
@@ -66,7 +66,6 @@
     prevButton: '.swiper-button-prev',
     keyboardControl: true,
     spaceBetween: 30,
-    loop: true,
     breakpoints: {
       1200: {
         slidesPerView: 3,

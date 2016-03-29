@@ -51,7 +51,7 @@ class News::ShowPresenter < ApplicationPresenter
 	end
 
 	def has_video?
-	    @news.news_type = video 
+	    @news.news_type == 'video' 
 	end
 
 	def page_title

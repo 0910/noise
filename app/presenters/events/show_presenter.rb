@@ -34,4 +34,8 @@ class Events::ShowPresenter < ApplicationPresenter
 		content_for :title, @festival.name + ' - ' + @event.name
 	end
 
+	def event_link
+		event_path(@event)
+	end
+
 end

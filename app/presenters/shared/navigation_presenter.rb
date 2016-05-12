@@ -44,6 +44,10 @@ class Shared::NavigationPresenter < ApplicationPresenter
 		new_contact_path
 	end
 
+	def go_to_press_contact
+		new_press_contact_path
+	end
+
 	def facebook
 		festival.facebook
 	end

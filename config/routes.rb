@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     end
     resources :newsletters, only: [:new, :create]
     resources :contacts, only: [:new, :create]
+    resources :press_contacts, only: [:new, :create]
 
   end
 

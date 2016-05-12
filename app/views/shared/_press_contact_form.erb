@@ -4,13 +4,13 @@
 	</h3>
 <% end %>
 <div class="col-md-4 col-md-offset-4">
-	<%= form_for @contact do |f| %>
+	<%= form_for @presscontact do |f| %>
 		<div class="row">
 			<div class="form-group">
 				<%= f.label :name, t('contacts.name'), class: 'control-label' %>
 				<%= f.text_field :name, :required => true, class: 'form-control' %>
-				<%= f.hidden_field :mail_to, value: festival.regular_contact_address %>
-				<%= f.hidden_field :festival, value: 'Contact from ' + festival.name %>
+				<%= f.hidden_field :mail_to, value: festival.press_contact_address %>
+				<%= f.hidden_field :festival, value: 'Press Contact from ' + festival.name %>
 			</div>
 		</div>
 		<div class="row">

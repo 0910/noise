@@ -24,6 +24,10 @@ class ApplicationPresenter < Curly::Presenter
       render partial: 'shared/contact_form'
     end
 
+    def press_contact_form
+      render partial: 'shared/press_contact_form'
+    end
+
     def menu_title_home
       festival.menu_title_home
     end

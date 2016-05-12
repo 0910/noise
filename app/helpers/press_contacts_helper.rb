@@ -1,0 +1,2 @@
+module PressContactsHelper
+end

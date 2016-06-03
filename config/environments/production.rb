@@ -76,8 +76,8 @@ Rails.application.configure do
     authentication: "plain",
     enable_starttls_auto: true,
     ssl: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    user_name: "noiseplatform@gmail.com",
+    password: "=;wXW=4%EnrB+Pw!"
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

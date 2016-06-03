@@ -75,8 +75,8 @@ Rails.application.configure do
     domain: "gmail.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "emadobao@gmail.com",
-    password: "pranayama.3812"
+    user_name: "noiseplatform@gmail.com",
+    password: "=;wXW=4%EnrB+Pw!"
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

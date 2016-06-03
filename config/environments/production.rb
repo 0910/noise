@@ -72,8 +72,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: "smtp.gmail.com",
-    authentication: "plain",
+    domain: "gmail.com",
+    authentication: "login",
     enable_starttls_auto: true,
     ssl: true,
     user_name: "noiseplatform@gmail.com",

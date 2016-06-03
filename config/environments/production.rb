@@ -73,11 +73,11 @@ Rails.application.configure do
     address: "smtp.gmail.com",
     port: 587,
     domain: "gmail.com",
-    authentication: "login",
+    authentication: "plain",
     enable_starttls_auto: true,
     ssl: true,
-    user_name: "noiseplatform@gmail.com",
-    password: "=;wXW=4%EnrB+Pw!"
+    user_name: "emadobao@gmail.com",
+    password: "pranayama.3812"
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

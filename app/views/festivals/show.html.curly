@@ -19,7 +19,7 @@
   <div class="container">
     <div class="row videos-grid no-gutter">
       {{*videos}}
-        <a href="{{youtube_link}}" class="col-md-6 col-md-offset-3 videos-item swipebox">
+        <a href="{{youtube_link}}" class="col-md-8 col-md-offset-2 videos-item swipebox">
           <img class="video-image" src="{{cover}}" alt=""/>
           <div class="videos-item-hover">
             <div class="videos-item-hover-caption">
@@ -79,12 +79,45 @@
   <div class="container">
     <div class="row">
       <h1 class="section-heading">
+        Timetable
+      </h1>
+    </div>
+    <div class="row">
+      {{*sets}}
+        <div class="col-xs-12 col-sm-4 col-md-4 events-item">
+          <div class="row">
+          </div>
+          <div class="row">
+            <div class="events-item-caption">
+              <h2 class="events-item-caption-title">
+                {{event}}
+              </h2>
+              <h3 class="events-item-caption-subtitle">
+                {{artist}}
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            <a href="{{tickets}}" class="get-tickets swipebox">
+              Get Tickets
+            </a>
+          </div>
+        </div>
+      {{/sets}}
+    </div>
+  </div>
+</section>
+
+<section class="events revealOnScroll" id="events">
+  <div class="container">
+    <div class="row">
+      <h1 class="section-heading">
         {{menu_title_events}}
       </h1>
     </div>
     <div class="row">
       {{*events}}
-        <a href="{{detail_link}}" class="col-xs-12 col-sm-6 col-md-3 events-item">
+        <div class="col-xs-12 col-sm-4 col-md-4 events-item">
           <div class="row">
             <img class="event-image" src="{{image}}" alt="{{name}}"/>
           </div>
@@ -98,7 +131,12 @@
               </h3>
             </div>
           </div>
-        </a>
+          <div class="row">
+            <a href="{{tickets}}" class="get-tickets swipebox">
+              Get Tickets
+            </a>
+          </div>
+        </div>
       {{/events}}
     </div>
   </div>
@@ -190,46 +228,57 @@
 
 <section class="sponsors revealOnScroll" id="sponsors">
   <div class="container">
-    {{*sponsors}}
-       <a href="{{sponsor_link}}" target="_blank" class="sponsor-item">
-        <img src="{{image}}" alt="{{name}}" class="sponsor-image"/>
-      </a>
-    {{/sponsors}}
+    <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+      {{*sponsors}}
+         <a href="{{sponsor_link}}" target="_blank" class="col-xs-4 col-sm-4 col-md-4 sponsor-item">
+          <img src="{{image}}" alt="{{name}}" class="sponsor-image"/>
+        </a>
+      {{/sponsors}}
+    </div>
   </div>
 </section>
 
 {{footer}}
 
 <div class="animated-objects">
-  <div class="object quarter"></div>
-  <div class="object ball"></div>
+  <div class="object quarter" data-stellar-ratio="1.5"></div>
+  <div class="object ball" data-stellar-ratio="1.5"></div>
 </div>
 
 <script type="text/javascript">
+  $('.swipebox').swipebox();
   $('.videos-item').swipebox({autoplayVideos: true});
   $('.artists-grid').mixItUp();
   var swiper = new Swiper('.swiper-container', {
-    slidesPerView: 'auto',
-    centeredSlides: true,
+    slidesPerView: '3',
     pagination: '.swiper-pagination',
     paginationClickable: true,
     nextButton: '.swiper-button-next',
     prevButton: '.swiper-button-prev',
     keyboardControl: true,
-    spaceBetween: 30,
+    spaceBetween: 60,
+    centeredSlides: true,
     loop: true,
     breakpoints: {
       1200: {
         slidesPerView: 3,
-        spaceBetween: 60
+        spaceBetween: 30
       },
-      768: {
-        slidesPerView: 3,
+      1080: {
+        slidesPerView: 2,
         spaceBetween: 15
       },
-      460: {
+      1024: {
         slidesPerView: 1,
         spaceBetween: 15
+      },
+      768: {
+        slidesPerView: 1,
+        spaceBetween: 15
+      },
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 0
       }
     }
   });
@@ -267,113 +316,4 @@
 
   $window.on('scroll', revealOnScroll);
 
-
-  var _containerHeight = 4000;
-  var _width, _height, _scrollHeight;
-  var _movingElements = [];
-  var _scrollPercent = 0;
-  var pre = prefix();
-  var _jsPrefix  = pre.lowercase;
-  if(_jsPrefix == 'moz') _jsPrefix = 'Moz'
-  var _cssPrefix = pre.css;
-  var _positions = [
-    {
-      name: 'quarter', 
-      start: {
-        percent: 0.01, x: 0, y: 0.25
-      },
-      end: {
-        percent: 0.28, x: 0, y: 0.005
-      }
-    },
-    {
-      name: 'ball', 
-      start: {
-        percent: 0.01, x: 0.65, y: 0.5
-      },
-      end: {
-        percent: 0.5, x: 0.65, y: 0.01
-      }
-    }
-  ]
-
-  resize();
-  initMovingElements();
-
-  function initMovingElements() {
-    for (var i = 0; i < _positions.length; i++) {
-      _positions[i].diff = {
-      percent: _positions[i].end.percent - _positions[i].start.percent,
-      x: _positions[i].end.x - _positions[i].start.x,
-      y: _positions[i].end.y - _positions[i].start.y,
-      }
-      _positions[i].target = {};
-      _positions[i].current = {};
-      var el = document.getElementsByClassName('object '+_positions[i].name)[0];
-      _movingElements.push(el);
-    }
-  }
-
-  function resize() {
-    _width = window.innerWidth;
-    _height = window.innerHeight;
-    _scrollHeight = _containerHeight-_height;
-  }
-
-
-  function updateElements() {
-    for (var i = 0; i < _movingElements.length; i++) {
-    var p = _positions[i];
-    if(_scrollPercent <= p.start.percent) {
-      p.target.x = p.start.x*_width;
-      p.target.y = p.start.y*_containerHeight;
-    } else if(_scrollPercent >= p.end.percent) {
-      p.target.x = p.end.x*_width;
-      p.target.y = p.end.y*_containerHeight;
-    } else {
-      p.target.x = p.start.x*_width + (p.diff.x*(_scrollPercent-p.start.percent)/p.diff.percent*_width);
-      p.target.y = p.start.y*_containerHeight + (p.diff.y*(_scrollPercent-p.start.percent)/p.diff.percent*_containerHeight);
-    }
-
-    if(!p.current.x) {
-      p.current.x = p.target.x;
-      p.current.y = p.target.y;
-    } else {
-      p.current.x = p.current.x + (p.target.x - p.current.x)*0.1;
-      p.current.y = p.current.y + (p.target.y - p.current.y)*0.1;
-    }
-    _movingElements[i].style[_jsPrefix+'Transform'] = 'translate3d('+p.current.x+'px, '+ p.current.y+'px, 0px)';
-    }
-  }
-
-
-
-  function loop() {
-    _scrollOffset = window.pageYOffset || window.scrollTop;
-    _scrollPercent = _scrollOffset/_scrollHeight || 0;
-    updateElements();
-
-    requestAnimationFrame(loop);
-  }
-
-  loop();
-
-  window.addEventListener('resize', resize);
-
-
-  function prefix() {
-    var styles = window.getComputedStyle(document.documentElement, ''),
-      pre = (Array.prototype.slice
-      .call(styles)
-      .join('') 
-      .match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o'])
-      )[1],
-      dom = ('WebKit|Moz|MS|O').match(new RegExp('(' + pre + ')', 'i'))[1];
-    return {
-      dom: dom,
-      lowercase: pre,
-      css: '-' + pre + '-',
-      js: pre[0].toUpperCase() + pre.substr(1)
-    };
-  }
 </script>

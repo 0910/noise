@@ -1,7 +1,7 @@
 class Artist < ActiveRecord::Base
 	acts_as_list
 	belongs_to :festival
-	has_many :show
+	has_many :shows
 
 	active_admin_translates :bio
 

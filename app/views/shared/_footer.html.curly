@@ -2,22 +2,22 @@
 <footer class="footer">
   <div class="container-fluid">
     <div class="col-md-12 footer-social">
-      <a href="{{facebook}}" class="footer-social-link">
+      <a href="{{facebook}}" class="footer-social-link" target="_blank">
         <span>
           <i class="fa fa-facebook"></i>
         </span>
       </a>
-      <a href="{{instagram}}" class="footer-social-link">
+      <a href="{{instagram}}" class="footer-social-link" target="_blank">
         <span>
           <i class="fa fa-instagram"></i>
         </span>
       </a>
-      <a href="{{twitter}}" class="footer-social-link">
+      <a href="{{twitter}}" class="footer-social-link" target="_blank">
         <span>
           <i class="fa fa-twitter"></i>
         </span>
       </a>
-      <a href="{{soundcloud}}" class="footer-social-link">
+      <a href="{{soundcloud}}" class="footer-social-link" target="_blank">
         <span>
           <i class="fa fa-youtube"></i>
         </span>

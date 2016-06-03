@@ -38,4 +38,8 @@ class Festivals::EventPresenter < Curly::Presenter
     @event.event_artists.order(position: :asc)
   end
 
+  def tickets
+    @event.tickets_link
+  end
+
 end

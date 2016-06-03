@@ -68,6 +68,8 @@ ActiveAdmin.register Show, :namespace => :admin do
       row :slug
       row :event
       row :artist
+      row :starts_on
+      row :finish_on
       row :description
     end
   end
@@ -76,8 +78,10 @@ ActiveAdmin.register Show, :namespace => :admin do
     f.inputs 'Show Information' do
       f.semantic_errors
       f.input :name, :require => true
-      f.input :event, :as => :select
-      f.input :artist, :as => :select
+      f.input :event, :as => :select2
+      f.input :artist, :as => :select2, :collection => Artist.all, :include_blank => false, :require => true
+      f.input :starts_on
+      f.input :finish_on
       f.input :description
     end
     f.actions

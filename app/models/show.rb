@@ -2,16 +2,23 @@ class Show < ActiveRecord::Base
   belongs_to :festival
   belongs_to :event
   belongs_to :venue
-
   belongs_to :artist
 
   extend FriendlyId
-	friendly_id :name, use: :slugged
+  friendly_id :slug_candidates, use: :history
 
-	def slug_candidates
+  def slug_candidates
     [
-      :name,
-      [:name, :id]
+        [:id, :name]
     ]
+  end
+
+    after_commit :update_slug, on: :create
+
+  def update_slug
+    unless slug.include? self.id.to_s
+      self.slug = nil
+      self.save
+    end
   end
 end

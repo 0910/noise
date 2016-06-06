@@ -70,13 +70,12 @@ Rails.application.configure do
   # SMTP settings for gmail
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
+    address: "email-smtp.us-west-2.amazonaws.com",
     port: 587,
-    domain: "gmail.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "noiseplatform@gmail.com",
-    password: "=;wXW=4%EnrB+Pw!"
+    user_name: "AKIAJAZLXFED4A4PJNQQ",
+    password: "AtLfATSmT9EkM3yUJXlYxtb1BNDPEvadLdC1hlczryJU"
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

@@ -18,8 +18,8 @@ class Festivals::DayPresenter < Curly::Presenter
     @day.slug
   end
 
-  def events
-    @day.events.order(starts_on: :asc)
+  def stages
+    @day.stages.order(name: :asc)
   end
 
 end

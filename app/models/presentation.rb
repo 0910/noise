@@ -2,6 +2,7 @@ class Presentation < ActiveRecord::Base
   belongs_to :festival
   belongs_to :event
   belongs_to :artist
+  belongs_to :stage
 
   extend FriendlyId
   friendly_id :slug_candidates, use: :history

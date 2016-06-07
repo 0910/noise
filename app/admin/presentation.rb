@@ -18,6 +18,7 @@ ActiveAdmin.register Presentation, :namespace => :super_admin do
       row :name
       row :slug
       row :event
+      row :stage
       row :artist
       row :description
     end
@@ -59,6 +60,7 @@ ActiveAdmin.register Presentation, :namespace => :admin do
   filter :name
   filter :artist
   filter :event
+  filter :stage
   filter :created_at
   
   show do |p|
@@ -67,6 +69,7 @@ ActiveAdmin.register Presentation, :namespace => :admin do
       row :name
       row :slug
       row :event
+      row :stage
       row :artist
       row :starts_on
       row :finishes_on
@@ -79,6 +82,7 @@ ActiveAdmin.register Presentation, :namespace => :admin do
       f.semantic_errors
       f.input :name, :require => true
       f.input :event, :as => :select2
+      f.input :stage, :as => :select2
       f.input :artist, :as => :select2, :collection => Artist.all, :include_blank => false, :require => true
       f.input :time, :require => true
       f.input :duration, :require => true

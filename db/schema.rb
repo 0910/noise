@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606203230) do
+ActiveRecord::Schema.define(version: 20160607221910) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -313,11 +313,13 @@ ActiveRecord::Schema.define(version: 20160606203230) do
     t.datetime "updated_at",                null: false
     t.time     "time"
     t.integer  "duration",    limit: 4
+    t.integer  "stage_id",    limit: 4
   end
 
   add_index "presentations", ["artist_id"], name: "index_presentations_on_artist_id", using: :btree
   add_index "presentations", ["event_id"], name: "index_presentations_on_event_id", using: :btree
   add_index "presentations", ["festival_id"], name: "index_presentations_on_festival_id", using: :btree
+  add_index "presentations", ["stage_id"], name: "index_presentations_on_stage_id", using: :btree
 
   create_table "press_contacts", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -385,6 +387,18 @@ ActiveRecord::Schema.define(version: 20160606203230) do
   end
 
   add_index "sponsors", ["festival_id"], name: "index_sponsors_on_festival_id", using: :btree
+
+  create_table "stages", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.integer  "day_id",      limit: 4
+    t.integer  "festival_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "slug",        limit: 255
+  end
+
+  add_index "stages", ["day_id"], name: "index_stages_on_day_id", using: :btree
+  add_index "stages", ["festival_id"], name: "index_stages_on_festival_id", using: :btree
 
   create_table "templates", force: :cascade do |t|
     t.text     "name",        limit: 65535
@@ -533,10 +547,13 @@ ActiveRecord::Schema.define(version: 20160606203230) do
   add_foreign_key "presentations", "artists"
   add_foreign_key "presentations", "events"
   add_foreign_key "presentations", "festivals"
+  add_foreign_key "presentations", "stages"
   add_foreign_key "shows", "events"
   add_foreign_key "shows", "festivals"
   add_foreign_key "splashes", "festivals"
   add_foreign_key "sponsors", "festivals"
+  add_foreign_key "stages", "days"
+  add_foreign_key "stages", "festivals"
   add_foreign_key "templates", "festivals"
   add_foreign_key "themes", "festivals"
   add_foreign_key "venues", "festivals"

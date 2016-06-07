@@ -225,6 +225,7 @@ ca:
 
   news:
     title: "Notícies"
+    all: "Més Notícies"
 
   venues:
     title: "Espai"

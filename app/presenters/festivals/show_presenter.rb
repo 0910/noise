@@ -15,7 +15,7 @@ class Festivals::ShowPresenter < ApplicationPresenter
 	end
 
 	def news
-		@festival.news
+		@festival.news.order(date: :desc).first(6)
 	end
 
 	def videos

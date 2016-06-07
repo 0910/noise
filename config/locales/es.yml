@@ -255,6 +255,7 @@ es:
 
   news:
     title: "Noticias"
+    all: "Más Noticias"
 
   venues:
     title: "Espacio"

@@ -255,6 +255,7 @@ en:
 
   news:
     title: "News"
+    all: "More News"
 
   venues:
     title: "Location"

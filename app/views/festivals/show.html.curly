@@ -214,6 +214,9 @@
           <div class="swiper-button-prev"></div>
         </div>
       </div>
+      <div class="row">
+      <a href="{{go_to_news}}" class="get-tickets">{{t.news.all}}</a>
+      </div>
     </div>
   </div>
 </section>
@@ -273,79 +276,79 @@
 </div>
 
 <script type="text/javascript">
-  $('.swipebox').swipebox();
-  $('.videos-item').swipebox({autoplayVideos: true});
-  $('.artists-grid').mixItUp();
-  var swiper = new Swiper('#news .swiper-container', {
-    slidesPerView: '3',
-    pagination: '#news .swiper-pagination',
-    paginationClickable: true,
-    nextButton: '#news .swiper-button-next',
-    prevButton: '#news .swiper-button-prev',
-    keyboardControl: true,
-    spaceBetween: 60,
-    centeredSlides: true,
-    loop: true,
-    breakpoints: {
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 30
-      },
-      1080: {
-        slidesPerView: 2,
-        spaceBetween: 15
-      },
-      1024: {
-        slidesPerView: 1,
-        spaceBetween: 15
-      },
-      768: {
-        slidesPerView: 1,
-        spaceBetween: 15
-      },
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 0
+  $(document).ready(function() {
+    $('.swipebox').swipebox();
+    $('.videos-item').swipebox({autoplayVideos: true});
+    $('.artists-grid').mixItUp();
+    var swiper = new Swiper('#news .swiper-container', {
+      slidesPerView: '3',
+      pagination: '#news .swiper-pagination',
+      paginationClickable: true,
+      nextButton: '#news .swiper-button-next',
+      prevButton: '#news .swiper-button-prev',
+      keyboardControl: true,
+      spaceBetween: 60,
+      centeredSlides: true,
+      loop: true,
+      breakpoints: {
+        1200: {
+          slidesPerView: 3,
+          spaceBetween: 30
+        },
+        1080: {
+          slidesPerView: 2,
+          spaceBetween: 15
+        },
+        1024: {
+          slidesPerView: 1,
+          spaceBetween: 15
+        },
+        768: {
+          slidesPerView: 1,
+          spaceBetween: 15
+        },
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 0
+        }
       }
-    }
+    });
+    var swiper2 = new Swiper('#timetable .swiper-container', {
+        pagination: '#timetable .swiper-pagination',
+        slidesPerView: 8,
+        paginationClickable: true,
+        freeMode: true,
+        grabCursor: true,
+        nextButton: '#timetable .swiper-button-next',
+        prevButton: '#timetable .swiper-button-prev',
+        breakpoints: {
+        1200: {
+          slidesPerView: 8,
+          spaceBetween: 0
+        },
+        1080: {
+          slidesPerView: 8,
+          spaceBetween: 0
+        },
+        1024: {
+          slidesPerView: 6,
+          spaceBetween: 0
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 0
+        },
+        320: {
+          slidesPerView: 3,
+          spaceBetween: 0
+        }
+      }
+    });
+    createTimetable();
   });
 
   // timetable
 
-  var swiper2 = new Swiper('#timetable .swiper-container', {
-      pagination: '#timetable .swiper-pagination',
-      slidesPerView: 8,
-      paginationClickable: true,
-      freeMode: true,
-      grabCursor: true,
-      nextButton: '#timetable .swiper-button-next',
-      prevButton: '#timetable .swiper-button-prev',
-      breakpoints: {
-      1200: {
-        slidesPerView: 8,
-        spaceBetween: 0
-      },
-      1080: {
-        slidesPerView: 8,
-        spaceBetween: 0
-      },
-      1024: {
-        slidesPerView: 6,
-        spaceBetween: 0
-      },
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 0
-      },
-      320: {
-        slidesPerView: 3,
-        spaceBetween: 0
-      }
-    }
-  });
-  swiper2.params.onInit = function () {
-      createTimetable();
-  }
   $(window).resize(function(){
     createTimetable();
   });

@@ -7,9 +7,10 @@ class Festival < ActiveRecord::Base
   active_admin_translates :menu_title_home, :menu_title_artists, :menu_title_events, :menu_title_news, :menu_title_videos, :menu_title_venues, :menu_title_contacts
 
   has_many :artists, :dependent => :destroy
+  has_many :days, :dependent => :destroy
   has_many :events, :dependent => :destroy
   has_many :venues, :dependent => :destroy
-  has_many :shows, :dependent => :destroy
+  has_many :presentations, :dependent => :destroy
   has_many :news, :dependent => :destroy
   has_many :sponsors, :dependent => :destroy
   has_many :videos, :dependent => :destroy

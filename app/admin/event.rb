@@ -36,6 +36,7 @@ ActiveAdmin.register Event, :namespace => :super_admin do
           t.input :description
         end
       end
+      f.input :day, :as => :select, :collection => Day.all, :include_blank => false, :require => true, :multiple => true
       f.input :starts_on, :require => true
       f.input :finish_on, :require => true
       f.input :venues, :as => :select, :collection => Venue.all, :include_blank => false, :require => true, :multiple => true
@@ -69,7 +70,7 @@ ActiveAdmin.register Event, :namespace => :admin do
     column :id
     column :name
     translation_status
-    column :starts_on
+    column :day
     actions
   end
 
@@ -98,14 +99,15 @@ ActiveAdmin.register Event, :namespace => :admin do
     f.inputs 'Details' do
       f.semantic_errors
       f.input :name, :require => true
+      f.input :starts_on, as: :datepicker, :require => true
+      f.input :finish_on, as: :datepicker, :require => true
+      f.input :day, :as => :select2, :collection => Day.all, :include_blank => false, :require => true
+      f.input :venue, :as => :select2, :collection => Venue.all, :include_blank => false, :require => true
+      f.input :tickets_link
       f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
         t.input :description
       end
-      f.input :starts_on, as: :datepicker, :require => true
-      f.input :finish_on, as: :datepicker, :require => true
-      f.input :venue, :as => :select2, :collection => Venue.all, :include_blank => false, :require => true
       #f.input :artists, :as => :select, :collection => Artist.where(festival_id: current_festival), :include_blank => false, :require => true, :multiple => true
-      f.input :tickets_link
     end
     f.inputs "Event Image" do
       f.input :image, :as => :file, label: 'Image', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))

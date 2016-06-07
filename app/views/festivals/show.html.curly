@@ -75,36 +75,63 @@
   </div>
 </section>
 
-<section class="events revealOnScroll" id="events">
+<section class="events revealOnScroll" id="timetable">
   <div class="container">
     <div class="row">
       <h1 class="section-heading">
-        Timetable
+      Timetable
       </h1>
     </div>
-    <div class="row">
-      {{*sets}}
-        <div class="col-xs-12 col-sm-4 col-md-4 events-item">
-          <div class="row">
-          </div>
-          <div class="row">
-            <div class="events-item-caption">
-              <h2 class="events-item-caption-title">
-                {{event}}
-              </h2>
-              <h3 class="events-item-caption-subtitle">
-                {{artist}}
-              </h3>
-            </div>
-          </div>
-          <div class="row">
-            <a href="{{tickets}}" class="get-tickets swipebox">
-              Get Tickets
-            </a>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="timetable-hour swiper-slide"><p class="top">12:00</p><p class="bottom">12:00</p></div>
+        <div class="timetable-hour swiper-slide"><p class="top">13:00</p><p class="bottom">13:00</p></div>
+        <div class="timetable-hour swiper-slide"><p class="top">14:00</p><p class="bottom">14:00</p></div>
+        <div class="timetable-hour swiper-slide"><p class="top">15:00</p><p class="bottom">15:00</p></div>
+        <div class="timetable-hour swiper-slide"><p class="top">16:00</p><p class="bottom">16:00</p></div>
+        <div class="timetable-hour swiper-slide"><p class="top">17:00</p><p class="bottom">17:00</p></div>
+        <div class="timetable-hour swiper-slide"><p class="top">18:00</p><p class="bottom">18:00</p></div>
+        <div class="timetable-hour swiper-slide"><p class="top">19:00</p><p class="bottom">19:00</p></div>
+        <div class="timetable-hour swiper-slide"><p class="top">20:00</p><p class="bottom">20:00</p></div>
+        <div class="timetable-hour swiper-slide"><p class="top">21:00</p><p class="bottom">21:00</p></div>
+        <div class="timetable-hour swiper-slide"><p class="top">22:00</p><p class="bottom">22:00</p></div>
+        <div class="timetable-hour swiper-slide"><p class="top">23:00</p><p class="bottom">23:00</p></div>
+        <div class="timetable-hour swiper-slide"><p class="top">00:00</p><p class="bottom">00:00</p></div>
+        <div class="timetable-hour swiper-slide"><p class="top">01:00</p><p class="bottom">01:00</p></div>
+        <div class="timetable-hour swiper-slide"><p class="top">02:00</p><p class="bottom">02:00</p></div>
+        <div class="timetable-hour swiper-slide"><p class="top">03:00</p><p class="bottom">03:00</p></div>
+        <div class="timetable-wrapper">
+          <div class="col-md-12 timetable-days">
+            {{*days}}
+              <div class="row timetable-day text-left">
+                <h1 class="timetable-day-title">{{name}}</h1>
+                <div class="col-md-12 timetable-stage">
+                  {{*events}}
+                    <div class="row {{slug}}">
+                      <div class="col-md-12">
+                        <h1>
+                          {{name}}
+                        </h1>
+                      </div>
+                    </div>
+                    <div class="row timetable-presentations">
+                      {{*presentations}}
+                        <a class="timetable-presentation" href="{{artist_detail_link}}" data-time="{{time}}" data-duration="{{duration}}">
+                        {{name}}
+                        </a>
+                      {{/presentations}}
+                    </div>
+                  {{/events}}
+                </div>
+              </div>
+            {{/days}}
           </div>
         </div>
-      {{/sets}}
+      </div>
     </div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
 </section>
 
@@ -249,12 +276,12 @@
   $('.swipebox').swipebox();
   $('.videos-item').swipebox({autoplayVideos: true});
   $('.artists-grid').mixItUp();
-  var swiper = new Swiper('.swiper-container', {
+  var swiper = new Swiper('#news .swiper-container', {
     slidesPerView: '3',
-    pagination: '.swiper-pagination',
+    pagination: '#news .swiper-pagination',
     paginationClickable: true,
-    nextButton: '.swiper-button-next',
-    prevButton: '.swiper-button-prev',
+    nextButton: '#news .swiper-button-next',
+    prevButton: '#news .swiper-button-prev',
     keyboardControl: true,
     spaceBetween: 60,
     centeredSlides: true,
@@ -282,6 +309,64 @@
       }
     }
   });
+
+  // timetable
+
+  var swiper2 = new Swiper('#timetable .swiper-container', {
+      pagination: '#timetable .swiper-pagination',
+      slidesPerView: 8,
+      paginationClickable: true,
+      freeMode: true,
+      grabCursor: true,
+      nextButton: '#timetable .swiper-button-next',
+      prevButton: '#timetable .swiper-button-prev',
+      breakpoints: {
+      1200: {
+        slidesPerView: 8,
+        spaceBetween: 0
+      },
+      1080: {
+        slidesPerView: 8,
+        spaceBetween: 0
+      },
+      1024: {
+        slidesPerView: 6,
+        spaceBetween: 0
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 0
+      },
+      320: {
+        slidesPerView: 3,
+        spaceBetween: 0
+      }
+    }
+  });
+  swiper2.params.onInit = function () {
+      createTimetable();
+  }
+  $(window).resize(function(){
+    createTimetable();
+  });
+
+  function createTimetable(){
+    var hourCnt = $('#timetable .swiper-slide').size();
+    var hourWidth = $('#timetable .swiper-slide').outerWidth() - 0.5;
+    $('.timetable-wrapper').css('width', hourWidth * hourCnt);
+    var fiveMinuteWidth = (hourWidth / 60) * 5;
+    $('.timetable-presentation').each(function () {
+      var start = $(this).data('time');
+      var duration = $(this).data('duration');
+      var size = Math.round((duration * hourWidth / 60) - 5);
+      var timearray = start.split(':');
+      var hours = parseInt(timearray[0], 10),
+          minutes = parseInt(timearray[1], 10);
+      hours = hours < 12 ? hours + 24 : hours;
+      offset = Math.round((((hours + (minutes / 60)) - 12) * hourWidth) + 2.5);
+      $(this).css('width', size).css('left', offset);
+    });
+  }
 
   var $window = $(window),
   win_height_padded = $window.height() * 1.1;

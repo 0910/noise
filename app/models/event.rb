@@ -1,9 +1,8 @@
 class Event < ActiveRecord::Base
   belongs_to :festival
-
+  belongs_to :day
   belongs_to :venue
-
-  has_many :shows
+  has_many :presentations
 
   active_admin_translates :description
 

@@ -30,6 +30,10 @@ class Events::ShowPresenter < ApplicationPresenter
 		@event.event_artists.order(position: :asc)
 	end
 
+	def presentations
+		@event.presentations.order(starts_on: :asc)
+	end
+
 	def page_title
 		content_for :title, @festival.name + ' - ' + @event.name
 	end

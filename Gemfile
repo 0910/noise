@@ -48,7 +48,6 @@ gem 'multi-select-rails'
 gem 'acts_as_list'
 gem 'activeadmin-sortable'
 gem 'active_admin_csv_import'
-gem 'pjax_rails'
 
 
 group :development do

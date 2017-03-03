@@ -1,5 +1,5 @@
-server '40.113.19.65', roles: [:web, :app, :db], primary: true
-set :domain, "noiseapp.cloudapp.net"
+server '52.6.38.109', roles: [:web, :app, :db], primary: true
+set :domain, "www.wemakenoise.co"
 set :repo_url,        'git@github.com:0910/noise.git'
 set :application,     'festivals'
 set :user,            'ubuntu'

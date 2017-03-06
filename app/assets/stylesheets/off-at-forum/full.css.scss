@@ -49,7 +49,7 @@ body {
   background-position: top center;
   font-family: "maison_neuemono", helvetica, arial, sans-serif;
   font-size: 10px;
-  &.news, &.venues, &.videos, &.events{
+  &.news, &.venues, &.videos, &.events, &.artists{
     background-image: image-url('off-at-forum/news.jpg');
     background-size: cover;
     background-repeat: no-repeat;

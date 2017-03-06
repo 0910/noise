@@ -14,7 +14,3 @@
                   = image_tag(artist.image.url(:small), class: 'img-responsive')
             .row
               %h2= artist.name
-:javascript
-  $('.section').eq(0).find('.animate-box').each(function(){
-    $(this).addClass('fadeInUp animated-fast');
-  });

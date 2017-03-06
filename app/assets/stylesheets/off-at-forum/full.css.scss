@@ -1,0 +1,572 @@
+@font-face {
+  font-family: 'maison_neuedemi';
+  src: font-url('off-at-forum/maisonneue-demi-webfont.woff2') format("woff2"), font-url('off-at-forum/maisonneue-demi-webfont.woff') format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'maison_neuemono_italic';
+  src: font-url('off-at-forum/maisonneue-monoitalic-webfont.woff2') format("woff2"), font-url('off-at-forum/maisonneue-monoitalic-webfont.woff') format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'maison_neuemono';
+  src: font-url('off-at-forum/maisonneue-mono-webfont.woff2') format("woff2"), font-url('off-at-forum/maisonneue-mono-webfont.woff') format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6, p, a{
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+  background-image: image-url("off-at-forum/poster_mobile.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  background-attachment: fixed;
+  background-position: top center;
+  font-family: "maison_neuemono", helvetica, arial, sans-serif;
+  font-size: 10px;
+  &.news, &.venues, &.videos, &.events{
+    background-image: image-url('off-at-forum/news.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100%;
+    position: relative;
+  }
+  &.festivals{
+    .left{
+       position: absolute;
+    }
+  }
+}
+
+.container {
+  padding: 0 45px;
+}
+
+.vcenter {
+  padding: 120px 0;
+}
+
+.offset-top{
+  padding-top: 160px;
+}
+
+.item{
+  margin-bottom: 6em;
+}
+
+.wrapper {
+  min-height: 460px;
+  position: fixed;
+  overflow: hidden;
+  display: table;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  display: none;
+}
+
+.scene {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.layer {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.layer1 {
+  background-image: image-url('off-at-forum/layer1.png');
+}
+
+.layer2 {
+  background-image: image-url('off-at-forum/layer2.png');
+  background-position: bottom right;
+}
+
+.layer3 {
+  background-image: image-url('off-at-forum/layer3.png');
+}
+
+.layer4 {
+  background-image: image-url('off-at-forum/layer4.png');
+  background-position: top right;
+}
+
+.layer5 {
+  background-image: image-url('off-at-forum/layer5.png');
+  background-position: bottom left;
+}
+
+.js .animate-box {
+  opacity: 0;
+}
+
+.btn-lg {
+  padding: 10px 16px;
+  font-size: 2em;
+  line-height: 1.3333333;
+  border-radius: 0px;
+}
+
+.btn-sm {
+  padding: 10px 16px;
+  font-size: 1em;
+  line-height: 1.3333333;
+  border-radius: 0px;
+  margin-top: 1em;
+  text-transform: uppercase;
+  font-family: 'maison_neuemono_italic', helvetica, arial, sans-serif;
+}
+
+.btn-default {
+  color: #fff;
+  border-width: 2px;
+  background-color: transparent;
+  border-color: #fff;
+  font-family: 'maison_neuemono_italic', helvetica, arial, sans-serif;
+  &.focus, &:focus {
+    color: #d9534f;
+    background-color: #e6e6e6;
+    border-color: #8c8c8c;
+  }
+  &:hover, &.active, &:active {
+    color: #d9534f;
+    background-color: #fff;
+    border-color: #fff;
+  }
+  &.active {
+    &.focus, &:focus, &:hover {
+      color: #333;
+      background-color: #e6e6e6;
+      border-color: #adadad;
+    }
+  }
+  &:active {
+    &.focus, &:focus, &:hover {
+      color: #333;
+      background-color: #e6e6e6;
+      border-color: #adadad;
+    }
+  }
+}
+
+.open > .dropdown-toggle.btn-default {
+  &.focus, &:focus, &:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+  }
+}
+
+.sixteen-nine {
+  position: relative;
+  background-color: #2f336b;
+  &:before {
+    display: block;
+    content: "";
+    padding-top: 56.25%;
+  }
+  > .image {
+    background-image: image-url('off-at-forum/loading.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    h1{
+      color: #fff;
+      margin: 50% 0 0 -25%;
+      position: relative;
+      top: -50%;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.full {}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px;
+  z-index: 1030;
+  &.scrolled{
+    background-color: rgba(30,39,75,0.95);
+    border-bottom: 1px solid #fff;
+  }
+}
+
+#nav a {
+  display: block;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  &:hover {
+    text-decoration: line-through;
+  }
+  &.social-link{
+    display: inline-block;
+  }
+  &.lang-link{
+    display: inline-block;
+    &::after { 
+      content: "/";
+    }
+    &:last-child::after { 
+      content: "";
+    }
+  }
+}
+
+.logo img {
+  height: 58px;
+  width: auto;
+}
+
+.left {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  padding: 30px;
+  z-index: 1020;
+  -ms-transform: rotate(-90deg);
+  /* IE 9 */
+  -webkit-transform: rotate(-90deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(-90deg);
+  -ms-transform-origin: 20% 40%;
+  /* IE 9 */
+  -webkit-transform-origin: 0% 0%;
+  /* Chrome, Safari, Opera */
+  transform-origin: 20% 40%;
+  color: #fff;
+  font-size: 4em;
+  text-transform: uppercase;
+  font-family: 'maison_neuemono_italic', helvetica, arial, sans-serif;
+  display: none;
+}
+
+.right {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  height: 58%;
+  padding: 30px;
+  z-index: 1030;
+  img {
+    height: 100%;
+    width: auto;
+  }
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px;
+  p {
+    color: #fff;
+    font-weight: bold;
+    font-size: 2em;
+  }
+}
+
+.section {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  position: relative;
+  &.normalizer{
+    margin-top: 35%;
+  }
+  &#home {
+    height: 100%;
+    .btn-lg {
+      margin-top: 30px;
+    }
+  }
+  &.artists {
+    a.artist {
+      display: block;
+      height: 100%;
+      color: #fff;
+      font-size: 2em;
+      text-transform: uppercase;
+      font-family: "maison_neuemono", helvetica, arial, sans-serif;
+      line-height: 1.05;
+      &:hover {
+        text-decoration: line-through;
+      }
+      h2{
+        font-size: 1em;
+      }
+    }
+    .social-link{
+      display: inline-block;
+      padding: 0 10px;
+      color: #fff;
+      font-size: 1.5em;
+    }
+    h2 {
+      font-size: 2.50em;
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 0px;
+      span {
+        font-style: italic;
+        display: block;
+        margin-bottom: 0px;
+      }
+    }
+    h3 {
+      color: #fff;
+      font-size: 1.286em;
+      text-transform: uppercase;
+      margin: 0 0 15px 0;
+    }
+    .cover{
+      margin-bottom: 1em;
+    }
+  }
+  &.video {
+    i.fa-play{
+      color: #fff;
+      font-size: 6em;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+    }
+    .sixteen-nine {
+      background-color: #2f336b;
+    }
+    .cover {
+      opacity: 0.3;
+    }
+  }
+  &.news {
+    h2 {
+      font-size: 2.50em;
+      color: #fff;
+      text-transform: uppercase;
+      margin: 0;
+      span {
+        font-style: italic;
+        display: block;
+      }
+    }
+    h3 {
+      color: #fff;
+      font-size: 1.286em;
+      text-transform: uppercase;
+      font-style: italic;
+      margin: 0 0 10px 0;
+    }
+    p {
+      font-size: 1em;
+      color: #fff;
+      margin: 1em 0 0 0;
+    }
+    .btn-default {
+      margin-top: 30px;
+      font-style: italic;
+      text-transform: uppercase;
+    }
+  }
+  &.partners{
+    a.partner{
+      display: inline-block;
+      padding: 0 15px;
+      img{
+        height: 90px;
+        width: auto;
+      }
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+  &.venues {
+    a {
+      font-family: "maison_neuemono", helvetica, arial, sans-serif;
+    }
+    h2 {
+      font-size: 2.50em;
+      color: #fff;
+      text-transform: uppercase;
+      margin: 0;
+      span {
+        font-style: italic;
+        display: block;
+      }
+    }
+    h3 {
+      color: #fff;
+      font-size: 1.286em;
+      text-transform: uppercase;
+      font-style: italic;
+      margin: 0 0 10px 0;
+    }
+    p {
+      font-size: 1em;
+      color: #fff;
+      margin-top: 1em;
+    }
+    .btn-default {
+      margin-top: 30px;
+      font-style: italic;
+      text-transform: uppercase;
+    }
+    .cover{
+      margin-bottom: 1em;
+    }
+  }
+}
+
+/* ARTISTS */
+
+/* NEWS */
+
+@media (min-width: 768px) {
+  body {
+    font-size: 12px;
+  }
+  .logo img {
+    width: auto;
+    height: 80px;
+  }
+  .vcenter {
+    position: relative;
+    top: calc(50% + 50px);
+    transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    padding: 0;
+  }
+  .left{
+    display: block;
+  }
+  .section.normalizer{
+    margin-top: calc(100vh / 4);
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    font-size: 13px;
+    background-image: image-url('off-at-forum/poster.jpg');
+  }
+  .container {
+    width: 970px;
+  }
+  .logo img {
+    width: auto;
+    height: 80px;
+  }
+  .wrapper {
+    display: block;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    font-size: 13px;
+  }
+  .container {
+    width: 1170px;
+  }
+  .logo img {
+    width: auto;
+    height: 90px;
+  }
+  #nav a {
+    font-size: 1.7em;
+  }
+}
+
+@media (min-width: 1600px) {
+  body {
+    font-size: 16px;
+  }
+  .container {
+    width: 85%;
+  }
+  .logo img {
+    width: auto;
+    height: 110px;
+  }
+}
+.subscribe {
+  z-index: 1030;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: rgba(30,39,75,0.95);
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.3s,visibility 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.3s;
+  transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.3s,visibility 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.3s;
+  color: #fff;
+}
+
+.subscribe.active {
+  opacity: 1;
+  visibility: visible
+}
+
+#footer{
+  padding: 30px 0;
+  color: #fff;
+  a{
+    color: #fff;
+    &:hover{
+      text-decoration: line-through;
+    }
+  }
+}
+#swipebox-overlay{
+  background-color: rgba(30,39,75,0.95);
+
+}

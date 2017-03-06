@@ -1,0 +1,20 @@
+- title "#{@festival.name} - News"
+
+.left
+  %p= @festival.menu_title_news
+.section.news.normalizer
+  .container
+    .row
+      - @news.each do |news|
+        .col-sm-12.col-md-4.animate-box.item{"data-animate-effect" => "fadeInUp"}
+          .row
+            %h2= news.date.to_date.to_formatted_s(:long)
+            %h3= news.title
+          .row
+            .col-md-10.sixteen-nine
+              .image.cover{:style => "background-image: url(#{news.image.url(:medium)})"}
+          .row
+            .col-md-10
+              .row
+                %p= truncate(news.body, :length => 140)
+                = link_to 'View More', news_path(news), class: 'btn btn-danger btn-sm'

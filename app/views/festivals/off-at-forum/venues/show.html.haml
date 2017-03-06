@@ -1,0 +1,20 @@
+- title "#{@festival.name} - Venue"
+
+.left
+  %p= @festival.menu_title_venues
+.venues.section.normalizer
+  .container
+    .row
+      .col-md-8.col-md-offset-2.sixteen-nine.animate-box{"data-animate-effect" => "fadeInUp"}
+        .image{:style => "background-image: url(#{@venue.image.url(:large)})"}
+          %h1.hidden-xs.hidden-sm
+            #{@venue.name}
+    .row.hidden-md.hidden-lg.animate-box
+      .col-md-8.col-md-offset-2
+        .row
+          %h2
+            #{@venue.name}
+    .row.animate-box
+      .col-md-8.col-md-offset-2
+        .row
+          %p= @venue.description

@@ -1,0 +1,19 @@
+- title "#{@festival.name} - #{@artist.name}"
+
+.section.artists{:style => "background-image: url(#{@artist.image.url(:large)})"}
+  .bottom
+    .row
+      .col-md-4
+        %p= @artist.name
+      .col-md-4.text-center
+        = link_to @artist.facebook_link, class: 'social-link' do
+          %i.fa.fa-facebook
+        = link_to @artist.instagram_link, class: 'social-link' do
+          %i.fa.fa-instagram
+        = link_to @artist.soundcloud_link, class: 'social-link' do
+          %i.fa.fa-soundcloud
+  .vcenter
+    .container
+      .row
+        .col-md-8.col-md-offset-2
+          %iframe{:frameborder => "no", :height => "350", :scrolling => "no", :src => "https://w.soundcloud.com/player/?url=#{@artist.soundcloud_link}&color=5bc6d0&auto_play=false&hide_related=false&show_comme    nts=true&show_user=true&show_reposts=false", :width => "100%"} 

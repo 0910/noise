@@ -1,0 +1,24 @@
+- title "#{@festival.name} - Tickets"
+
+.left
+  %p= @festival.menu_title_events
+.section.news.normalizer
+  .container
+    .row
+      - @festival.events.each do |event|
+        .col-sm-12.col-md-4.animate-box.item{"data-animate-effect" => "fadeInUp"}
+          .row
+            %h2= event.starts_on.to_date.to_formatted_s(:long)
+            %h3= event.name
+          .row
+            .col-md-10
+              .row
+                = image_tag event.image.url(:small), class: 'img-responsive'
+          .row
+            .col-md-10
+              .row
+                %p= event.description
+          .row
+            .col-md-10
+              .row
+                = link_to t('events.tickets'), event.tickets_link, class: 'btn btn-danger btn-sm'

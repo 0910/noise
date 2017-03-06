@@ -1,0 +1,86 @@
+- title "#{@festival.name}"
+
+.wrapper
+  %ul#scene.scene{"data-calibrate-y" => "false"}
+    %li.layer.layer1{"data-depth" => "0.05"}
+    %li.layer.layer2{"data-depth" => "0.02"}
+    %li.layer.layer3{"data-depth" => "0.10"}
+    %li.layer.layer4{"data-depth" => "0.00"}
+    %li.layer.layer5{"data-depth" => "0.00"}
+#home.section
+  .intro
+    .bottom
+      - @festival.splashes.each do |splash|
+        .row
+          .col-md-4
+            %p= splash.title
+          .col-md-4
+            = link_to splash.call_to_action, splash.call_to_action_link, class: 'btn btn-block btn-default btn-lg'
+.artists.section
+  .left
+    %p Artists
+  .vcenter
+    .container
+      .row
+        - @festival.events.each do |event|
+          .col-sm-4.col-md-4.animate-box{"data-animate-effect" => "fadeInUp"}
+            .row
+              %h2
+                #{event.starts_on.to_date.to_formatted_s(:short)}
+                %span 
+                  #{event.name}
+              %h3= event.stage.name
+            .row
+              - event.artists.each do |artist|
+                = link_to artist.name, artist_path(artist), class: 'artist'
+            .row
+              = link_to t('events.tickets'), events_path, class: 'btn btn-danger btn-sm'
+.video.section
+  .left
+    %p Video
+  .vcenter
+    .container
+      - @videos.each do |video|
+        .row
+          = link_to video.link, class: 'swipebox' do
+            .col-md-8.col-md-offset-2.sixteen-nine.animate-box.text-center{"data-animate-effect" => "fadeInUp"}
+              .image.cover{:style => "background-image: url(#{video.image.url(:medium)})"}
+              %i.fa.fa-play
+      .row
+        .col-md-6.col-md-offset-3.text-center
+          = link_to t('videos.view_all'), videos_path, class: 'btn btn-default btn-sm'
+.news.section
+  .left
+    %p News
+  .vcenter
+    .container
+      .row
+        - @festival.news.each do |news|
+          .col-sm-12.col-md-4.animate-box.item{"data-animate-effect" => "fadeInUp"}
+            .row
+              %h2= news.date.to_date.to_formatted_s(:long)
+              %h3= news.title
+            .row
+              .col-md-10.sixteen-nine
+                .image.cover{:style => "background-image: url(#{news.image.url(:medium)})"}
+            .row
+              .col-md-10
+                .row
+                  %p= truncate(news.body, :length => 140)
+                  = link_to 'View More', news_path(news), class: 'btn btn-danger btn-sm'
+      .row
+        .col-md-6.col-md-offset-3.text-center
+          = link_to t('news.all'), news_index_path, class: 'btn btn-default btn-sm'
+.partners.section.text-center
+  .left
+    %p Sponsors
+  .vcenter
+    .container
+      .row
+        - @festival.sponsors.each do |sponsor|
+          = link_to sponsor.link, class: 'partner' do
+            = image_tag sponsor.image.url(:small)
+:javascript
+  $(function(){
+    $('#scene').parallax();
+  });

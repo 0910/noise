@@ -1,0 +1,25 @@
+- title "#{@festival.name} - #{@news.title}"
+
+.left
+  %p= @festival.menu_title_news
+.section.news.normalizer
+  .container
+    .row
+      .col-md-8.col-md-offset-2.sixteen-nine.cover.animate-box
+        .image{:style => "background-image: url(#{@news.image.url(:large)})"}
+          %h1.hidden-xs.hidden-sm
+            #{@news.date.to_date.to_formatted_s(:long)}
+            %br
+            #{@news.title}
+    .row.hidden-md.hidden-lg.animate-box
+      .col-md-8.col-md-offset-2
+        .row
+          %h2
+            #{@news.date.to_date.to_formatted_s(:long)}
+            %br
+            #{@news.title}
+    .row.animate-box
+      .col-md-8.col-md-offset-2
+        .row
+          %p= @news.body
+

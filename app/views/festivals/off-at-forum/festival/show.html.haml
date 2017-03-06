@@ -13,7 +13,7 @@
       - @festival.splashes.each do |splash|
         .row
           .col-md-4
-            %p= splash.title
+            %p= simple_format(splash.title)
           .col-md-4
             = link_to splash.call_to_action, splash.call_to_action_link, class: 'btn btn-block btn-default btn-lg'
 .artists.section
@@ -44,8 +44,9 @@
         .row
           = link_to video.link, class: 'swipebox' do
             .col-md-8.col-md-offset-2.sixteen-nine.animate-box.text-center{"data-animate-effect" => "fadeInUp"}
-              .image.cover{:style => "background-image: url(#{video.image.url(:medium)})"}
-              %i.fa.fa-play
+              .row
+                .image.cover{:style => "background-image: url(#{video.image.url(:medium)})"}
+                %i.fa.fa-play
       .row
         .col-md-6.col-md-offset-3.text-center
           = link_to t('videos.view_all'), videos_path, class: 'btn btn-default btn-sm'

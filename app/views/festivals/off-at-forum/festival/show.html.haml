@@ -44,9 +44,8 @@
         .row
           = link_to video.link, class: 'swipebox' do
             .col-md-8.col-md-offset-2.sixteen-nine.animate-box.text-center{"data-animate-effect" => "fadeInUp"}
-              .row
-                .image.cover{:style => "background-image: url(#{video.image.url(:medium)})"}
-                %i.fa.fa-play
+              .image.cover{:style => "background-image: url(#{video.image.url(:medium)})"}
+              %i.fa.fa-play
       .row
         .col-md-6.col-md-offset-3.text-center
           = link_to t('videos.view_all'), videos_path, class: 'btn btn-default btn-sm'

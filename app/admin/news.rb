@@ -32,7 +32,7 @@ ActiveAdmin.register News, :namespace => :super_admin do
   form html: { multipart: true } do |f|
     f.inputs 'Details' do
       f.semantic_errors
-      f.input :date
+      f.input :date, as: :datepicker
       f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
         t.input :title
         t.input :subtitle
@@ -99,7 +99,7 @@ ActiveAdmin.register News, :namespace => :admin do
   form html: { multipart: true } do |f|
     f.inputs 'News Information' do
       f.semantic_errors
-      f.input :date
+      f.input :date, as: :datepicker
       f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
         t.input :title
         t.input :subtitle
@@ -108,14 +108,7 @@ ActiveAdmin.register News, :namespace => :admin do
       f.input :news_type, as: :select2, :collection => ['normal', 'video'], :include_blank => false
       f.input :link
       f.input :video
-      f.input :image, :as => :file, label: 'Video Cover', hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))
-    end
-    f.inputs "Images" do
-      f.has_many :images, sortable: :position do |i|
-        i.input :file, as: :file, label: false, hint: i.object.new_record? ? i.template.content_tag(:span, "No Image Yet") : image_tag(i.object.file.url(:thumb))
-        i.input :cover, as: :boolean, label: "Cover"
-        i.input :_destroy, as: :boolean, label: "Destroy?" unless i.object.new_record?
-      end 
+      f.input :image, :as => :file, hint: f.object.new_record? ? f.template.content_tag(:span, "No Image Yet") : image_tag(f.object.image.url(:thumb))
     end
     f.actions
   end

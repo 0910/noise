@@ -103,6 +103,7 @@ ActiveAdmin.register Event, :namespace => :admin do
       f.input :finish_on, as: :datepicker, :require => true
       f.input :day, :as => :select2, :collection => Day.all, :include_blank => false, :require => true
       f.input :venue, :as => :select2, :collection => Venue.all, :include_blank => false, :require => true
+      f.input :stage, :as => :select2, :collection => Stage.all, :include_blank => false, :require => true
       f.input :tickets_link
       f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
         t.input :description

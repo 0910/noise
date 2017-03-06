@@ -244,6 +244,15 @@ en:
         pt-PT: "Portuguese (Portugal)"
         tr: "Turkish"
 
+  nav:
+    stay_updated: "Stay Updated"
+
+  subscribe:
+    title: "Subscribe to our newsletter and receive exclusive offers and news."
+    name: "Name:"
+    lastname: "Lastname:"
+    submit: "Subscribe!"
+
   artists:
     title: "Artists"
     filter:
@@ -262,6 +271,7 @@ en:
 
   videos:
     title: "Videos"
+    view_all: "More Videos"
 
   newsletters:
     subscribe: 'Subscribe to our newsletter'

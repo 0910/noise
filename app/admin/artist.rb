@@ -10,9 +10,6 @@ ActiveAdmin.register Artist, :namespace => :super_admin do
 
   index do
     column :id
-    # column :image do |artist|
-    #  link_to(image_tag(artist.image.url(:thumb), :height => '50'), admin_artist_path(artist))
-    #end
     column :name
     column :country
     translation_status
@@ -31,6 +28,9 @@ ActiveAdmin.register Artist, :namespace => :super_admin do
       row :youtube_link
       row :beatport_link
       row :ra_link
+      row :image do
+        image_tag(artist.image.url(:thumb))
+      end
     end
   end
 
@@ -84,6 +84,9 @@ ActiveAdmin.register Artist, :namespace => :admin do
 
   index do
     column :id
+    column :image do |artist|
+      link_to(image_tag(artist.image.url(:thumb), :height => '50'), admin_artist_path(artist))
+    end
     column :name
     column :country
     translation_status
@@ -109,7 +112,7 @@ ActiveAdmin.register Artist, :namespace => :admin do
       row :youtube_link
       row :beatport_link
       row :ra_link
-      row :photo do
+      row :image do
         image_tag(artist.image.url(:thumb))
       end
     end

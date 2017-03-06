@@ -1,9 +1,8 @@
 class ArtistsController < ApplicationController
   
-  prepend_view_path Template.resolver
-
   def index
   	@festival = Festival.friendly.find(festival.id)
+  	@artists = Artist.where(:festival_id => @festival.id)
 
   	set_meta_tags(
       title: @festival.name,
@@ -17,6 +16,7 @@ class ArtistsController < ApplicationController
         description: @festival.description 
       }
     )
+    render "festivals/#{@festival.slug}/artists/index", :layout => @festival.slug
 
   end
 
@@ -36,7 +36,7 @@ class ArtistsController < ApplicationController
         description: @artist.bio 
       }
     )
-
+    render "festivals/#{@festival.slug}/artists/show", :layout => @festival.slug
   end
 
 end

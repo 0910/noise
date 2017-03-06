@@ -1,13 +1,13 @@
 class FestivalsController < ApplicationController
   
-  prepend_view_path Template.resolver
-  
   def festival_id
   	params[:id]
   end
 
   def show
-  	@festival = Festival.find_by_url(request.domain(10).gsub(/^www./,""))
+  	@festival = Festival.find(1)
+    @videos = Video.where(featured: 'yes')
+  	#@festival = Festival.find_by_url(request.domain(10).gsub(/^www./,""))
 
     set_meta_tags(
       title: @festival.name,
@@ -21,10 +21,13 @@ class FestivalsController < ApplicationController
         description: @festival.description
       }
     )
+    render "festivals/#{@festival.slug}/festival/show", :layout => @festival.slug
+
   end
 
   def lookup
-    if festival = Festival.find_by_url(request.domain(10).gsub(/^www./,""))
+    if festival = Festival.find(1)
+    #if festival = Festival.find_by_url(request.domain(10).gsub(/^www./,""))
       params[:id] = festival.id
       show
       render action: :show

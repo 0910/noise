@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607221910) do
+ActiveRecord::Schema.define(version: 20170306062934) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -140,10 +140,12 @@ ActiveRecord::Schema.define(version: 20160607221910) do
     t.string   "tickets_link",       limit: 255
     t.text     "tickets_widget",     limit: 65535
     t.integer  "day_id",             limit: 4
+    t.integer  "stage_id",           limit: 4
   end
 
   add_index "events", ["day_id"], name: "index_events_on_day_id", using: :btree
   add_index "events", ["festival_id"], name: "index_events_on_festival_id", using: :btree
+  add_index "events", ["stage_id"], name: "index_events_on_stage_id", using: :btree
   add_index "events", ["venue_id"], name: "index_events_on_venue_id", using: :btree
 
   create_table "festival_themes", force: :cascade do |t|
@@ -536,6 +538,7 @@ ActiveRecord::Schema.define(version: 20160607221910) do
   add_foreign_key "event_artists", "events"
   add_foreign_key "events", "days"
   add_foreign_key "events", "festivals"
+  add_foreign_key "events", "stages"
   add_foreign_key "events", "venues"
   add_foreign_key "festival_themes", "festivals"
   add_foreign_key "festival_themes", "themes"

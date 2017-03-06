@@ -1,7 +1,5 @@
 class NewsController < ApplicationController
   
-  prepend_view_path Template.resolver
-  
   def index
   	@festival = Festival.friendly.find(festival.id)
   	@news = News.where(:festival_id => @festival.id)
@@ -18,6 +16,7 @@ class NewsController < ApplicationController
         description: @festival.description 
       }
     )
+    render "festivals/#{@festival.slug}/news/index", :layout => @festival.slug
 
   end
 
@@ -37,6 +36,7 @@ class NewsController < ApplicationController
         description: @news.subtitle 
       }
     )
+    render "festivals/#{@festival.slug}/news/show", :layout => @festival.slug
 
   end
 end

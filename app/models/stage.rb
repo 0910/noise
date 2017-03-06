@@ -1,6 +1,7 @@
 class Stage < ActiveRecord::Base
   belongs_to :day
   belongs_to :festival
+  has_many :events
   has_many :presentations
   extend FriendlyId
   friendly_id :slug_candidates, use: :history

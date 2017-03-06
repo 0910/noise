@@ -17,6 +17,7 @@ class EventsController < ApplicationController
         description: @festival.description 
       }
     )
+    render "festivals/#{@festival.slug}/events/index", :layout => @festival.slug
 
   end
 
@@ -36,6 +37,7 @@ class EventsController < ApplicationController
         description: @event.description 
       }
     )
+    render "festivals/#{@festival.slug}/events/show", :layout => @festival.slug
 
   end
 end

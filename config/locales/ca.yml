@@ -219,6 +219,15 @@ ca:
     filter:
       all: "Tots"
 
+  nav:
+    stay_updated: "Estigues Informat"
+
+  subscribe:
+    title: "Joc perillós i rebre ofertes exclusives i notícies."
+    name: "Nom:"
+    lastname: "Cognom:"
+    submit: "Subscriure!"
+
   events:
     title: "Entrades"
     tickets: "Aconseguir Entrades"
@@ -232,6 +241,7 @@ ca:
 
   videos:
     title: "Vídeos"
+    view_all: "Més Vídeos"
 
   newsletters:
     subscribe: 'Subscrigui al nostre butlletí'

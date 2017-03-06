@@ -13,8 +13,19 @@ class VenuesController < ApplicationController
   def show
   	@festival = Festival.friendly.find(festival.id)
   	@venue = Venue.friendly.find(params[:id])
-  	
-  	set_meta_tags title: @venue.name, description: @venue.description, keywords: @festival.keywords, og: { title: @venue.name, type:'website', url: @festival.url, image: @venue.image.url(:large), description: @venue.description }
 
+  	set_meta_tags(
+      title: @venue.name,
+      description: @venue.description,
+      keywords: @festival.keywords,
+      og: {
+        title: @venue.name,
+        type:'website',
+        url: @festival.url,
+        image: @venue.image.url(:large),
+        description: @venue.description
+      }
+    )
+    render "festivals/#{@festival.slug}/venues/show", :layout => @festival.slug
   end
 end

@@ -244,6 +244,15 @@ es:
         pt-PT: "Portugués (Portugal)"
         tr: "Turco"
 
+  nav:
+    stay_updated: "Mantente Informado"
+
+  subscribe:
+    title: "Subscríbete a nuestro newsletter y recibe oferts exxlusivas y noticias."
+    name: "Nombre:"
+    lastname: "Apellido:"
+    submit: "Subscribirme!"
+
   artists:
     title: "Artists"
     filter:
@@ -262,6 +271,7 @@ es:
 
   videos:
     title: "Videos"
+    view_all: "Más Videos"
 
   newsletters:
     subscribe: 'Subscríbete a nuestro newsletter'

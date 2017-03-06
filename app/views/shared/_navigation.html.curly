@@ -1,3 +1,40 @@
+<div id="header" class="col-md-4">
+  <div class="row">
+    <div class="col-xs-5 col-md-4 logo">
+      <img class="hidden-xs hidden-sm" src="img/logo.svg"/>
+      <img class="visible-xs visible-sm" src="img/logo_mobile.svg"/>
+    </div>
+    <div class="col-xs-7 col-md-4" id="nav">
+      <div class="row">
+        <div class="col-xs-6 col-md-6">
+          <a href="{{go_to_home}}">{{menu_title_home}}</a>
+          <a href="{{go_to_home}}">{{menu_title_home}}</a>
+          <a href="{{go_to_home}}">{{menu_title_home}}</a>
+        </div>
+        <div class="col-xs-6 col-md-6">
+          <a href="#">Venue</a>
+          <a href="#">News</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="lang hidden-xs">
+          {{lang_english_short}}
+          {{lang_spanish_short}}
+          {{lang_catalan_short}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 hidden-xs hidden-sm">
+      <div class="logo pull-right">
+        <img src="img/logo_b.svg"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="right hidden-xs hidden-sm">
+  <img src="img/forum.svg"/>
+</div>
+
 <nav class="navbar">
   <div class="navbar-container">
     <div class="navbar-header">
@@ -12,11 +49,6 @@
           Menu
         </span>
       </button>
-      <div class="lang hidden-xs">
-        {{lang_english_short}}
-        {{lang_spanish_short}}
-        {{lang_catalan_short}}
-      </div>
     </div>
   </div>
 </nav>
@@ -47,20 +79,3 @@
     </div>
   </ul>
 </div>
-<script type="text/javascript">
-  function toggleMenu() {
-    if($('.navbar-collapse').hasClass('show')){
-      $('body').css('overflow', 'auto');
-      $('.navbar-collapse').removeClass('show');
-    } 
-    else {
-      $('.navbar-collapse').addClass('show');
-      $('body').css('overflow', 'hidden');
-      $('.newsletter').removeClass('show');
-    }
-  }
-  $('.toggle-navbar').click(function(event) {
-    event.preventDefault();
-    toggleMenu();
-  });
-</script>

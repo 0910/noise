@@ -151,13 +151,6 @@ ActiveAdmin.register Festival, :namespace => :admin do
         t.input :menu_title_contacts
       end
     end
-    
-    f.inputs "Images" do
-      f.has_many :images do |i|
-        i.input :file, as: :file, label: false, hint: i.object.new_record? ? i.template.content_tag(:span, "No Image Yet") : image_tag(i.object.file.url(:thumb))
-        i.input :_destroy, as: :boolean, label: "Destroy?" unless i.object.new_record?
-      end 
-    end
     f.actions
   end
 end

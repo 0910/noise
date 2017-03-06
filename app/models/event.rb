@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
   belongs_to :festival
   belongs_to :day
   belongs_to :venue
+  belongs_to :stage
   has_many :presentations
 
   active_admin_translates :description

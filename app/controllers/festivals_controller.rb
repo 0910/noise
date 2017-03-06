@@ -5,6 +5,7 @@ class FestivalsController < ApplicationController
   end
 
   def show
+    #@festival = Festival.find(1)
   	@festival = Festival.find_by_url(request.domain(10).gsub(/^www./,""))
     @videos = Video.where(featured: 'yes')
 
@@ -25,10 +26,10 @@ class FestivalsController < ApplicationController
   end
 
   def lookup
+    #if festival = Festival.find(1)
     if festival = Festival.find_by_url(request.domain(10).gsub(/^www./,""))
       params[:id] = festival.id
       show
-      render action: :show
     else
       render text: 'this is my landing wohoo'
     end

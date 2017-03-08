@@ -46,14 +46,10 @@ namespace :deploy do
     end
   end
 
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      sudo 'service unicorn_festivals restart'
-      sudo 'service nginx restart'
-    end
+  desc "restart (upgrade) unicorn server"
+  task :restart, roles: :app, except: {no_release: true} do
+    run "service unicorn upgrade"
   end
-
 
   before :starting,     :check_revision
   after  :finishing,    :compile_assets

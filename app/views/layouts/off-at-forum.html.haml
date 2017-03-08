@@ -59,20 +59,19 @@
             .col-xs-6.col-sm-4.col-md-4
               = link_to festival.menu_title_news, news_index_path
               = link_to festival.menu_title_venues, venue_path(1)
-              = link_to festival.menu_title_contacts, contacts_path
+              = link_to festival.menu_title_contacts, new_contact_path
             .col-xs-6.col-sm-4.col-md-4.hidden-xs
               = link_to @festival.facebook, class: 'social-link', target: '_blank' do
-                %i.fa.fa-facebook
+                %i.fa.fa-facebook-square
               = link_to @festival.twitter, class: 'social-link', target: '_blank' do
-                %i.fa.fa-twitter
+                %i.fa.fa-twitter-square
               = link_to @festival.instagram, class: 'social-link', target: '_blank' do
                 %i.fa.fa-instagram
-              = link_to @festival.soundcloud, class: 'social-link', target: '_blank' do
-                %i.fa.fa-soundcloud
+              = link_to @festival.youtube, class: 'social-link', target: '_blank' do
+                %i.fa.fa-youtube
               %p
                 = link_to 'Esp', '/es', class: 'lang-link'
                 = link_to 'Eng', '/en', class: 'lang-link'
-                = link_to 'Cat', '/ca', class: 'lang-link'
               = link_to 'Stay Updated', '#', class: 'subscribe-button'
         .col-md-3.hidden-xs.hidden-sm
           .logo.pull-right
@@ -86,7 +85,10 @@
           .col-md-4.text-center
             © 2017 OFF AT FORUM. ALL RIGHTS RESERVED.
           .col-md-4.text-center
-            PRIVACY POLICY TERMS AND CONDITIONS
+            = link_to '#', target: '_blank' do
+              PRIVACY POLICY
+            = link_to '#', target: '_blank' do
+              TERMS AND CONDITIONS
           .col-md-4.text-center
             = link_to 'http://www.wemakenoise.co', target: '_blank' do
               MADE WITH

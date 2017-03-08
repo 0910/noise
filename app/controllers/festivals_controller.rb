@@ -5,8 +5,7 @@ class FestivalsController < ApplicationController
   end
 
   def show
-    #@festival = Festival.find(1)
-  	@festival = Festival.find_by_url(request.domain(10).gsub(/^www./,""))
+  	@festival = Festival.find_by_url(request.domain(10).gsub(/^www./,"")) || Festival.find(1)
     @videos = Video.where(featured: 'yes')
 
     set_meta_tags(
@@ -26,8 +25,7 @@ class FestivalsController < ApplicationController
   end
 
   def lookup
-    #if festival = Festival.find(1)
-    if festival = Festival.find_by_url(request.domain(10).gsub(/^www./,""))
+    if festival = Festival.find_by_url(request.domain(10).gsub(/^www./,"")) || Festival.find(1)
       params[:id] = festival.id
       show
     else

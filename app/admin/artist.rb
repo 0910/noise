@@ -8,6 +8,10 @@ ActiveAdmin.register Artist, :namespace => :super_admin do
     end
   end
 
+  action_item only: :show do
+    link_to 'New Artist', new_admin_artist_path
+  end
+
   index do
     column :id
     column :name
@@ -80,6 +84,10 @@ ActiveAdmin.register Artist, :namespace => :admin do
     def find_resource
       scoped_collection.friendly.find(params[:id])
     end
+  end
+
+  action_item only: :show do
+    link_to 'New Artist', new_admin_artist_path
   end
 
   index do

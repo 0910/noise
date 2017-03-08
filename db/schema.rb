@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306062934) do
+ActiveRecord::Schema.define(version: 20170308050959) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -222,6 +222,7 @@ ActiveRecord::Schema.define(version: 20170306062934) do
     t.string   "menu_title_videos",       limit: 255
     t.string   "menu_title_venues",       limit: 255
     t.string   "menu_title_contacts",     limit: 255
+    t.string   "youtube",                 limit: 255
   end
 
   add_index "festivals", ["email"], name: "index_festivals_on_email", unique: true, using: :btree

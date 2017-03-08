@@ -27,6 +27,9 @@ h1, h2, h3, h4, h5, h6, p, a{
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
 }
+.btn, .form-control{
+  border-radius: 0px !important;
+}
 
 html {
   height: 100%;
@@ -49,7 +52,7 @@ body {
   background-position: top center;
   font-family: "maison_neuemono", helvetica, arial, sans-serif;
   font-size: 10px;
-  &.news, &.venues, &.videos, &.events, &.artists{
+  &.news, &.venues, &.videos, &.events, &.artists, &.contacts{
     background-image: image-url('off-at-forum/news.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -292,8 +295,8 @@ body {
   padding: 30px;
   z-index: 1030;
   img {
-    height: 100%;
-    width: auto;
+    height: auto;
+    width: 58px;
   }
 }
 
@@ -314,10 +317,13 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-attachment: fixed;
   height: 100%;
   position: relative;
   &.normalizer{
     margin-top: 35%;
+    height: auto;
+    min-height: 100%;
   }
   &#home {
     height: 100%;
@@ -413,6 +419,11 @@ body {
       text-transform: uppercase;
     }
   }
+  &.contacts{
+    label{
+      color: #fff;
+    }
+  }
   &.partners{
     a.partner{
       display: inline-block;
@@ -485,6 +496,12 @@ body {
   .left{
     display: block;
   }
+  .right{
+    img{
+      width: 80px;
+      height: auto;
+    }
+  }
   .section.normalizer{
     margin-top: calc(100vh / 4);
   }
@@ -517,6 +534,12 @@ body {
   .logo img {
     width: auto;
     height: 90px;
+  }
+  .right{
+    img{
+      width: 90px;
+      height: auto;
+    }
   }
   #nav a {
     font-size: 1.7em;

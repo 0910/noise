@@ -43,7 +43,7 @@ ActiveAdmin.register Festival, :namespace => :super_admin do
           f.input :instagram
           f.input :resident
           f.input :soundcloud
-          f.input :ra_link
+          f.input :youtube
           f.input :regular_contact_address
           f.input :press_contact_address
         end
@@ -120,7 +120,7 @@ ActiveAdmin.register Festival, :namespace => :admin do
       f.input :instagram
       f.input :resident
       f.input :soundcloud
-      f.input :ra_link
+      f.input :youtube
       f.input :regular_contact_address
       f.input :press_contact_address
     end

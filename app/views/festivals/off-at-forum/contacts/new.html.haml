@@ -1,0 +1,32 @@
+.contacts.section
+  .left
+    %p Contact
+  .vcenter
+    .container
+      - flash.each do |key, value|
+        .col-md-8.col-md-offset-2
+          .row
+            %p.text-info.text-center
+              = value
+      .col-md-8.col-md-offset-2
+        = form_for @contact do |f|
+          .row
+            .form-group
+              = f.label :name, t('contacts.name'), class: 'control-label'
+              = f.text_field :name, :required => true, class: 'form-control'
+              = f.hidden_field :mail_to, value: festival.regular_contact_address
+              = f.hidden_field :festival, value: 'Contact from ' + festival.name
+          .row
+            .form-group
+              = f.label :name, t('contacts.email'), class: 'control-label'
+              = f.email_field :email, :required => true, class: 'form-control'
+          .row
+            .form-group
+              = f.label :name, t('contacts.message'), class: 'control-label'
+              = f.text_area(:message, rows: 10, class: 'form-control')
+          .row.hidden
+            .form-group
+              = f.text_field :nickname, :hint => 'Leave this field blank!'
+          .row.text-center
+            .form-group
+              = f.submit t('contacts.submit'), class: 'btn btn-success'

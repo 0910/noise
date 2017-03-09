@@ -36,6 +36,7 @@ ActiveAdmin.register Festival, :namespace => :super_admin do
       tab 'Festival' do
         f.inputs 'Festival information' do
           f.semantic_errors
+          f.input :published
           f.input :name, :require => true
           f.input :description, :require => true
           f.input :facebook

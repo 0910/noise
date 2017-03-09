@@ -1,24 +1,17 @@
 !!!
 %html
-	%head
-		%meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-			%title
-				= yield(:title)
-			= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-			= stylesheet_link_tag festival.css_file.url, media: 'all', 'data-turbolinks-track' => true
-			= javascript_include_tag 'application', 'data-turbolinks-track' => true
-			= csrf_meta_tags
-			= display_meta_tags
-			= yield(:head)
-	%body{:class => "#{controller_name} #{action_name}", "ng-app" => "player"}
-		- flash.each do |name, msg|
-			= content_tag :div, msg, class: name
-		#layout_content{"data-pjax-container" => ""}
-			= yield
-		= render 'shared/widgets'
-		= render 'shared/player'
-	:javascript
-		$(document).on('pjax:complete', function() {
-			$('.navbar-collapse').removeClass('show');
-			$('body').css('overflow', 'auto');
-		})
+  %head
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+      %title
+        = yield(:title)
+      = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+      = stylesheet_link_tag festival.css_file.url, media: 'all', 'data-turbolinks-track' => true
+      = javascript_include_tag 'application', 'data-turbolinks-track' => true
+      = csrf_meta_tags
+      = display_meta_tags
+    = yield(:head)
+  %body{:class => "#{controller_name} #{action_name}", "ng-app" => "player"}
+    - flash.each do |name, msg|
+      = content_tag :div, msg, class: name
+    = yield
+    = render 'shared/widgets'

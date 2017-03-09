@@ -20,8 +20,11 @@ class FestivalsController < ApplicationController
         description: @festival.description
       }
     )
-    render "festivals/#{@festival.slug}/festival/show", :layout => @festival.slug
-
+    if @festival.published?
+      render "festivals/#{@festival.slug}/festival/show", :layout => @festival.slug
+    else
+      render "festivals/#{@festival.slug}/festival/soon"
+    end
   end
 
   def lookup

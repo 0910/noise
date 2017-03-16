@@ -26,7 +26,7 @@
           .col-sm-4.col-md-4.animate-box{"data-animate-effect" => "fadeInUp"}
             .row
               %h2
-                #{event.starts_on.to_date.to_formatted_s(:short)}
+                #{event.starts_on.to_date.to_formatted_s(:long_ordinal)}
                 %span 
                   #{event.name}
             .row
@@ -57,7 +57,7 @@
         - @festival.news.each do |news|
           .col-sm-12.col-md-4.animate-box.item{"data-animate-effect" => "fadeInUp"}
             .row
-              %h2= news.date.to_date.to_formatted_s(:long)
+              %h2= news.date.to_date.to_formatted_s(:long_ordinal)
               %h3= news.title
             .row
               .col-md-10.sixteen-nine

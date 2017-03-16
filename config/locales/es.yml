@@ -286,5 +286,6 @@ es:
     submit: 'Enviar'
   
   footer:
+    rights: 'Todos los derechos reservados.'
     privacy: 'Políticas de privacidad'
     terms: 'Términos y condiciones'

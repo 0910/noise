@@ -4,7 +4,7 @@ class Festival < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  active_admin_translates :menu_title_home, :menu_title_artists, :menu_title_events, :menu_title_news, :menu_title_videos, :menu_title_venues, :menu_title_contacts
+  active_admin_translates :menu_title_home, :menu_title_artists, :menu_title_events, :menu_title_news, :menu_title_videos, :menu_title_venues, :menu_title_contacts, :menu_title_sponsors
 
   has_many :artists, :dependent => :destroy
   has_many :days, :dependent => :destroy

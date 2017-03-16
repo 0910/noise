@@ -6,12 +6,12 @@
       .col-md-4
         %p= @artist.name
       .col-md-4.text-center
-        = link_to @artist.facebook_link, class: 'social-link' do
-          %i.fa.fa-facebook
-        = link_to @artist.instagram_link, class: 'social-link' do
-          %i.fa.fa-instagram
         = link_to @artist.soundcloud_link, class: 'social-link' do
           %i.fa.fa-soundcloud
+        = link_to @artist.instagram_link, class: 'social-link' do
+          %i.fa.fa-resident-advisor
+        = link_to @artist.facebook_link, class: 'social-link' do
+          %i.fa.fa-facebook
   .vcenter
     .container
       .row

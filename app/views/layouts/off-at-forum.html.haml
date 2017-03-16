@@ -31,10 +31,6 @@
                     %label{:for => "mce-FNAME"}
                       #{t('subscribe.name')}
                     %input.form-control#mce-FNAME{:name => "FNAME", :type => "text", :value => ""}/
-                  .mc-field-group.form-group
-                    %label{:for => "mce-LNAME"}
-                      #{t('subscribe.lastname')}
-                    %input.form-control#mce-LNAME{:name => "LNAME", :type => "text", :value => ""}/
                   #mce-responses.clear
                     #mce-error-response.response{:style => "display:none"}
                     #mce-success-response.response{:style => "display:none"}
@@ -70,9 +66,9 @@
               = link_to @festival.youtube, class: 'social-link', target: '_blank' do
                 %i.fa.fa-youtube
               %p
-                = link_to 'Esp', '/es', class: 'lang-link'
+                = link_to 'Es', '/es', class: 'lang-link'
                 = link_to 'Eng', '/en', class: 'lang-link'
-              = link_to 'Stay Updated', '#', class: 'subscribe-button'
+              = link_to "#{t('nav.stay_updated')}", '#', class: 'subscribe-button'
         .col-md-3.hidden-xs.hidden-sm
           .logo.pull-right
             = image_tag('off-at-forum/logo_b.svg')
@@ -86,9 +82,9 @@
             © 2017 OFF AT FORUM. ALL RIGHTS RESERVED.
           .col-md-4.text-center
             = link_to '#', target: '_blank' do
-              PRIVACY POLICY
+              #{t('footer.privacy')}
             = link_to '#', target: '_blank' do
-              TERMS AND CONDITIONS
+              #{t('footer.terms')}
           .col-md-4.text-center
             = link_to 'http://www.wemakenoise.co', target: '_blank' do
               MADE WITH

@@ -12,7 +12,6 @@
               #{event.starts_on.to_date.to_formatted_s(:short)}
               %span 
                 #{event.name}
-            %h3= event.stage.name
           .row
             - event.artists.each do |artist|
               .col-sm-6.col-md-4

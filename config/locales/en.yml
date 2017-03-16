@@ -249,7 +249,7 @@ en:
 
   subscribe:
     title: "Subscribe to our newsletter and receive exclusive offers and news."
-    name: "Name:"
+    name: "Name and lastname:"
     lastname: "Lastname:"
     submit: "Subscribe!"
 
@@ -285,3 +285,6 @@ en:
     message: 'Message'
     submit: 'Submit'
 
+  footer:
+    privacy: 'Privacy Policy'
+    terms: 'Terms and conditions'

@@ -115,6 +115,7 @@ ActiveAdmin.register Festival, :namespace => :admin do
     f.inputs 'Festival information' do
       f.semantic_errors
       f.input :name, :require => true
+      f.input :published
       f.input :description, :require => true
       f.input :facebook
       f.input :twitter
@@ -150,6 +151,7 @@ ActiveAdmin.register Festival, :namespace => :admin do
         t.input :menu_title_videos
         t.input :menu_title_venues
         t.input :menu_title_contacts
+        t.input :menu_title_sponsors
       end
     end
     f.actions

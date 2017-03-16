@@ -373,6 +373,14 @@ body {
     .cover{
       margin-bottom: 1em;
     }
+    &.artists-covers{
+      h2{
+        margin: 15px 0;
+      }
+      a.artist{
+        margin-bottom: 15px;
+      }
+    }
   }
   &.video {
     i.fa-play{

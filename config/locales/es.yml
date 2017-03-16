@@ -245,11 +245,11 @@ es:
         tr: "Turco"
 
   nav:
-    stay_updated: "Mantente Informado"
+    stay_updated: "Manténte Informado"
 
   subscribe:
-    title: "Subscríbete a nuestro newsletter y recibe oferts exxlusivas y noticias."
-    name: "Nombre:"
+    title: "Suscríbete a nuestro newsletter y recibirás ofertas exclusivas y noticias"
+    name: "Nombre y apellido:"
     lastname: "Apellido:"
     submit: "Subscribirme!"
 
@@ -259,8 +259,8 @@ es:
       all: "Todos"
 
   events:
-    title: "Tickets"
-    tickets: "Tickets"
+    title: "Entradas"
+    tickets: "Entradas"
 
   news:
     title: "Noticias"
@@ -284,3 +284,7 @@ es:
     email: 'Email'
     message: 'Mensaje'
     submit: 'Enviar'
+  
+  footer:
+    privacy: 'Políticas de privacidad'
+    terms: 'Términos y condiciones'

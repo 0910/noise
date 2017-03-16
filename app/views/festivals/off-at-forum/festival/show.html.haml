@@ -18,7 +18,7 @@
             = link_to splash.call_to_action, splash.call_to_action_link, class: 'btn btn-block btn-default btn-lg'
 .artists.section
   .left
-    %p Artists
+    %p= @festival.menu_title_artists
   .vcenter
     .container
       .row
@@ -29,7 +29,6 @@
                 #{event.starts_on.to_date.to_formatted_s(:short)}
                 %span 
                   #{event.name}
-              %h3= event.stage.name
             .row
               - event.artists.each do |artist|
                 = link_to artist.name, artist_path(artist), class: 'artist'
@@ -37,7 +36,7 @@
               = link_to t('events.tickets'), events_path, class: 'btn btn-danger btn-sm'
 .video.section
   .left
-    %p Video
+    %p= @festival.menu_title_videos
   .vcenter
     .container
       - @videos.each do |video|
@@ -51,7 +50,7 @@
           = link_to t('videos.view_all'), videos_path, class: 'btn btn-default btn-sm'
 .news.section
   .left
-    %p News
+    %p= @festival.menu_title_news
   .vcenter
     .container
       .row
@@ -73,7 +72,7 @@
           = link_to t('news.all'), news_index_path, class: 'btn btn-default btn-sm'
 .partners.section.text-center
   .left
-    %p Sponsors
+    %p= @festival.menu_title_sponsors
   .vcenter
     .container
       .row

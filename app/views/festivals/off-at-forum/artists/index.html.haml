@@ -9,7 +9,7 @@
         .col-md-12.animate-box{"data-animate-effect" => "fadeInUp"}
           .row
             %h2
-              #{event.starts_on.to_date.to_formatted_s(:short)}
+              = l(event.starts_on.to_date, format: '%B %d, %Y')
               %span 
                 #{event.name}
           .row

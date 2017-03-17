@@ -8,7 +8,7 @@
       - @news.each do |news|
         .col-sm-12.col-md-4.animate-box.item{"data-animate-effect" => "fadeInUp"}
           .row
-            %h2= news.date.to_date.to_formatted_s(:long)
+            %h2= l(news.date.to_date, format: '%B %d, %Y')
             %h3= news.title
           .row
             .col-md-10.sixteen-nine

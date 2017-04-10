@@ -1,5 +1,7 @@
 ActiveAdmin.register Splash, :namespace => :super_admin do
 
+  csv_importable :columns => [:title, :subtitle, :call_to_action, :call_to_action_link, :festival_id], :import_unique_key => :code
+
   index do
     column :id
     column :title
@@ -37,6 +39,8 @@ end
 
 ActiveAdmin.register Splash, :namespace => :admin do
   
+  csv_importable :columns => [:title, :subtitle, :call_to_action, :call_to_action_link, :image_file_name, :image_content_type, :image_file_size, :image_updated_at, :festival_id], :import_unique_key => :code
+
   scope_to :current_festival
 
   before_create do |splash|
@@ -59,9 +63,9 @@ ActiveAdmin.register Splash, :namespace => :admin do
     attributes_table do
       row :id
       row :title
-      row :slug
       row :subtitle
-      row :body
+      row :call_to_action
+      row :call_to_action_link
       row :photo do
         image_tag(splash.photo.url(:thumb))
       end

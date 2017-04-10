@@ -8,6 +8,8 @@
     = stylesheet_link_tag 'off-at-forum/application', media: 'all'
     = javascript_include_tag 'application'
     = javascript_include_tag 'off-at-forum/application'
+    - @widgets.each do |widget|
+      = widget.code.html_safe
     %link{:href => "public/favicons/off-at-forum/apple-icon-57x57.png", :rel => "apple-touch-icon", :sizes => "57x57"}
     %link{:href => "public/favicons/off-at-forum/apple-icon-60x60.png", :rel => "apple-touch-icon", :sizes => "60x60"}
     %link{:href => "public/favicons/off-at-forum/apple-icon-72x72.png", :rel => "apple-touch-icon", :sizes => "72x72"}

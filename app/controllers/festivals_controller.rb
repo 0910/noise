@@ -5,8 +5,10 @@ class FestivalsController < ApplicationController
   end
 
   def show
-  	@festival = Festival.find_by_url(request.domain(10).gsub(/^www./,"")) || Festival.find(1)
-    @videos = Video.where(featured: 'yes')
+  	@festival = Festival.find_by_url(request.domain(10).gsub(/^www./,""))
+    @videos = @festival.videos.where(featured: 'yes')
+    @news = @festival.news.all.order(date: :desc)
+    @widgets = @festival.widgets
 
     set_meta_tags(
       title: @festival.name,

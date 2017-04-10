@@ -1,6 +1,6 @@
 ActiveAdmin.register Artist, :namespace => :super_admin do
 
-  csv_importable :columns => [:name, :ra_link, :facebook_link, :soundcloud_link, :festival_id], :import_unique_key => :code
+  csv_importable :columns => [:name, :ra_link, :facebook_link, :soundcloud_link], :import_unique_key => :code
 
   controller do
     def find_resource
@@ -72,7 +72,7 @@ ActiveAdmin.register Artist, :namespace => :admin do
     column :soundcloud_link
   end
 
-  csv_importable :columns => [:name, :ra_link, :facebook_link, :soundcloud_link, :festival_id], :import_unique_key => :code
+  csv_importable :columns => [:name, :ra_link, :facebook_link, :soundcloud_link], :import_unique_key => :code
   
   scope_to :current_festival
 

@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def festival
-  	Festival.find_by_url(request.domain(10).gsub(/^www./,"")) || Festival.find(1)
+  	Festival.find_by_url(request.domain(10).gsub(/^www./,""))
   end
   helper_method :festival
 

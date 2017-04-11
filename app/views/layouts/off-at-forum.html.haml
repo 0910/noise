@@ -10,7 +10,7 @@
     = javascript_include_tag 'off-at-forum/application'
     - widgets.each do |widget|
       = widget.code.html_safe
-    = render 'application/favicon'
+    = render 'festivals/off-at-forum/favicon'
     = csrf_meta_tags
     = display_meta_tags
     = yield(:head)

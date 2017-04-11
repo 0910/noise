@@ -2,7 +2,7 @@ class NewsController < ApplicationController
   
   def index
   	@festival = Festival.friendly.find(festival.id)
-  	@news = News.where(:festival_id => @festival.id)
+  	@news = @festival.news.all.order(date: :desc)
 
   	set_meta_tags(
       title: @festival.name,

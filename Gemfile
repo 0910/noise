@@ -57,6 +57,7 @@ group :development do
     gem 'capistrano-faster-assets', '~> 1.0'
     gem 'mysql2', '~> 0.3.13'
     gem 'byebug'
+    gem 'rails_real_favicon'
 end
 
 group :production do

@@ -8,7 +8,6 @@ class FestivalsController < ApplicationController
   	@festival = Festival.find_by_url(request.domain(10).gsub(/^www./,""))
     @videos = @festival.videos.where(featured: 'yes')
     @news = @festival.news.all.order(date: :desc)
-    @widgets = @festival.widgets
 
     set_meta_tags(
       title: @festival.name,

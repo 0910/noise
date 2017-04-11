@@ -206,6 +206,7 @@ body {
     background-image: image-url('off-at-forum/loading.gif');
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
     position: absolute;
     top: 0;
     left: 0;
@@ -285,6 +286,10 @@ body {
   text-transform: uppercase;
   font-family: 'maison_neuemono_italic', helvetica, arial, sans-serif;
   display: none;
+  width: 200px;
+  p{
+    margin: 0 !important;
+  }
 }
 
 .right {
@@ -526,7 +531,7 @@ body {
     background-image: image-url('off-at-forum/poster.jpg');
   }
   .container {
-    width: 970px;
+    width: calc(80% + 30px);
   }
   .logo img {
     width: auto;
@@ -543,7 +548,7 @@ body {
     height: 100%;
   }
   .container {
-    width: 1170px;
+    width: calc(80% + 30px);
   }
   .logo img {
     width: auto;
@@ -565,7 +570,7 @@ body {
     font-size: 16px;
   }
   .container {
-    width: 85%;
+    width: calc(80% + 30px);
   }
   .logo img {
     width: auto;

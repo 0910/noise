@@ -2,7 +2,7 @@ class ArtistsController < ApplicationController
   
   def index
   	@festival = Festival.friendly.find(festival.id)
-  	@artists = Artist.where(:festival_id => @festival.id)
+  	@artists = @festival.artists
 
   	set_meta_tags(
       title: @festival.name,

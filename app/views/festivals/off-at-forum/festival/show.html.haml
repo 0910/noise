@@ -54,7 +54,7 @@
   .vcenter
     .container
       .row
-        - @festival.news.each do |news|
+        - @news.each do |news|
           .col-sm-12.col-md-4.animate-box.item{"data-animate-effect" => "fadeInUp"}
             .row
               %h2= l(news.date.to_date, format: '%B %d, %Y')

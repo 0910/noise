@@ -282,6 +282,7 @@ es:
     title: 'Contacto'
     name: 'Nombre'
     email: 'Email'
+    media: 'Medio'
     message: 'Mensaje'
     submit: 'Enviar'
   

@@ -58,7 +58,9 @@
             .col-xs-6.col-sm-4.col-md-4
               = link_to festival.menu_title_news, news_index_path
               = link_to festival.menu_title_venues, venue_path(1)
-              = link_to festival.menu_title_contacts, new_contact_path
+              %p
+                = link_to festival.menu_title_press + '/', new_press_contact_path, class: 'inline'
+                = link_to festival.menu_title_contacts, new_contact_path, class: 'inline'
             .col-xs-6.col-sm-4.col-md-4.hidden-xs
               = link_to @festival.facebook, class: 'social-link', target: '_blank' do
                 %i.fa.fa-facebook-square

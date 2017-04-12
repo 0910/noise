@@ -2,15 +2,12 @@
 
 .left
   %p= @festival.menu_title_videos
-.section.news.normalizer
-  .container
-    .row
-      - @festival.videos.each do |video|
-        .col-sm-12.col-md-4.animate-box.item{"data-animate-effect" => "fadeInUp"}
-          .row
-            %h3= video.name
-          .row
-            .col-md-10.sixteen-nine
+.section.video
+  .vcenter
+    .container
+      .row
+        - @festival.videos.each do |video|
+          = link_to video.link, class: 'swipebox' do
+            .col-md-8.col-md-offset-2.sixteen-nine.animate-box.text-center{"data-animate-effect" => "fadeInUp"}
               .image.cover{:style => "background-image: url(#{video.image.url(:medium)})"}
-          .row
-            = link_to 'Play', video.link, class: 'btn btn-danger btn-sm swipebox'
+              %i.fa.fa-play

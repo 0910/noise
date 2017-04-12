@@ -1,16 +1,19 @@
 class PressContactsController < ApplicationController
   def new
-    @presscontact = PressContact.new
+  	@festival = Festival.friendly.find(festival.id)
+    @press_contact = PressContact.new
+    render "festivals/#{@festival.slug}/press_contacts/new", :layout => @festival.slug
   end
 
   def create
-    @presscontact = PressContact.new(params[:presscontact])
-    @presscontact.request = request
-    if @presscontact.deliver!
+  	@festival = Festival.friendly.find(festival.id)
+    @press_contact = PressContact.new(params[:contact])
+    @press_contact.request = request
+    if @press_contact.deliver!
       flash.now[:notice] = 'Thank you for your message. We will contact you soon!'
     else
       flash.now[:error] = 'Cannot send message.'
-      render :new
     end
+    render "festivals/#{@festival.slug}/press_contacts/new", :layout => @festival.slug
   end
 end

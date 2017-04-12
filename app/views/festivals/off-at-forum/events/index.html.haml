@@ -8,7 +8,7 @@
       - @festival.events.each do |event|
         .col-sm-12.col-md-4.animate-box.item{"data-animate-effect" => "fadeInUp"}
           .row
-            %h2= l(event.starts_on.to_date, format: '%B %d, %Y')
+            %h2= l(event.starts_on.to_date, format: '%a,%d %B')
             %h3= event.name
           .row
             .col-md-10

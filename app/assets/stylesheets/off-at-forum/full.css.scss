@@ -258,6 +258,9 @@ body {
       content: "";
     }
   }
+  &.inline{
+    display: inline !important;
+  }
 }
 
 .logo img {

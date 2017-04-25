@@ -153,6 +153,7 @@ ActiveAdmin.register Festival, :namespace => :admin do
         t.input :menu_title_contacts
         t.input :menu_title_sponsors
         t.input :menu_title_press
+        t.input :menu_title_galleries
       end
     end
     f.actions

@@ -1,0 +1,12 @@
+- title "#{@festival.name} - Galleries - #{@gallery.title}"
+
+.left
+  %p= @festival.menu_title_galleries
+.section.news.normalizer
+  .container
+    .row
+      - @gallery.images.each do |image|
+        .col-sm-12.col-md-4.animate-box.item{"data-animate-effect" => "fadeInUp"}
+          .row
+            = link_to(image.file.url(:large), class: 'swipebox') do
+              .col-md-10.sixteen-nine{:style => "background-image: url(#{image.file.url(:medium)})"}

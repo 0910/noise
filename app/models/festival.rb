@@ -5,7 +5,7 @@ class Festival < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  active_admin_translates :menu_title_home, :menu_title_artists, :menu_title_events, :menu_title_news, :menu_title_videos, :menu_title_venues, :menu_title_contacts, :menu_title_sponsors, :menu_title_press
+  active_admin_translates :menu_title_home, :menu_title_artists, :menu_title_events, :menu_title_news, :menu_title_videos, :menu_title_venues, :menu_title_contacts, :menu_title_sponsors, :menu_title_press, :menu_title_galleries
 
   has_many :artists, :dependent => :destroy
   has_many :days, :dependent => :destroy
@@ -20,6 +20,7 @@ class Festival < ActiveRecord::Base
   has_many :newsletters, :dependent => :destroy
   has_many :splashes, :dependent => :destroy
   has_many :stages, :dependent => :destroy
+  has_many :galleries, :dependent => :destroy
 
   has_many :images, :dependent => :destroy
   accepts_nested_attributes_for :images, :allow_destroy => true

@@ -5,4 +5,5 @@ class Image < ActiveRecord::Base
 
 	belongs_to :festival
 	belongs_to :news
+  belongs_to :gallery
 end

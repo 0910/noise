@@ -6,12 +6,18 @@
       .col-md-4
         %p= @artist.name
       .col-md-4.text-center
+        - unless @previous.nil?
+          = link_to @previous, class: 'social-link' do
+            %i.fa.fa-chevron-left 
         = link_to @artist.soundcloud_link, class: 'social-link' do
           %i.fa.fa-soundcloud
         = link_to @artist.ra_link, class: 'social-link' do
           %i.fa.fa-resident-advisor
         = link_to @artist.facebook_link, class: 'social-link' do
           %i.fa.fa-facebook
+        - unless @next.nil?
+          = link_to @next, class: 'social-link' do
+            %i.fa.fa-chevron-right 
   .vcenter
     .container
       .row

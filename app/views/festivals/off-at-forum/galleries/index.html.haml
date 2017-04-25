@@ -1,0 +1,20 @@
+- title "#{@festival.name} - Galleries"
+
+.left
+  %p= @festival.menu_title_galleries
+.section.news.normalizer
+  .container
+    .row
+      - @galleries.each do |gallery|
+        .col-sm-12.col-md-4.animate-box.item{"data-animate-effect" => "fadeInUp"}
+          .row
+            %h3= gallery.title
+          .row
+            - gallery.images.each do |image|
+              - if image.cover == true
+                = link_to(gallery_path(gallery)) do
+                  .col-md-10.sixteen-nine{:style => "background-image: url(#{image.file.url(:medium)})"}
+          .row
+            .col-md-10
+              .row
+                = link_to 'View', gallery_path(gallery), class: 'btn btn-danger btn-sm'

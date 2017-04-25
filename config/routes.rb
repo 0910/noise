@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
     resources :videos, only: [:show, :index] do
     end
+    resources :galleries, only: [:show, :index] do
+    end
     resources :sponsors, only: [:index] do
     end
     resources :newsletters, only: [:new, :create]

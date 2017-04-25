@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412120312) do
+ActiveRecord::Schema.define(version: 20170425132045) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -159,19 +159,20 @@ ActiveRecord::Schema.define(version: 20170412120312) do
   add_index "festival_themes", ["theme_id"], name: "index_festival_themes_on_theme_id", using: :btree
 
   create_table "festival_translations", force: :cascade do |t|
-    t.integer  "festival_id",         limit: 4,   null: false
-    t.string   "locale",              limit: 255, null: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.string   "menu_title_home",     limit: 255
-    t.string   "menu_title_artists",  limit: 255
-    t.string   "menu_title_events",   limit: 255
-    t.string   "menu_title_news",     limit: 255
-    t.string   "menu_title_videos",   limit: 255
-    t.string   "menu_title_venues",   limit: 255
-    t.string   "menu_title_contacts", limit: 255
-    t.string   "menu_title_sponsors", limit: 255
-    t.string   "menu_title_press",    limit: 255
+    t.integer  "festival_id",          limit: 4,   null: false
+    t.string   "locale",               limit: 255, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "menu_title_home",      limit: 255
+    t.string   "menu_title_artists",   limit: 255
+    t.string   "menu_title_events",    limit: 255
+    t.string   "menu_title_news",      limit: 255
+    t.string   "menu_title_videos",    limit: 255
+    t.string   "menu_title_venues",    limit: 255
+    t.string   "menu_title_contacts",  limit: 255
+    t.string   "menu_title_sponsors",  limit: 255
+    t.string   "menu_title_press",     limit: 255
+    t.string   "menu_title_galleries", limit: 255
   end
 
   add_index "festival_translations", ["festival_id"], name: "index_festival_translations_on_festival_id", using: :btree
@@ -228,6 +229,7 @@ ActiveRecord::Schema.define(version: 20170412120312) do
     t.boolean  "published",               limit: 1
     t.string   "menu_title_sponsors",     limit: 255
     t.string   "menu_title_press",        limit: 255
+    t.string   "menu_title_galleries",    limit: 255
   end
 
   add_index "festivals", ["email"], name: "index_festivals_on_email", unique: true, using: :btree
@@ -246,6 +248,16 @@ ActiveRecord::Schema.define(version: 20170412120312) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
+  create_table "galleries", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.integer  "festival_id", limit: 4
+    t.string   "slug",        limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "galleries", ["festival_id"], name: "index_galleries_on_festival_id", using: :btree
+
   create_table "images", force: :cascade do |t|
     t.string   "file_file_name",    limit: 255
     t.string   "file_content_type", limit: 255
@@ -258,9 +270,11 @@ ActiveRecord::Schema.define(version: 20170412120312) do
     t.integer  "festival_id",       limit: 4
     t.integer  "news_id",           limit: 4
     t.integer  "position",          limit: 4
+    t.integer  "gallery_id",        limit: 4
   end
 
   add_index "images", ["festival_id"], name: "index_images_on_festival_id", using: :btree
+  add_index "images", ["gallery_id"], name: "index_images_on_gallery_id", using: :btree
   add_index "images", ["news_id"], name: "index_images_on_news_id", using: :btree
   add_index "images", ["show_id"], name: "index_images_on_show_id", using: :btree
 
@@ -548,7 +562,9 @@ ActiveRecord::Schema.define(version: 20170412120312) do
   add_foreign_key "events", "venues"
   add_foreign_key "festival_themes", "festivals"
   add_foreign_key "festival_themes", "themes"
+  add_foreign_key "galleries", "festivals"
   add_foreign_key "images", "festivals"
+  add_foreign_key "images", "galleries"
   add_foreign_key "images", "news"
   add_foreign_key "images", "shows"
   add_foreign_key "news", "festivals"

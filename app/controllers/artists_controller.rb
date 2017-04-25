@@ -23,6 +23,8 @@ class ArtistsController < ApplicationController
   def show
   	@festival = Festival.friendly.find(festival.id)
   	@artist = Artist.friendly.find(params[:id])
+    @previous = Artist.friendly.where("id < ?", params[:id]).order(:id).first
+    @next = Artist.friendly.where("id > ?", params[:id]).order(:id).first
 
   	set_meta_tags(
       title: @artist.name,

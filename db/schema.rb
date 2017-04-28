@@ -279,22 +279,18 @@ ActiveRecord::Schema.define(version: 20170425132045) do
   add_index "images", ["show_id"], name: "index_images_on_show_id", using: :btree
 
   create_table "news", force: :cascade do |t|
-    t.string   "title",              limit: 255
-    t.string   "subtitle",           limit: 255
+    t.string   "title",       limit: 255
+    t.string   "subtitle",    limit: 255
     t.date     "date"
-    t.text     "body",               limit: 65535
-    t.integer  "festival_id",        limit: 4
-    t.string   "slug",               limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.string   "featured",           limit: 255,   default: "No"
-    t.string   "image_file_name",    limit: 255
-    t.string   "image_content_type", limit: 255
-    t.integer  "image_file_size",    limit: 4
-    t.datetime "image_updated_at"
-    t.string   "link",               limit: 255
-    t.string   "news_type",          limit: 255
-    t.string   "video",              limit: 255
+    t.text     "body",        limit: 65535
+    t.integer  "festival_id", limit: 4
+    t.string   "slug",        limit: 255
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "featured",    limit: 255,   default: "No"
+    t.string   "link",        limit: 255
+    t.string   "news_type",   limit: 255
+    t.string   "video",       limit: 255
   end
 
   add_index "news", ["festival_id"], name: "index_news_on_festival_id", using: :btree

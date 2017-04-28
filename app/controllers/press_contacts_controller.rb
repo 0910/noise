@@ -7,7 +7,7 @@ class PressContactsController < ApplicationController
 
   def create
   	@festival = Festival.friendly.find(festival.id)
-    @press_contact = PressContact.new(params[:contact])
+    @press_contact = PressContact.new(params[:press_contact])
     @press_contact.request = request
     if @press_contact.deliver!
       flash.now[:notice] = 'Thank you for your message. We will contact you soon!'

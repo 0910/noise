@@ -9,4 +9,5 @@
         .col-sm-12.col-md-4.animate-box.item{"data-animate-effect" => "fadeInUp"}
           .row
             = link_to(image.file.url(:large), class: 'swipebox') do
-              .col-md-10.sixteen-nine{:style => "background-image: url(#{image.file.url(:medium)})"}
+              .col-md-10.sixteen-nine
+                .image.cover{:style => "background-image: url(#{image.file.url(:medium)})"}

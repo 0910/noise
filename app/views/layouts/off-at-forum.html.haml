@@ -55,12 +55,12 @@
               = link_to festival.menu_title_artists, artists_path
               = link_to festival.menu_title_events, events_path
               = link_to festival.menu_title_videos, videos_path
+              = link_to festival.menu_title_galleries, 'http://www.offatforum.com/galleries/off-at-forum-2016'
             .col-xs-6.col-sm-4.col-md-4
               = link_to festival.menu_title_news, news_index_path
               = link_to festival.menu_title_venues, venue_path(1)
-              %p
-                = link_to festival.menu_title_press + '/', new_press_contact_path, class: 'inline'
-                = link_to festival.menu_title_contacts, new_contact_path, class: 'inline'
+              = link_to festival.menu_title_press, new_press_contact_path
+              = link_to festival.menu_title_contacts, new_contact_path
             .col-xs-6.col-sm-4.col-md-4.hidden-xs
               = link_to @festival.facebook, class: 'social-link', target: '_blank' do
                 %i.fa.fa-facebook-square

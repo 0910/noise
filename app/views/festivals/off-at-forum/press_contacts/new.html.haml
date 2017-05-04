@@ -29,7 +29,7 @@
           .row
             .form-group
               = f.label :name, t('contacts.message'), class: 'control-label'
-              = f.text_area(:message, rows: 10, class: 'form-control')
+              = f.text_area(:message, rows: 5, class: 'form-control')
           .row.hidden
             .form-group
               = f.text_field :nickname, :hint => 'Leave this field blank!'

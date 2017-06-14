@@ -36,8 +36,8 @@
               - for artist in artists
                 .row
                   %h4 #{artist.time.strftime("%H:%M")} - #{artist.ends.strftime("%H:%M")}
-              .row
-                = link_to artist.artist.name, artist_path(artist.artist), class: 'artist'
+                .row
+                  = link_to artist.artist.name, artist_path(artist.artist), class: 'artist'
             .row
               = link_to t('events.tickets'), events_path, class: 'btn btn-danger btn-sm'
 .video.section

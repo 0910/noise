@@ -15,9 +15,11 @@ class Event < ActiveRecord::Base
 
   has_many :event_artists, :dependent => :destroy
   has_many :artists, :through => :event_artists
+	has_many :event_stages, :dependent => :destroy
+	has_many :stages, :through => :event_stages
 
-  #has_many :event_artists, :dependent => :destroy
   accepts_nested_attributes_for :event_artists, :allow_destroy => true
+  accepts_nested_attributes_for :event_stages, :allow_destroy => true
 
   extend FriendlyId
   friendly_id :slug_candidates, use: :history

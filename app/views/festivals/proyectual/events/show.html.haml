@@ -1,0 +1,79 @@
+%section#events.grid.bg-grey
+  .no-gutter.splashes
+    .col-md-12.header.text-center
+      .ph{:style => "background-image: url(#{@event.images.first.file.url(:large)})"}
+      .gradient
+      .vcenter
+        %h1.section-heading= @event.name
+        %ul.list-inline.social-buttons
+          %li
+            = link_to(@event.facebook) do
+              %i.fa.fa-facebook
+          %li
+            = link_to(@event.instagram) do
+              %i.fa.fa-instagram
+          %li
+            = link_to(@event.twitter) do
+              %i.fa.fa-twitter
+          %li
+            = link_to(@event.youtube) do
+              %i.fa.fa-youtube
+  .container
+    .row.subsection
+      .col-md-2.col-md-offset-5.hexagon.text-center.neg-margin
+        %h2.section-heading I
+      .col-md-12
+        %h2.section-heading.text-center= t('events.about_this_event')
+    .row
+      .col-md-10.col-md-offset-1
+        .row
+          .col-md-6.grid-item
+            .section-body
+              #{simple_format(@event.description)}
+          .col-md-6.grid-item
+            .row
+              .col-md-12
+                .section-body
+                  %p= t('events.artists_who_played')
+            .row
+              .col-md-12
+                .section-body
+                  - @artists.each do |artist|
+                    = link_to "#{artist}" do
+                      #{artist.name}
+    .row.subsection
+      .col-md-2.col-md-offset-5.hexagon.text-center
+        %h2.section-heading II
+      .col-md-12
+        %h2.section-heading.text-center= t('events.after_movie')
+      .col-md-8.col-md-offset-2
+        .video
+          .video-cover{:style => "background-image: url(#{@event.video_cover.url(:large)})"}
+          = link_to('', @event.video, class: 'swipebox-video video-play')
+          
+%section.bg-dark-grey.offset
+  .container
+    .row.subsection
+      .col-md-2.col-md-offset-5.hexagon.text-center
+        %h2.section-heading III
+      .col-md-12
+        %h2.section-heading.text-center= t('events.event_history')
+    .row
+      %ul.timeline
+        - @events.each do |event|
+          %li
+            .timeline-image{:style => "background-image: url(#{@event.images.first.file.url(:large)})"}
+              .hexagon-mask
+            .timeline-panel
+              .timeline-heading
+                %h4
+                  #{event.name}
+              .timeline-body
+                %p
+                  #{event.description}
+
+    .row.hidden-xs
+      .vert-line
+    .row
+      .col-md-2.col-md-offset-5.text-center.margin
+        = link_to('', '#', class: 'gotop')

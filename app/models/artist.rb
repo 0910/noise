@@ -3,6 +3,9 @@ class Artist < ActiveRecord::Base
 	belongs_to :festival
 	has_many :presentations
 
+	has_many :event_artists, :dependent => :destroy
+	has_many :events, :through => :event_artists
+  
 	active_admin_translates :bio
 
 	has_attached_file :image, :styles => { :thumb => "120x80>", :small => '480x320>', :medium => '720x480>', :large => '1080x720>', :high => '1920x1080>' },
@@ -10,9 +13,6 @@ class Artist < ActiveRecord::Base
 						:path => ":rails_root/public/assets/artists/:id/:style/:basename.:extension"
 						
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
-
-	has_many :event_artists, :dependent => :destroy
-	has_many :events, :through => :event_artists
 
 	extend FriendlyId
 	friendly_id :slug_candidates, use: :history

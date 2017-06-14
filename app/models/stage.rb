@@ -1,8 +1,10 @@
 class Stage < ActiveRecord::Base
-  belongs_to :day
+	acts_as_list
   belongs_to :festival
-  has_many :events
-  has_many :presentations
+
+	has_many :event_stages, :dependent => :destroy
+	has_many :events, :through => :event_artists
+
   extend FriendlyId
   friendly_id :slug_candidates, use: :history
 

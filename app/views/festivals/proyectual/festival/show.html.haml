@@ -1,0 +1,113 @@
+- title "#{@festival.name}"
+
+%header
+  .no-gutter.splashes
+    - @festival.splashes.each do |splash|
+      .col-md-6.splash{:style => "background-image: url(#{splash.photo.url(:large)})"}
+        .caption
+          .inner
+            %p #{splash.subtitle}
+            = link_to(splash.call_to_action, class: 'btn btn-xl-noborder', target: '_blank') do
+              .lines
+                .line.top
+                .line.right
+                .line.bottom
+                .line.left
+              %h1
+                #{splash.title}
+            %p
+              #{splash.call_to_action}
+  .isologo.vcenter.visible-lg
+
+%section#about.grid.text-center.bg-grey
+  .container-fluid
+    .row
+      .col-md-2.col-md-offset-5.hexagon
+        %h2.section-heading= @festival.menu_title_artists
+    .row
+      .col-md-8.col-md-offset-2
+        .section-body.section-box-alt
+          #{simple_format(@festival.description)}
+        = link_to(t('about.call_to_action'), '#', class: "btn btn-sm btn-white")
+
+%section.grid.bg-dark-grey#news
+  .container
+    .row
+      .col-md-2.col-md-offset-5.hexagon
+        %h2.section-heading.text-center= t('news.title')
+    .row
+      .vert-line
+    .row
+      .no-gutter
+        - @news.each do |news|
+          .col-xs-12.col-sm-12.col-md-12.grid-item
+            - if news.images.empty?
+              .col-md-6
+                = link_to(news_path(news), class: 'grid-link') do
+                  .grid-hover
+                    .grid-hover-content
+                      .lines
+                        .line.top
+                        .line.right
+                        .line.bottom
+                        .line.left
+                      %p= t('news.read_more')
+                  = image_tag('image-not-available.jpg')
+              .col-md-6
+                .grid-caption.text-left
+                  %p.text-muted
+                    #{news.date.to_date.to_formatted_s(:long)}
+                  %h4
+                    #{news.title}
+                  %p
+                    #{truncate(news.body, :length => 180)}
+            - else
+              - news.images.each do |image|
+                - if image.cover == true
+                  .row.no-gutter
+                    = link_to(news_path(news), class: 'col-sm-6 col-md-6 grid-link') do
+                      .grid-hover
+                        .grid-hover-content
+                          .lines
+                            .line.top
+                            .line.right
+                            .line.bottom
+                            .line.left
+                          %p= t('news.read_more')
+                      .ph{:style => "background-image: url(#{image.file.url(:medium)})"}
+                    .col-sm-6.col-md-6.grid-caption.text-left
+                      %p.text-muted
+                        #{news.date.to_date.to_formatted_s(:long)}
+                      %h4
+                        #{truncate(news.title, :length => 40)}
+                      %p
+                        #{truncate(news.body, :length => 180)}
+    .row.hidden-xs
+      .vert-line
+    .row.text-center
+      = link_to(t('news.view_all'), news_index_path, class: 'btn btn-green btn-sm')
+
+%section#partners.grid.text-center.bg-grey
+  .container
+    .row
+      .col-md-2.col-md-offset-5
+        %h2.section-heading
+          = t('sponsors')
+    .row
+      .col-md-10.col-md-offset-1
+        - @festival.sponsors.each do |partner|
+          = link_to(partner.link, class: 'partner') do
+            = image_tag(partner.logo.url)
+    .row
+      .col-md-2.col-md-offset-5.text-center
+        = link_to('', '#', class: 'gotop')
+:javascript
+  $(document).ready(function(){
+    var swiper = new Swiper('.carousel .swiper-container', {
+      pagination: '.carousel .swiper-pagination',
+      slidesPerView: 3,
+      paginationClickable: true,
+      spaceBetween: 1,
+      grabCursor: true
+    });
+  });

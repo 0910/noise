@@ -16,7 +16,7 @@
             %p= simple_format(splash.title)
           .col-md-4
             = link_to splash.call_to_action, splash.call_to_action_link, class: 'btn btn-block btn-default btn-lg'
-.artists.section
+.artists.section.normalizer
   .left
     %p= @festival.menu_title_artists
   .vcenter
@@ -27,11 +27,17 @@
             .row
               %h2
                 = l(event.starts_on.to_date, format: '%B %d, %Y')
-                %span 
-                  #{event.name}
-            .row
-              - event.artists.each do |artist|
-                = link_to artist.name, artist_path(artist), class: 'artist'
+                %span= event.name
+
+            - @presentations = event.presentations.group_by { |t| t.stage_id }
+            - @presentations.sort.each do |stage, artists|
+              .row
+                %h3= Stage.find(stage).name
+              - for artist in artists
+                .row
+                  %h4 #{artist.time.strftime("%H:%M")} - #{artist.ends.strftime("%H:%M")}
+              .row
+                = link_to artist.artist.name, artist_path(artist.artist), class: 'artist'
             .row
               = link_to t('events.tickets'), events_path, class: 'btn btn-danger btn-sm'
 .video.section

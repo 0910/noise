@@ -1,0 +1,44 @@
+%section#about.grid.bg-grey
+  .no-gutter.splashes
+    .col-md-12.header.text-center
+      %h1.section-heading.vcenter= t('about.title')
+      .gradient
+  .container
+    .row.subsection
+      .col-md-2.col-md-offset-5.hexagon.text-center
+        %h2.section-heading I
+      .col-md-12
+        %h2.section-heading.text-center.no-margin= t('about.introduction')
+    .row
+      .col-md-10.col-md-offset-1
+        .row
+          .col-md-12
+            .section-body
+              %p
+                #{@about.long_about}
+%section.bg-dark-grey.offset
+  .container
+    .row.subsection
+      .col-md-2.col-md-offset-5.hexagon.text-center
+        %h2.section-heading II
+      .col-md-12
+        %h2.section-heading.text-center= t('about.facts')
+    .row
+      %ul.timeline
+        - @events.each do |event|
+          %li
+            .timeline-image{:style => "background-image: url(#{event.video_cover.url(:large)})"}
+              .hexagon-mask
+            .timeline-panel
+              .timeline-heading
+                %h4
+                  #{event.name}
+              .timeline-body
+                %p
+                  #{truncate(event.description, :length => 180)}
+
+        .row.hidden-xs
+          .vert-line
+    .row
+      .col-md-2.col-md-offset-5.text-center
+        = link_to('', '#', class: 'gotop')

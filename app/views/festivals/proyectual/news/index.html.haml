@@ -1,0 +1,60 @@
+%section#news.grid.bg-dark-grey
+  .no-gutter.splashes
+    .col-md-12.header.text-center
+      %h1.section-heading.vcenter= t('news.title')
+      .gradient2
+  .container
+    .row
+      .col-md-2.col-md-offset-5.hexagon.text-center
+        %h2.section-heading= t('news.all')
+    .row
+      .vert-line
+    .row.no-gutter
+      - @news.each do |news|
+        .col-xs-12.col-sm-12.col-md-12.grid-item
+          - if news.images.empty?
+            .col-sm-6.col-md-6
+              = link_to(news_path(news), class: 'col-sm-6 col-md-6 grid-link') do
+                .grid-hover
+                  .grid-hover-content
+                    .lines
+                      .line.top
+                      .line.right
+                      .line.bottom
+                      .line.left
+                    %p= t('news.read_more')
+                = image_tag('image-not-available.jpg')
+            .col-sm-6.col-md-6
+              .grid-caption.text-left
+                %p.text-muted
+                  #{news.date.to_date.to_formatted_s(:long)}
+                %h4
+                  #{news.title}
+                %p
+                  #{truncate(news.body, :length => 180)}
+          - else
+            - news.images.each do |image|
+              - if image.cover == true
+                .row.no-gutter
+                  = link_to(news_path(news), class: 'col-sm-6 col-md-6 grid-link') do
+                    .grid-hover
+                      .grid-hover-content
+                        .lines
+                          .line.top
+                          .line.right
+                          .line.bottom
+                          .line.left
+                        %p= t('news.read_more')
+                    .ph{:style => "background-image: url(#{image.file.url(:medium)})"}
+                  .col-sm-6.col-md-6.grid-caption.text-left
+                    %p.text-muted
+                      #{news.date.to_date.to_formatted_s(:long)}
+                    %h4
+                      #{truncate(news.title, :length => 40)}
+                    %p
+                      #{truncate(news.body, :length => 180)}
+    .row.hidden-xs
+      .vert-line
+    .row
+      .col-md-2.col-md-offset-5.text-center
+        %a.gotop

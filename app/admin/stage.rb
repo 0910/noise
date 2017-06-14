@@ -48,18 +48,15 @@ ActiveAdmin.register Stage, :namespace => :admin do
   index do
     column :id
     column :name
-    column :day
     actions
   end
 
   filter :name
-  filter :day
   
   show do |p|
     attributes_table do
       row :name
       row :slug
-      row :day
     end
   end
 
@@ -67,7 +64,6 @@ ActiveAdmin.register Stage, :namespace => :admin do
     f.inputs 'Details' do
       f.semantic_errors
       f.input :name, :require => true
-      f.input :day, :require => true
     end
 
     f.actions

@@ -1,0 +1,59 @@
+%section#events.grid.bg-dark-grey
+  .no-gutter.splashes
+    .col-md-12.header.text-center
+      .gradient2
+      %h1.section-heading.vcenter
+        = t('events.title')
+  .container
+    - @years.each do |year|
+      .year
+        .row
+          .col-md-2.col-md-offset-5.hexagon.text-center
+            %h2.section-heading #{year.name}
+        .row
+          .vert-line
+        .row
+          .no-gutter
+            - year.events.each do |event|
+              .col-xs-12.col-sm-12.col-md-12.grid-item
+                - if event.images.empty?
+                  .row.no-gutter
+                    = link_to(event_path(event), class: 'col-sm-6 col-md-6 grid-link') do
+                      .grid-hover
+                        .grid-hover-content
+                          .lines
+                            .line.top
+                            .line.right
+                            .line.bottom
+                            .line.left
+                          %p= t('events.view_more') 
+                      .ph.image-not-available
+                    .col-sm-6.col-md-6.grid-caption.text-left
+                      %h4
+                        #{truncate(event.name, :length => 40)}
+                      %p
+                        #{truncate(event.description, :length => 240)}
+                - else
+                  - event.images.each do |image|
+                    - if image.cover == true
+                      .row.no-gutter
+                        = link_to(event_path(event), class: 'col-sm-6 col-md-6 grid-link') do
+                          .grid-hover
+                            .grid-hover-content
+                              .lines
+                                .line.top
+                                .line.right
+                                .line.bottom
+                                .line.left
+                              %p= t('events.view_more') 
+                          .ph{:style => "background-image: url(#{image.file.url(:medium)})"}
+                        .col-sm-6.col-md-6.grid-caption.text-left
+                          %h4
+                            #{truncate(event.name, :length => 40)}
+                          %p
+                            #{truncate(event.description, :length => 240)}
+        .row.hidden-xs
+          .vert-line
+    .row
+      .col-md-2.col-md-offset-5.text-center
+        = link_to('', '#', class: 'gotop')

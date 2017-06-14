@@ -1,0 +1,36 @@
+%section#news.bg-dark-grey
+  .no-gutter.splashes
+    - if @news.images.empty?
+      .col-md-12.header.text-center{:style => "background-image: image-url('image-not-available.jpg')"}
+    - else
+      - @news.images.each do |image|
+        .col-md-12.header.text-center
+          .ph{:style => "background-image: url(#{image.file.url(:large)})"}
+          .vcenter
+            %h1.section-heading= @news.title
+          .gradient2
+  .container
+    .row.subsection
+      .col-md-10.col-md-offset-1
+        .row
+          .col-md-12
+            .section-body
+              %p.text-muted
+                #{@news.date.to_date.to_formatted_s(:long)}
+            .section-body
+              #{simple_format(@news.body)}
+    .row.text-center
+      %ul.list-inline.social-buttons
+        %li
+          %p= t('news.share')
+        %li
+          .hline
+        %li
+          = link_to('#') do
+            %i.fa.fa-facebook
+        %li
+          = link_to('#') do
+            %i.fa.fa-soundcloud
+        %li
+          = link_to('#') do
+            %i.fa.fa-instagram

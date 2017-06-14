@@ -1,0 +1,14 @@
+- title "#{@festival.name} - #{@page.name}"
+
+.left
+  %p= @page.name
+.venues.section.normalizer
+  .container
+    .row
+      .col-md-8.col-md-offset-2
+        %h2.hidden-xs.hidden-sm
+          #{@page.name}
+    .row.animate-box
+      .col-md-8.col-md-offset-2
+        .row
+          %p= simple_format(@page.body)

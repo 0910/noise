@@ -21,6 +21,7 @@ class Festival < ActiveRecord::Base
   has_many :splashes, :dependent => :destroy
   has_many :stages, :dependent => :destroy
   has_many :galleries, :dependent => :destroy
+  has_many :pages, :dependent => :destroy
 
   has_many :images, :dependent => :destroy
   accepts_nested_attributes_for :images, :allow_destroy => true

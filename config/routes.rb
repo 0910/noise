@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'pages/show'
+
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
 
     resources :festivals, only: [:show, :index] do
@@ -11,6 +13,8 @@ Rails.application.routes.draw do
     resources :artists, only: [:show, :index] do
     end
     resources :venues, only: [:show, :index] do
+    end
+    resources :pages, only: [:show] do
     end
     resources :news, only: [:show, :index] do
     end

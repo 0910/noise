@@ -1,0 +1,34 @@
+%section.grid
+  .container-fluid
+    .row.no-gutter
+      - @videos.each do |video|
+        .col-md-6.col-sm-6.grid-item
+          - if video.images.empty?
+            = link_to(video.link, class: 'grid-link swipebox') do
+              .grid-hover
+                .grid-hover-content
+                  .lines
+                    .line.top
+                    .line.right
+                    .line.bottom
+                    .line.left
+                  %p #{video.name}
+              .ph.md{:style => "background-image: image-url('image-not-available.jpg')"}
+
+          - else
+            - video.images.each do |image|
+              - if image.cover == true
+                = link_to(video.link, class: 'grid-link swipebox') do
+                  .grid-hover
+                    .grid-hover-content
+                      .lines
+                        .line.top
+                        .line.right
+                        .line.bottom
+                        .line.left
+                      %p #{video.name}
+                  .ph.md{:style => "background-image: url(#{image.file.url(:medium)})"}
+:javascript
+  $(document).ready(function(){
+    $('.swipebox').swipebox();
+  });

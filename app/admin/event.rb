@@ -42,6 +42,7 @@ ActiveAdmin.register Event, :namespace => :super_admin do
       f.input :venues, :as => :select, :collection => Venue.all, :include_blank => false, :require => true, :multiple => true
       f.input :shows, :as => :select, :collection => Show.all, :include_blank => false, :require => true, :multiple => true
       f.input :artists, :as => :select, :collection => Artist.all, :include_blank => false, :require => true, :multiple => true
+      f.input :stages, :as => :select, :collection => Stage.all, :include_blank => false, :require => true, :multiple => true
       f.input :tickets_link
     end
     f.inputs "Event Image" do
@@ -101,9 +102,7 @@ ActiveAdmin.register Event, :namespace => :admin do
       f.input :name, :require => true
       f.input :starts_on, as: :datepicker, :require => true
       f.input :finish_on, as: :datepicker, :require => true
-      f.input :day, :as => :select2, :collection => Day.all, :include_blank => false, :require => true
       f.input :venue, :as => :select2, :collection => Venue.all, :include_blank => false, :require => true
-      f.input :stage, :as => :select2, :collection => Stage.all, :include_blank => false, :require => true
       f.input :tickets_link
       f.translated_inputs 'ignored title', switch_locale: true, available_locales: I18n.available_locales do |t|
         t.input :description
@@ -117,7 +116,7 @@ ActiveAdmin.register Event, :namespace => :admin do
     f.inputs "Artists" do
       f.has_many :event_artists, sortable: :position do |i|
         i.input :artist, :as => :select2, :collection => Artist.where(festival_id: current_festival), :include_blank => false, :require => true
-        i.input :_destroy, as: :boolean, label: "Destroy?" unless i.object.new_record?
+        i.input :_destroy, as: :boolean, label: "Unlink?" unless i.object.new_record?
       end 
     end
     f.actions

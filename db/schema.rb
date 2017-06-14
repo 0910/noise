@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425132045) do
+ActiveRecord::Schema.define(version: 20170614054512) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -279,18 +279,22 @@ ActiveRecord::Schema.define(version: 20170425132045) do
   add_index "images", ["show_id"], name: "index_images_on_show_id", using: :btree
 
   create_table "news", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.string   "subtitle",    limit: 255
+    t.string   "title",              limit: 255
+    t.string   "subtitle",           limit: 255
     t.date     "date"
-    t.text     "body",        limit: 65535
-    t.integer  "festival_id", limit: 4
-    t.string   "slug",        limit: 255
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-    t.string   "featured",    limit: 255,   default: "No"
-    t.string   "link",        limit: 255
-    t.string   "news_type",   limit: 255
-    t.string   "video",       limit: 255
+    t.text     "body",               limit: 65535
+    t.integer  "festival_id",        limit: 4
+    t.string   "slug",               limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.string   "featured",           limit: 255,   default: "No"
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
+    t.string   "link",               limit: 255
+    t.string   "news_type",          limit: 255
+    t.string   "video",              limit: 255
   end
 
   add_index "news", ["festival_id"], name: "index_news_on_festival_id", using: :btree
@@ -318,6 +322,29 @@ ActiveRecord::Schema.define(version: 20170425132045) do
 
   add_index "newsletters", ["festival_id"], name: "index_newsletters_on_festival_id", using: :btree
 
+  create_table "page_translations", force: :cascade do |t|
+    t.integer  "page_id",    limit: 4,     null: false
+    t.string   "locale",     limit: 255,   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "name",       limit: 255
+    t.text     "body",       limit: 65535
+  end
+
+  add_index "page_translations", ["locale"], name: "index_page_translations_on_locale", using: :btree
+  add_index "page_translations", ["page_id"], name: "index_page_translations_on_page_id", using: :btree
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "body",        limit: 65535
+    t.integer  "festival_id", limit: 4
+    t.string   "slug",        limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "pages", ["festival_id"], name: "index_pages_on_festival_id", using: :btree
+
   create_table "presentations", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
@@ -332,6 +359,7 @@ ActiveRecord::Schema.define(version: 20170425132045) do
     t.time     "time"
     t.integer  "duration",    limit: 4
     t.integer  "stage_id",    limit: 4
+    t.time     "ends"
   end
 
   add_index "presentations", ["artist_id"], name: "index_presentations_on_artist_id", using: :btree
@@ -565,6 +593,7 @@ ActiveRecord::Schema.define(version: 20170425132045) do
   add_foreign_key "images", "shows"
   add_foreign_key "news", "festivals"
   add_foreign_key "newsletters", "festivals"
+  add_foreign_key "pages", "festivals"
   add_foreign_key "presentations", "artists"
   add_foreign_key "presentations", "events"
   add_foreign_key "presentations", "festivals"

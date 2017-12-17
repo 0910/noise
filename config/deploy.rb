@@ -1,7 +1,7 @@
-server '52.6.38.109', roles: [:web, :app, :db], primary: true
+server '34.216.165.178', roles: [:web, :app, :db], primary: true
 set :domain, "www.wemakenoise.co"
 set :repo_url,        'git@github.com:0910/noise.git'
-set :application,     'festivals'
+set :application,     'noiseapp'
 set :user,            'ubuntu'
 set :rbenv_ruby, '2.2.3'
 
@@ -14,7 +14,7 @@ set :deploy_to,       "/home/ubuntu/applications/#{fetch(:application)}"
 set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa.pub) }
 set :assets_roles, [:web, :app]            # Defaults to [:web]
 # Default value for linked_dirs is []
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'shared/pids', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
+set :linked_dirs, fetch(:linked_dirs, []).push('shared/log', 'shared/pids', 'tmp/cache', 'shared/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
 set :scm, :git
@@ -49,7 +49,7 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      sudo 'service unicorn_festivals restart'
+      sudo 'service unicorn_noiseapp restart'
       sudo 'service nginx restart'
     end
   end
